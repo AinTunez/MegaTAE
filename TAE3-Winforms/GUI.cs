@@ -50,13 +50,13 @@ namespace MegaTAE
         {
             Timer animTimer = new Timer();
             animTimer.Tick += new EventHandler(checkAnim);
-            animTimer.Interval = 250;
+            animTimer.Interval = 125;
             animTimer.Start();
             
             void checkAnim(object sender, EventArgs e)
             {
-                if (ANIBND == null) return;
-                CurrentAnimBox.Text = GetCurrentAnimation().ToString();
+                if (ANIBND == null) CurrentAnimBox.Text = "NaN";
+                else CurrentAnimBox.Text = GetCurrentAnimation().ToString();
             }
         }
 
