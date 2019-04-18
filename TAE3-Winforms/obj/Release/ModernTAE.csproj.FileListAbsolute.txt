@@ -1,0 +1,16 @@
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\bin\Release\ModernTAE.exe.config
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\bin\Release\ModernTAE.exe
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\bin\Release\ModernTAE.pdb
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\bin\Release\SoulsFormats.dll
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\bin\Release\SoulsFormats.pdb
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\bin\Release\SoulsFormats.xml
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\ModernTAE.csprojAssemblyReference.cache
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\TAE3_Winforms.GUI.resources
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\TAE3_Winforms.Properties.Resources.resources
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\TAE3_Winforms.TAE4_TypeChooser.resources
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\TAE3_Winforms.TAE3_TypeChooser.resources
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\ModernTAE.csproj.GenerateResource.cache
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\ModernTAE.csproj.CoreCompileInputs.cache
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\ModernTAE.csproj.CopyComplete
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\ModernTAE.exe
+C:\Users\aintu\source\repos\TAE3-Editor\TAE3-Winforms\obj\Release\ModernTAE.pdb
