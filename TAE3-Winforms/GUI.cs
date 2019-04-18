@@ -374,7 +374,6 @@ namespace MegaTAE
                 {
                     if (Memory.WriteBytes(address, bytes))
                     {
-                        MessageBox.Show(address.ToString());
                         var threadHandle = Kernel32.CreateRemoteThread(Memory.ProcessHandle, IntPtr.Zero, 0, address, IntPtr.Zero, 0, out var threadId);
                         if (threadHandle != IntPtr.Zero)
                         {
