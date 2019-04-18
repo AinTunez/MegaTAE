@@ -336,7 +336,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GUI";
-            this.Text = "TAE3 Editor";
+            this.Text = "MegaTAE";
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);

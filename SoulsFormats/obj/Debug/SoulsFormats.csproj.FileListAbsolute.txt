@@ -18,3 +18,9 @@ C:\Users\Даниил_ноут\Downloads\ModernTAE-master\ModernTAE-master\Souls
 C:\Users\Даниил_ноут\Downloads\ModernTAE-master\ModernTAE-master\SoulsFormats\obj\Debug\SoulsFormats.csproj.CoreCompileInputs.cache
 C:\Users\Даниил_ноут\Downloads\ModernTAE-master\ModernTAE-master\SoulsFormats\obj\Debug\SoulsFormats.dll
 C:\Users\Даниил_ноут\Downloads\ModernTAE-master\ModernTAE-master\SoulsFormats\obj\Debug\SoulsFormats.pdb
+C:\Users\aintu\source\repos\MegaTAE-master\SoulsFormats\bin\Debug\SoulsFormats.xml
+C:\Users\aintu\source\repos\MegaTAE-master\SoulsFormats\bin\Debug\SoulsFormats.dll
+C:\Users\aintu\source\repos\MegaTAE-master\SoulsFormats\bin\Debug\SoulsFormats.pdb
+C:\Users\aintu\source\repos\MegaTAE-master\SoulsFormats\obj\Debug\SoulsFormats.csproj.CoreCompileInputs.cache
+C:\Users\aintu\source\repos\MegaTAE-master\SoulsFormats\obj\Debug\SoulsFormats.dll
+C:\Users\aintu\source\repos\MegaTAE-master\SoulsFormats\obj\Debug\SoulsFormats.pdb
