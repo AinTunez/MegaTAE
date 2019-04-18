@@ -44,20 +44,34 @@ namespace MegaTAE
             InitializeComponent();
             UTIL.Init(this);
             ToggleConsole();
-            ReadAnimation();
         }
 
         public void ReadAnimation ()
         {
             Timer animTimer = new Timer();
             animTimer.Tick += new EventHandler(checkAnim);
-            animTimer.Interval = 125;
+            animTimer.Interval = 16;
             animTimer.Start();
             
             void checkAnim(object sender, EventArgs e)
             {
                 if (ANIBND == null) CurrentAnimBox.Text = "-1";
-                else CurrentAnimBox.Text = GetCurrentAnimation().ToString();
+                else
+                {
+                    string curr = CurrentAnimBox.Text;
+                    string anim = GetCurrentAnimation().ToString();
+                    if (IsSekiro)
+                    {
+                        //if (anim == "790010" || anim == "790040") return;
+                        if (anim != CurrentAnimBox.Text) UTIL.WriteLog("PLAYER ANIM --> " + CurrentAnimBox.Text);
+                        CurrentAnimBox.Text = anim;
+                    } else
+                    {
+                        if (anim != CurrentAnimBox.Text) UTIL.WriteLog("PLAYER ANIM --> " + CurrentAnimBox.Text);
+                        CurrentAnimBox.Text = anim;
+                    }
+
+                }
             }
         }
 
@@ -117,6 +131,7 @@ namespace MegaTAE
                     var t = new TAE4Handler(file);
                     if (t.IsValid) tae4_list.Add(new TAE4Handler(file));
                     Memory.AttachProc("sekiro");
+
                 } else
                 {
                     var t = new TAE3Handler(file);
@@ -124,6 +139,8 @@ namespace MegaTAE
                     Memory.AttachProc("DS3");
                 }
             }
+
+
 
             void refreshList()
             {
@@ -139,7 +156,7 @@ namespace MegaTAE
             }
 
             refreshList();
- 
+
         }
 
         private void TaeListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -247,7 +264,11 @@ namespace MegaTAE
             {
                 GameChooser g = new GameChooser();
                 g.StartPosition = FormStartPosition.CenterParent;
-                if (g.ShowDialog() == DialogResult.OK) new Task(() => LoadANIBND(ofd.FileName, g.IsSekiro)).Start();
+                if (g.ShowDialog() == DialogResult.OK)
+                {
+                    new Task(() => LoadANIBND(ofd.FileName, g.IsSekiro)).Start();
+                    ReadAnimation();
+                }
 
             }
         }
