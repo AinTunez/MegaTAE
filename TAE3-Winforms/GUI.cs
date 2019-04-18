@@ -58,6 +58,8 @@ namespace MegaTAE
                 if (ANIBND == null) CurrentAnimBox.Text = "-1";
                 else
                 {
+                    var aNum = GetCurrentAnimation();
+                    if (aNum == null) return;
                     string curr = CurrentAnimBox.Text;
                     string anim = GetCurrentAnimation().ToString();
                     if (IsSekiro)
@@ -75,31 +77,40 @@ namespace MegaTAE
             }
         }
 
-        private long GetCurrentAnimation()
+        private static bool IsValidAddress(Int64 address)
         {
-            if (Memory.BaseAddress == IntPtr.Zero) return -1;
-            else if (IsSekiro)
+            return (address >= 0x10000 && address < 0x000F000000000000);
+        }
+
+        internal long? ReadPointerChain(long baseAddress, long baseOffset, int[] chain)
+        {
+            long lpCurrent = Memory.ReadInt64(new IntPtr(baseAddress + baseOffset));
+            foreach (int offset in chain)
             {
-                int[] chain = { 0x88, 0x1FF8, 0x80, 0xC8 };
-                IntPtr val = IntPtr.Add(Memory.BaseAddress, 0x3B67DF0);
-                foreach (int offset in chain)
-                {
-                    val = new IntPtr(Memory.ReadInt64(val));
-                    val = IntPtr.Add(val, offset);
-                }
-                return Memory.ReadInt32(val);
+                if (!IsValidAddress(lpCurrent)) return null;
+                lpCurrent = Memory.ReadInt64(new IntPtr(lpCurrent) + offset);
             }
+            return lpCurrent;
+        }
+
+        private long? GetCurrentAnimation()
+        {
+            if (Memory.BaseAddress == IntPtr.Zero) return null;
+
+            if (IsSekiro)
+                return ReadPointerChain(Memory.BaseAddress.ToInt64(), 0x3B67DF0, new int[] { 0x88, 0x1FF8, 0x80, 0xC8 });
             else
-            {
-                int[] chain = { 0x80, 0x1F90, 0x80, 0xC8 };
-                IntPtr val = IntPtr.Add(Memory.BaseAddress, 0x4768E78);
-                foreach (int offset in chain)
-                {
-                    val = new IntPtr(Memory.ReadInt64(val));
-                    val = IntPtr.Add(val, offset);
-                }
-                return Memory.ReadInt32(val);
-            }
+                return ReadPointerChain(Memory.BaseAddress.ToInt64(), 0x4768E78, new int[] { 0x80, 0x1F90, 0x80, 0xC8 });
+
+            ////read the chain
+            //foreach (int offset in chain)
+            //{
+            //    if (!IsValidAddress(val.ToInt64())) return null;
+            //    val = new IntPtr(Memory.ReadInt64(val));
+            //    val = IntPtr.Add(val, offset);
+            //}
+            //if (IsValidAddress(val.ToInt64())) return Memory.ReadInt32(val);
+            //return null;
         }
 
         public void LoadANIBND(string path, bool isSekiro)

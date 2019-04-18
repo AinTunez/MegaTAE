@@ -20,6 +20,13 @@ namespace MegaTAE
         public static IntPtr BaseAddress { get; set; }
         //
 
+        /// <summary>
+        /// Checks if an address is valid.
+        /// </summary>
+        /// <param name="address">The address (the pointer points to).</param>
+        /// <returns>True if (pointer points to a) valid address.</returns>
+    
+
         public static IntPtr AttachProc(string procName)
         {
             var ZeroRt = new IntPtr(0);
