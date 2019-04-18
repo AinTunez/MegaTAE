@@ -43,6 +43,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openANIBNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveANIBNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.attachProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forceInGameReloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,12 +52,13 @@
             this.eventsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toggleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ConsoleBox = new System.Windows.Forms.TextBox();
             this.ClearConsoleBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.CurrentAnimBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.attachProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -65,25 +67,21 @@
             // 
             // TaeListBox
             // 
-            this.TaeListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.TaeListBox.FormattingEnabled = true;
             this.TaeListBox.Location = new System.Drawing.Point(10, 57);
             this.TaeListBox.Margin = new System.Windows.Forms.Padding(2);
             this.TaeListBox.Name = "TaeListBox";
-            this.TaeListBox.Size = new System.Drawing.Size(74, 615);
+            this.TaeListBox.Size = new System.Drawing.Size(74, 589);
             this.TaeListBox.TabIndex = 0;
             this.TaeListBox.SelectedIndexChanged += new System.EventHandler(this.TaeListBox_SelectedIndexChanged);
             // 
             // AnimListBox
             // 
-            this.AnimListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.AnimListBox.FormattingEnabled = true;
             this.AnimListBox.Location = new System.Drawing.Point(87, 57);
             this.AnimListBox.Margin = new System.Windows.Forms.Padding(2);
             this.AnimListBox.Name = "AnimListBox";
-            this.AnimListBox.Size = new System.Drawing.Size(74, 615);
+            this.AnimListBox.Size = new System.Drawing.Size(80, 589);
             this.AnimListBox.TabIndex = 1;
             this.AnimListBox.SelectedIndexChanged += new System.EventHandler(this.AnimListBox_SelectedIndexChanged);
             // 
@@ -94,7 +92,7 @@
             this.AnimDataGrid.Location = new System.Drawing.Point(6, 19);
             this.AnimDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.AnimDataGrid.Name = "AnimDataGrid";
-            this.AnimDataGrid.Size = new System.Drawing.Size(437, 171);
+            this.AnimDataGrid.Size = new System.Drawing.Size(431, 171);
             this.AnimDataGrid.TabIndex = 2;
             this.AnimDataGrid.ToolbarVisible = false;
             this.AnimDataGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.AnimDataGrid_PropertyValueChanged);
@@ -106,7 +104,7 @@
             this.EventListBox.Location = new System.Drawing.Point(6, 19);
             this.EventListBox.Margin = new System.Windows.Forms.Padding(2);
             this.EventListBox.Name = "EventListBox";
-            this.EventListBox.Size = new System.Drawing.Size(191, 412);
+            this.EventListBox.Size = new System.Drawing.Size(195, 412);
             this.EventListBox.TabIndex = 3;
             this.EventListBox.SelectedIndexChanged += new System.EventHandler(this.EventListBox_SelectedIndexChanged);
             // 
@@ -117,7 +115,7 @@
             this.EventDataGrid.Location = new System.Drawing.Point(6, 19);
             this.EventDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.EventDataGrid.Name = "EventDataGrid";
-            this.EventDataGrid.Size = new System.Drawing.Size(232, 412);
+            this.EventDataGrid.Size = new System.Drawing.Size(222, 412);
             this.EventDataGrid.TabIndex = 4;
             this.EventDataGrid.ToolbarVisible = false;
             this.EventDataGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.EventDataGrid_PropertyValueChanged);
@@ -143,38 +141,34 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.AnimDataGrid);
-            this.groupBox1.Location = new System.Drawing.Point(166, 37);
+            this.groupBox1.Location = new System.Drawing.Point(172, 37);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox1.Size = new System.Drawing.Size(449, 196);
+            this.groupBox1.Size = new System.Drawing.Size(443, 196);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Animation Data";
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.EventListBox);
-            this.groupBox2.Location = new System.Drawing.Point(166, 239);
+            this.groupBox2.Location = new System.Drawing.Point(172, 239);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox2.Size = new System.Drawing.Size(203, 437);
+            this.groupBox2.Size = new System.Drawing.Size(207, 437);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Events";
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox3.Controls.Add(this.EventDataGrid);
-            this.groupBox3.Location = new System.Drawing.Point(371, 239);
+            this.groupBox3.Location = new System.Drawing.Point(381, 239);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox3.Size = new System.Drawing.Size(244, 437);
+            this.groupBox3.Size = new System.Drawing.Size(234, 437);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Event Data";
@@ -186,7 +180,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.animationToolStripMenuItem,
-            this.eventsToolStripMenuItem});
+            this.eventsToolStripMenuItem,
+            this.consoleToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1078, 24);
@@ -222,6 +217,14 @@
             this.saveANIBNDToolStripMenuItem.Text = "Save ANIBND";
             this.saveANIBNDToolStripMenuItem.Click += new System.EventHandler(this.saveANIBNDToolStripMenuItem_Click);
             // 
+            // attachProcessToolStripMenuItem
+            // 
+            this.attachProcessToolStripMenuItem.Name = "attachProcessToolStripMenuItem";
+            this.attachProcessToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.attachProcessToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.attachProcessToolStripMenuItem.Text = "Attach Process";
+            this.attachProcessToolStripMenuItem.Click += new System.EventHandler(this.attachProcessToolStripMenuItem_Click);
+            // 
             // forceInGameReloadToolStripMenuItem
             // 
             this.forceInGameReloadToolStripMenuItem.Name = "forceInGameReloadToolStripMenuItem";
@@ -253,7 +256,7 @@
             // addNewToolStripMenuItem1
             // 
             this.addNewToolStripMenuItem1.Name = "addNewToolStripMenuItem1";
-            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
+            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.addNewToolStripMenuItem1.Text = "Add New";
             this.addNewToolStripMenuItem1.Click += new System.EventHandler(this.addNewToolAnimationStripMenuItem1_Click);
             // 
@@ -282,11 +285,24 @@
             this.deleteSelectedToolStripMenuItem.Text = "Delete Selected";
             this.deleteSelectedToolStripMenuItem.Click += new System.EventHandler(this.deleteSelectedEventToolStripMenuItem_Click);
             // 
+            // consoleToolStripMenuItem
+            // 
+            this.consoleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toggleToolStripMenuItem});
+            this.consoleToolStripMenuItem.Name = "consoleToolStripMenuItem";
+            this.consoleToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.consoleToolStripMenuItem.Text = "Console";
+            // 
+            // toggleToolStripMenuItem
+            // 
+            this.toggleToolStripMenuItem.Name = "toggleToolStripMenuItem";
+            this.toggleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.toggleToolStripMenuItem.Text = "Toggle";
+            this.toggleToolStripMenuItem.Click += new System.EventHandler(this.toggleToolStripMenuItem_Click);
+            // 
             // ConsoleBox
             // 
-            this.ConsoleBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ConsoleBox.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.ConsoleBox.Font = new System.Drawing.Font("Consolas", 9F);
             this.ConsoleBox.ForeColor = System.Drawing.SystemColors.Window;
@@ -301,7 +317,6 @@
             // 
             // ClearConsoleBtn
             // 
-            this.ClearConsoleBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearConsoleBtn.Location = new System.Drawing.Point(981, 37);
             this.ClearConsoleBtn.Name = "ClearConsoleBtn";
             this.ClearConsoleBtn.Size = new System.Drawing.Size(85, 25);
@@ -321,36 +336,29 @@
             // 
             // CurrentAnimBox
             // 
-            this.CurrentAnimBox.Location = new System.Drawing.Point(745, 43);
+            this.CurrentAnimBox.Location = new System.Drawing.Point(75, 654);
             this.CurrentAnimBox.Name = "CurrentAnimBox";
             this.CurrentAnimBox.ReadOnly = true;
-            this.CurrentAnimBox.Size = new System.Drawing.Size(100, 20);
+            this.CurrentAnimBox.Size = new System.Drawing.Size(92, 20);
             this.CurrentAnimBox.TabIndex = 14;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(621, 45);
+            this.label4.Location = new System.Drawing.Point(12, 657);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 13);
+            this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Active Player Animation";
-            // 
-            // attachProcessToolStripMenuItem
-            // 
-            this.attachProcessToolStripMenuItem.Name = "attachProcessToolStripMenuItem";
-            this.attachProcessToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.attachProcessToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
-            this.attachProcessToolStripMenuItem.Text = "Attach Process";
-            this.attachProcessToolStripMenuItem.Click += new System.EventHandler(this.attachProcessToolStripMenuItem_Click);
+            this.label4.Text = "CURRENT";
             // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1078, 696);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.CurrentAnimBox);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ClearConsoleBtn);
             this.Controls.Add(this.ConsoleBox);
@@ -406,9 +414,11 @@
         private System.Windows.Forms.ToolStripMenuItem addNewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem forceInGameReloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem attachProcessToolStripMenuItem;
         private System.Windows.Forms.TextBox CurrentAnimBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ToolStripMenuItem attachProcessToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consoleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toggleToolStripMenuItem;
     }
 }
 

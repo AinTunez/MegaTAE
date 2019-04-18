@@ -18,7 +18,7 @@ namespace MegaTAE
 {
     public partial class GUI : Form
     {
-        
+
         public BND4 ANIBND;
         public string FilePath;
         public bool IsSekiro;
@@ -43,6 +43,7 @@ namespace MegaTAE
         {
             InitializeComponent();
             UTIL.Init(this);
+            ToggleConsole();
             ReadAnimation();
         }
 
@@ -55,7 +56,7 @@ namespace MegaTAE
             
             void checkAnim(object sender, EventArgs e)
             {
-                if (ANIBND == null) CurrentAnimBox.Text = "NaN";
+                if (ANIBND == null) CurrentAnimBox.Text = "-1";
                 else CurrentAnimBox.Text = GetCurrentAnimation().ToString();
             }
         }
@@ -472,6 +473,23 @@ namespace MegaTAE
         {
             if (IsSekiro) Memory.AttachProc("sekiro");
             else Memory.AttachProc("DarkSoulsIII");
+        }
+
+        private void toggleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToggleConsole();
+        }
+
+        private void ToggleConsole ()
+        {
+            if (Width != 640)
+            {
+                Width = 640;
+            }
+            else
+            {
+                Width = 1094;
+            }
         }
     }
 
