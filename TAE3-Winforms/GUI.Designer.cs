@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
             this.TaeListBox = new System.Windows.Forms.ListBox();
             this.AnimListBox = new System.Windows.Forms.ListBox();
             this.AnimDataGrid = new System.Windows.Forms.PropertyGrid();
@@ -331,6 +332,7 @@
             this.Controls.Add(this.TaeListBox);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;

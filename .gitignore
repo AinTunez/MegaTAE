@@ -1,2 +1,4 @@
 /.vs/*
 */bin/*
+/SoulsFormats/obj*
+/TAE3-Winforms/obj*
