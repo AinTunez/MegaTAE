@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Collections;
 using Microsoft.VisualBasic;
-
+using System.Runtime.Remoting;
 
 namespace MegaTAE
 {
@@ -219,61 +219,96 @@ namespace MegaTAE
 
         private void addNewEventToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Anim == null) return;
-            if (IsSekiro)
-            {
-                var chooser = new TAE4_TypeChooser();
-                if (chooser.ShowDialog() == DialogResult.OK)
+                if (Anim == null) return;
+                if (IsSekiro)
                 {
-                    Anim.Events.Add(chooser.Event);
-                    while (Anim.EventGroups.Count - 1 < chooser.GroupIndex)
+                    var chooser = new TAE4_TypeChooser();
+                    if (chooser.ShowDialog() == DialogResult.OK)
                     {
-                        Anim.EventGroups.Add(new TAE4.EventGroup(chooser.Event.Type));
+                        Anim.Events.Add(chooser.Event);
+                        while (Anim.EventGroups.Count - 1 < chooser.GroupIndex)
+                        {
+                            Anim.EventGroups.Add(new TAE4.EventGroup(chooser.Event.Type));
+                        }
+                        Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
+                        FixEventGroups();
+                        EventListBox.DataSource = (Anim as ANIM4Handler).Events.Select(evt => new EVENT4Handler(evt)).ToList();
+                        EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
                     }
-                    Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
-                    FixEventGroups();
-                    EventListBox.DataSource = (Anim as ANIM4Handler).Events.Select(evt => new EVENT4Handler(evt)).ToList();
-                    EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
                 }
-            } else
-            {
-                var chooser = new TAE3_TypeChooser();
-                if (chooser.ShowDialog() == DialogResult.OK)
+                else
                 {
-                    Anim.Events.Add(chooser.Event);
-                    while (Anim.EventGroups.Count - 1 < chooser.GroupIndex)
+                    var chooser = new TAE3_TypeChooser();
+                    if (chooser.ShowDialog() == DialogResult.OK)
                     {
-                        Anim.EventGroups.Add(new TAE3.EventGroup(chooser.Event.Type));
+                        Anim.Events.Add(chooser.Event);
+                        while (Anim.EventGroups.Count - 1 < chooser.GroupIndex)
+                        {
+                            Anim.EventGroups.Add(new TAE3.EventGroup(chooser.Event.Type));
+                        }
+                        Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
+                        FixEventGroups();
+                        EventListBox.DataSource = (Anim as ANIM3Handler).Events.Select(evt => new EVENT3Handler(evt)).ToList();
+                        EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
                     }
-                    Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
-                    FixEventGroups();
-                    EventListBox.DataSource = (Anim as ANIM3Handler).Events.Select(evt => new EVENT3Handler(evt)).ToList();
-                    EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
                 }
-            }
-
         }
+
 
         private void FixEventGroups()
         {
-            List<int> events = new List<int>();
-            foreach (var group in Anim.EventGroups)
+            try
             {
-                foreach (var index in group.Indices.ToList())
+                List<int> events = new List<int>();
+                if (IsSekiro)
                 {
-                    if (index > Anim.Events.Count - 1 || events.Contains(index))
+                    var anim4 = Anim as ANIM4Handler;
+                    foreach (var group in anim4.EventGroups)
                     {
-                        group.Indices.Remove(index);
-                    } else
+                        foreach (var index in group.Indices.ToList())
+                        {
+                            if (index > anim4.Events.Count - 1 || events.Contains(index))
+                            {
+                                group.Indices.Remove(index);
+                            }
+                            else
+                            {
+                                events.Add(index);
+                            }
+                        }
+                    }
+                    for (int i = 0; i < events.Count; i++)
                     {
-                        events.Add(index);
+                        if (!events.Contains(i)) anim4.EventGroups[0].Indices.Add(i);
+                    }
+                } else
+                {
+                    var anim3 = Anim as ANIM3Handler;
+                    foreach (var group in anim3.EventGroups)
+                    {
+                        foreach (var index in group.Indices.ToList())
+                        {
+                            if (index > anim3.Events.Count - 1 || events.Contains(index))
+                            {
+                                group.Indices.Remove(index);
+                            }
+                            else
+                            {
+                                events.Add(index);
+                            }
+                        }
+                    }
+                    for (int i = 0; i < events.Count; i++)
+                    {
+                        if (!events.Contains(i)) anim3.EventGroups[0].Indices.Add(i);
                     }
                 }
-            }
-            for (int i = 0; i < events.Count; i++)
+
+            } catch (Exception ex)
             {
-                if (!events.Contains(i)) Anim.EventGroups[0].Indices.Add(i);
+                UTIL.LogException("Error fixing EventGroups", ex);
             }
+
         }
 
         private void deleteSelectedEventToolStripMenuItem_Click(object sender, EventArgs e)
@@ -411,6 +446,8 @@ namespace MegaTAE
             else
             {
                 c.Text += text + Environment.NewLine;
+                c.SelectionStart = c.TextLength;
+                c.ScrollToCaret();
             }
 
         }
@@ -428,7 +465,7 @@ namespace MegaTAE
                 int edIndex = line.LastIndexOf("TAE3-Editor");
                 if (sfIndex > -1) sb.AppendLine("  at " + line.Substring(sfIndex));
                 else if (edIndex > -1) sb.AppendLine("  at " + line.Substring(edIndex));
-                else sb.AppendLine("  at " + line);
+                else sb.AppendLine("  " + line);
             }
             UTIL.WriteLog(sb.ToString());
         }
