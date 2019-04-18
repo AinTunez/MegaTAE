@@ -43,6 +43,48 @@ namespace MegaTAE
         {
             InitializeComponent();
             UTIL.Init(this);
+            ReadAnimation();
+        }
+
+        public void ReadAnimation ()
+        {
+            Timer animTimer = new Timer();
+            animTimer.Tick += new EventHandler(checkAnim);
+            animTimer.Interval = 250;
+            animTimer.Start();
+            
+            void checkAnim(object sender, EventArgs e)
+            {
+                if (ANIBND == null) return;
+                CurrentAnimBox.Text = GetCurrentAnimation().ToString();
+            }
+        }
+
+        private long GetCurrentAnimation()
+        {
+            if (Memory.BaseAddress == IntPtr.Zero) return -1;
+            else if (IsSekiro)
+            {
+                int[] chain = { 0x88, 0x1FF8, 0x80, 0xC8 };
+                IntPtr val = IntPtr.Add(Memory.BaseAddress, 0x3B67DF0);
+                foreach (int offset in chain)
+                {
+                    val = new IntPtr(Memory.ReadInt64(val));
+                    val = IntPtr.Add(val, offset);
+                }
+                return Memory.ReadInt32(val);
+            }
+            else
+            {
+                int[] chain = { 0x80, 0x1F90, 0x80, 0xC8 };
+                IntPtr val = IntPtr.Add(Memory.BaseAddress, 0x4768E78);
+                foreach (int offset in chain)
+                {
+                    val = new IntPtr(Memory.ReadInt64(val));
+                    val = IntPtr.Add(val, offset);
+                }
+                return Memory.ReadInt32(val);
+            }
         }
 
         public void LoadANIBND(string path, bool isSekiro)
@@ -73,10 +115,12 @@ namespace MegaTAE
                 {
                     var t = new TAE4Handler(file);
                     if (t.IsValid) tae4_list.Add(new TAE4Handler(file));
+                    Memory.AttachProc("sekiro");
                 } else
                 {
                     var t = new TAE3Handler(file);
                     if (t.IsValid) tae3_list.Add(new TAE3Handler(file));
+                    Memory.AttachProc("DS3");
                 }
             }
 
@@ -314,13 +358,15 @@ namespace MegaTAE
         private void deleteSelectedEventToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Anim == null || EventListBox.SelectedItem == null) return;
-            Anim.Events.Remove(((EVENT3Handler)EventListBox.SelectedItem).Event);
-            FixEventGroups();
             if (IsSekiro)
             {
+                Anim.Events.Remove(((EVENT4Handler)EventListBox.SelectedItem).Event);
+                FixEventGroups();
                 EventListBox.DataSource = (Anim as ANIM4Handler).Events.Select(evt => new EVENT4Handler(evt)).ToList();
             } else
             {
+                Anim.Events.Remove(((EVENT3Handler)EventListBox.SelectedItem).Event);
+                FixEventGroups();
                 EventListBox.DataSource = (Anim as ANIM3Handler).Events.Select(evt => new EVENT3Handler(evt)).ToList();
             }
             EventListBox.SelectedIndex = -1;
@@ -420,6 +466,12 @@ namespace MegaTAE
                 }
                 
             }
+        }
+
+        private void attachProcessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (IsSekiro) Memory.AttachProc("sekiro");
+            else Memory.AttachProc("DarkSoulsIII");
         }
     }
 

@@ -17,8 +17,6 @@ namespace MegaTAE
 
         public static IntPtr ProcessHandle { get; set; }
 
-        public static Process Process { get; set; }
-
         public static IntPtr BaseAddress { get; set; }
         //
 
