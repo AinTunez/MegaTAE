@@ -562,6 +562,25 @@ namespace MegaTAE
                 forceInGameReloadToolStripMenuItem_Click(sender, e);
             }
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Anim == null) return;
+            if (DialogResult.Yes == MessageBox.Show("Really delete selected animation?", "Confirm", MessageBoxButtons.YesNo))
+            {
+                int index = AnimListBox.SelectedIndex;
+                TAE.TAE.Animations.Remove(Anim.Animation);
+                if (IsSekiro)
+                {
+                    AnimListBox.DataSource = (TAE as TAE4Handler).TAE.Animations.Select(a => new ANIM4Handler(a)).ToList();
+                }
+                else
+                {
+                    AnimListBox.DataSource = (TAE as TAE3Handler).TAE.Animations.Select(a => new ANIM3Handler(a)).ToList();
+                }
+                AnimListBox.SelectedIndex = index;
+            }
+        }
     }
 
     public static class UTIL
