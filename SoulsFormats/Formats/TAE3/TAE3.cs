@@ -234,6 +234,14 @@ namespace SoulsFormats
             /// </summary>
             public string AnimFileName;
 
+            public Animation(long id)
+            {
+                ID = id;
+                Events = new List<Event>();
+                EventGroups = new List<EventGroup>();
+                AnimFileName = "";
+            }
+
             internal Animation(BinaryReaderEx br)
             {
                 ID = br.ReadInt64();

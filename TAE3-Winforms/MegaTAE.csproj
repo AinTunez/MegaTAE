@@ -58,6 +58,12 @@
     <Reference Include="TelerikCommon, Version=2019.1.219.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimIdChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimIdChooser.Designer.cs">
+      <DependentUpon>AnimIdChooser.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameChooser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="TAE3_TypeChooser.Designer.cs">
       <DependentUpon>TAE3_TypeChooser.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AnimIdChooser.resx">
+      <DependentUpon>AnimIdChooser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameChooser.resx">
       <DependentUpon>GameChooser.cs</DependentUpon>
     </EmbeddedResource>

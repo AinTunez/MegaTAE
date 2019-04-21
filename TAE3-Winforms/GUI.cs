@@ -64,7 +64,7 @@ namespace MegaTAE
                     string anim = GetCurrentAnimation().ToString();
                     if (IsSekiro)
                     {
-                        //if (anim == "790010" || anim == "790040") return;
+                        if (anim == "790010" || anim == "790040") return;
                         if (anim != CurrentAnimBox.Text) UTIL.WriteLog("PLAYER ANIM --> " + CurrentAnimBox.Text);
                         CurrentAnimBox.Text = anim;
                     } else
@@ -260,7 +260,9 @@ namespace MegaTAE
                 TAE.Save();
                 ANIBND.Write(FilePath);
                 UTIL.WriteLog(Path.GetFileName(FilePath) + " saved.");
-            } catch (Exception ex)
+                forceInGameReloadToolStripMenuItem_Click(sender, e);
+            }
+            catch (Exception ex)
             {
                 UTIL.LogException("Error saving ANIBND", ex);
             }
@@ -391,18 +393,22 @@ namespace MegaTAE
         private void deleteSelectedEventToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (Anim == null || EventListBox.SelectedItem == null) return;
+            int index = EventListBox.SelectedIndex;
             if (IsSekiro)
             {
                 Anim.Events.Remove(((EVENT4Handler)EventListBox.SelectedItem).Event);
                 FixEventGroups();
                 EventListBox.DataSource = (Anim as ANIM4Handler).Events.Select(evt => new EVENT4Handler(evt)).ToList();
+                while (index > EventListBox.Items.Count - 1) index--;
+                if (index > -1) EventListBox.SelectedIndex = index;
             } else
             {
                 Anim.Events.Remove(((EVENT3Handler)EventListBox.SelectedItem).Event);
                 FixEventGroups();
                 EventListBox.DataSource = (Anim as ANIM3Handler).Events.Select(evt => new EVENT3Handler(evt)).ToList();
+                while (index > EventListBox.Items.Count - 1) index--;
+                if (index > -1) EventListBox.SelectedIndex = index;
             }
-            EventListBox.SelectedIndex = -1;
         }
 
         private void ClearConsoleBtn_Click(object sender, EventArgs e)
@@ -412,8 +418,30 @@ namespace MegaTAE
 
         private void addNewToolAnimationStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Not yet implemented.");
-            //TAE.TAE.Animations.Add(new TAE3.Animation())
+            if (TAE == null) return;
+            var chooser = new AnimIdChooser();
+            if (chooser.ShowDialog() == DialogResult.OK)
+            {
+                long id = Convert.ToInt64(chooser.animIdBox.Value);
+                if (IsSekiro)
+                {
+                    var anim = new TAE4.Animation(id);
+                    var animations = (TAE as TAE4Handler).TAE.Animations;
+                    animations.Add(anim);
+                    animations = animations.OrderBy(a => a.ID).ToList();
+                    AnimListBox.DataSource = animations.Select(a => new ANIM4Handler(a)).ToList();
+                    AnimListBox.SelectedItem = animations.First(a => a.ID == id);
+            }
+                else
+                {
+                    var anim = new TAE3.Animation(id);
+                    var animations = (TAE as TAE3Handler).TAE.Animations;
+                    animations.Add(anim);
+                    animations = animations.OrderBy(a => a.ID).ToList();
+                    AnimListBox.DataSource = animations.Select(a => new ANIM3Handler(a)).ToList();
+                    AnimListBox.SelectedItem = animations.First(a => a.ID == id);
+                }
+            }
         }
 
         //Memory 
@@ -523,19 +551,26 @@ namespace MegaTAE
                 Width = 1094;
             }
         }
+
+        private void restoreBackupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ANIBND == null) return;
+            if (File.Exists(FilePath + ".bak"))
+            {
+                File.Copy(FilePath + ".bak", FilePath, true);
+                LoadANIBND(FilePath, IsSekiro);
+                forceInGameReloadToolStripMenuItem_Click(sender, e);
+            }
+        }
     }
 
     public static class UTIL
     {
         public static GUI gui;
 
-        public static void Init(GUI g)
-        {
-            gui = g;
-        }
+        public static void Init(GUI g) => gui = g;
 
         private delegate void SafeCallDelegate(string text);
-
 
         public static void WriteLog(string text)
         {
@@ -569,7 +604,7 @@ namespace MegaTAE
                 else if (edIndex > -1) sb.AppendLine("  at " + line.Substring(edIndex));
                 else sb.AppendLine("  " + line);
             }
-            UTIL.WriteLog(sb.ToString());
+            WriteLog(sb.ToString());
         }
     }
 
@@ -690,6 +725,7 @@ namespace MegaTAE
 
         [Browsable(false)]
         public List<TAE3.Event> Events => Animation.Events;
+        [Browsable(false)]
         public List<TAE3.EventGroup> EventGroups => Animation.EventGroups;
         
 
@@ -746,6 +782,7 @@ namespace MegaTAE
 
         [Browsable(false)]
         public List<TAE4.Event> Events => Animation.Events;
+        [Browsable(false)]
         public List<TAE4.EventGroup> EventGroups => Animation.EventGroups;
 
 

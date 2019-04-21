@@ -59,6 +59,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CurrentAnimBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.restoreBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -256,7 +257,7 @@
             // addNewToolStripMenuItem1
             // 
             this.addNewToolStripMenuItem1.Name = "addNewToolStripMenuItem1";
-            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.addNewToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.addNewToolStripMenuItem1.Text = "Add New";
             this.addNewToolStripMenuItem1.Click += new System.EventHandler(this.addNewToolAnimationStripMenuItem1_Click);
             // 
@@ -287,18 +288,20 @@
             // 
             // consoleToolStripMenuItem
             // 
+            this.consoleToolStripMenuItem.DoubleClickEnabled = true;
             this.consoleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toggleToolStripMenuItem});
+            this.toggleToolStripMenuItem,
+            this.restoreBackupToolStripMenuItem});
             this.consoleToolStripMenuItem.Name = "consoleToolStripMenuItem";
-            this.consoleToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
-            this.consoleToolStripMenuItem.Text = "Console";
+            this.consoleToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.consoleToolStripMenuItem.Text = "Misc";
             // 
             // toggleToolStripMenuItem
             // 
             this.toggleToolStripMenuItem.Name = "toggleToolStripMenuItem";
             this.toggleToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.toggleToolStripMenuItem.Text = "Toggle";
+            this.toggleToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.toggleToolStripMenuItem.Text = "Toggle Console";
             this.toggleToolStripMenuItem.Click += new System.EventHandler(this.toggleToolStripMenuItem_Click);
             // 
             // ConsoleBox
@@ -350,6 +353,13 @@
             this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 15;
             this.label4.Text = "CURRENT";
+            // 
+            // restoreBackupToolStripMenuItem
+            // 
+            this.restoreBackupToolStripMenuItem.Name = "restoreBackupToolStripMenuItem";
+            this.restoreBackupToolStripMenuItem.Size = new System.Drawing.Size(197, 22);
+            this.restoreBackupToolStripMenuItem.Text = "Restore Backup";
+            this.restoreBackupToolStripMenuItem.Click += new System.EventHandler(this.restoreBackupToolStripMenuItem_Click);
             // 
             // GUI
             // 
@@ -419,6 +429,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem consoleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toggleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreBackupToolStripMenuItem;
     }
 }
 
