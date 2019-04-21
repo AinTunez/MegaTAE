@@ -578,7 +578,7 @@ namespace MegaTAE
                 {
                     AnimListBox.DataSource = (TAE as TAE3Handler).TAE.Animations.Select(a => new ANIM3Handler(a)).ToList();
                 }
-                AnimListBox.SelectedIndex = index;
+                AnimListBox.SelectedIndex = index - 1;
             }
         }
     }
