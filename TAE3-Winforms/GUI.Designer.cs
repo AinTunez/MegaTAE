@@ -45,6 +45,7 @@
             this.saveANIBNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.attachProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forceInGameReloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +63,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CurrentAnimBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -237,6 +237,11 @@
             this.forceInGameReloadToolStripMenuItem.Text = "Force In-Game Reload";
             this.forceInGameReloadToolStripMenuItem.Click += new System.EventHandler(this.forceInGameReloadToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(229, 6);
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -387,17 +392,13 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "CURRENT";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(229, 6);
-            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1078, 696);
+            this.ControlBox = false;
             this.Controls.Add(this.CurrentAnimBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
