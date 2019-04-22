@@ -45,7 +45,6 @@
             this.saveANIBNDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.attachProcessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.forceInGameReloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +53,7 @@
             this.addNewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copySelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,7 +62,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CurrentAnimBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.pasteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -199,7 +199,7 @@
             this.saveANIBNDToolStripMenuItem,
             this.attachProcessToolStripMenuItem,
             this.forceInGameReloadToolStripMenuItem,
-            this.toolStripMenuItem2,
+            this.toolStripSeparator1,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -209,7 +209,7 @@
             // 
             this.openANIBNDToolStripMenuItem.Name = "openANIBNDToolStripMenuItem";
             this.openANIBNDToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openANIBNDToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.openANIBNDToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.openANIBNDToolStripMenuItem.Text = "Open ANIBND";
             this.openANIBNDToolStripMenuItem.Click += new System.EventHandler(this.openANIBNDToolStripMenuItem_Click);
             // 
@@ -217,7 +217,7 @@
             // 
             this.saveANIBNDToolStripMenuItem.Name = "saveANIBNDToolStripMenuItem";
             this.saveANIBNDToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveANIBNDToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.saveANIBNDToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.saveANIBNDToolStripMenuItem.Text = "Save ANIBND";
             this.saveANIBNDToolStripMenuItem.Click += new System.EventHandler(this.saveANIBNDToolStripMenuItem_Click);
             // 
@@ -225,7 +225,7 @@
             // 
             this.attachProcessToolStripMenuItem.Name = "attachProcessToolStripMenuItem";
             this.attachProcessToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.attachProcessToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.attachProcessToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.attachProcessToolStripMenuItem.Text = "Attach Process";
             this.attachProcessToolStripMenuItem.Click += new System.EventHandler(this.attachProcessToolStripMenuItem_Click);
             // 
@@ -233,21 +233,16 @@
             // 
             this.forceInGameReloadToolStripMenuItem.Name = "forceInGameReloadToolStripMenuItem";
             this.forceInGameReloadToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.forceInGameReloadToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.forceInGameReloadToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.forceInGameReloadToolStripMenuItem.Text = "Force In-Game Reload";
             this.forceInGameReloadToolStripMenuItem.Click += new System.EventHandler(this.forceInGameReloadToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(264, 22);
-            this.toolStripMenuItem2.Text = "--------------------------------------";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(232, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // animationToolStripMenuItem
             // 
@@ -307,6 +302,15 @@
             this.copySelectedToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.copySelectedToolStripMenuItem.Text = "Copy Selected";
             this.copySelectedToolStripMenuItem.Click += new System.EventHandler(this.copySelectedToolStripMenuItem_Click);
+            // 
+            // pasteSelectedToolStripMenuItem
+            // 
+            this.pasteSelectedToolStripMenuItem.Name = "pasteSelectedToolStripMenuItem";
+            this.pasteSelectedToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.V)));
+            this.pasteSelectedToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.pasteSelectedToolStripMenuItem.Text = "Paste Selected";
+            this.pasteSelectedToolStripMenuItem.Click += new System.EventHandler(this.pasteSelectedToolStripMenuItem_Click);
             // 
             // consoleToolStripMenuItem
             // 
@@ -383,14 +387,10 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "CURRENT";
             // 
-            // pasteSelectedToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.pasteSelectedToolStripMenuItem.Name = "pasteSelectedToolStripMenuItem";
-            this.pasteSelectedToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.V)));
-            this.pasteSelectedToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
-            this.pasteSelectedToolStripMenuItem.Text = "Paste Selected";
-            this.pasteSelectedToolStripMenuItem.Click += new System.EventHandler(this.pasteSelectedToolStripMenuItem_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(229, 6);
             // 
             // GUI
             // 
@@ -454,7 +454,6 @@
         private System.Windows.Forms.ToolStripMenuItem animationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addNewToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem forceInGameReloadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem attachProcessToolStripMenuItem;
         private System.Windows.Forms.TextBox CurrentAnimBox;
         private System.Windows.Forms.Label label4;
@@ -464,6 +463,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copySelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteSelectedToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

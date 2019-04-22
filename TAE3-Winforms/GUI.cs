@@ -622,6 +622,12 @@ namespace MegaTAE
             }
             EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool confirm = MessageBox.Show("Really exit?", "Confirm Exit", MessageBoxButtons.YesNo) == DialogResult.Yes;
+            if (confirm) Close();
+        }
     }
 
     public static class UTIL
@@ -646,7 +652,6 @@ namespace MegaTAE
                 c.SelectionStart = c.TextLength;
                 c.ScrollToCaret();
             }
-
         }
 
         public static void LogException(string message, Exception ex)
