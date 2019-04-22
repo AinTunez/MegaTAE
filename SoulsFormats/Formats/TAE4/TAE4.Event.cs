@@ -250,6 +250,19 @@ namespace SoulsFormats
                 return $"{(int)Math.Round(StartTime * 30):D3} - {(int)Math.Round(EndTime * 30):D3} {Type}";
             }
 
+            public Event Clone()
+            {
+                var evt = EventFromType(this.Type);
+                var props = evt.GetType().GetProperties();
+                foreach (var prop in props)
+                {
+                    if (prop.SetMethod == null) continue;
+                    var val = prop.GetValue(this);
+                    prop.SetValue(evt, val);
+                }
+                return evt;
+            }
+
             public static Event EventFromType(EventType type)
             {
                 switch (type)
@@ -1346,6 +1359,7 @@ namespace SoulsFormats
                 {
                     Size = br.ReadInt32();
                     Unk04 = br.ReadInt32();
+
                     Unk08 = br.ReadInt32();
                     br.AssertInt32(0);
                 }

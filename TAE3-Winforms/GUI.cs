@@ -18,7 +18,6 @@ namespace MegaTAE
 {
     public partial class GUI : Form
     {
-
         public BND4 ANIBND;
         public string FilePath;
         public bool IsSekiro;
@@ -30,6 +29,7 @@ namespace MegaTAE
                 else return (TAE3Handler)TaeListBox.SelectedItem;
             }
         }
+
         public dynamic Anim
         {
             get
@@ -38,6 +38,17 @@ namespace MegaTAE
                 else return (ANIM3Handler)AnimListBox.SelectedItem;
             }
         }
+
+        public dynamic Event
+        {
+            get
+            {
+                if (IsSekiro) return (EVENT4Handler)EventListBox.SelectedItem;
+                else return (EVENT3Handler)EventListBox.SelectedItem;
+            }
+        }
+
+        public dynamic CopiedEvent;
 
         public GUI()
         {
@@ -580,6 +591,36 @@ namespace MegaTAE
                 }
                 AnimListBox.SelectedIndex = index - 1;
             }
+        }
+
+        private void copySelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Event == null) return;
+            if (IsSekiro)
+            {
+                CopiedEvent = (Event as EVENT4Handler).Event;
+            } else
+            {
+                CopiedEvent = (Event as EVENT3Handler).Event;
+            }
+        }
+
+        private void pasteSelectedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (CopiedEvent == null || Anim == null) return;
+            if (IsSekiro)
+            {
+                var a = Anim as ANIM4Handler;
+                a.Events.Add(CopiedEvent.Clone());
+                EventListBox.DataSource = a.Events.Select(evt => new EVENT4Handler(evt)).ToList();
+            }
+            else
+            {
+                var a = Anim as ANIM3Handler;
+                a.Events.Add(CopiedEvent.Clone());
+                EventListBox.DataSource = a.Events.Select(evt => new EVENT3Handler(evt)).ToList();
+            }
+            EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
         }
     }
 
