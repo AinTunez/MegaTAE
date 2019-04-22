@@ -623,10 +623,19 @@ namespace MegaTAE
             EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
         }
 
+        private bool ConfirmClose()
+        {
+            return MessageBox.Show("Really exit?", "Confirm Exit", MessageBoxButtons.YesNo) == DialogResult.Yes;
+        }
+
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool confirm = MessageBox.Show("Really exit?", "Confirm Exit", MessageBoxButtons.YesNo) == DialogResult.Yes;
-            if (confirm) Close();
+            Close();
+        }
+
+        private void GUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !ConfirmClose();
         }
     }
 
