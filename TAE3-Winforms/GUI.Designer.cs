@@ -65,10 +65,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CurrentAnimBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.AnimQueueBox = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AnimQueueBox)).BeginInit();
             this.SuspendLayout();
             // 
             // TaeListBox
@@ -370,7 +372,7 @@
             this.ConsoleBox.Name = "ConsoleBox";
             this.ConsoleBox.ReadOnly = true;
             this.ConsoleBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ConsoleBox.Size = new System.Drawing.Size(442, 608);
+            this.ConsoleBox.Size = new System.Drawing.Size(442, 364);
             this.ConsoleBox.TabIndex = 11;
             this.ConsoleBox.WordWrap = false;
             // 
@@ -410,6 +412,14 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "CURRENT";
             // 
+            // AnimQueueBox
+            // 
+            this.AnimQueueBox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AnimQueueBox.Location = new System.Drawing.Point(625, 439);
+            this.AnimQueueBox.Name = "AnimQueueBox";
+            this.AnimQueueBox.Size = new System.Drawing.Size(441, 237);
+            this.AnimQueueBox.TabIndex = 16;
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,6 +427,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1078, 718);
             this.ControlBox = false;
+            this.Controls.Add(this.AnimQueueBox);
             this.Controls.Add(this.CurrentAnimBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -444,6 +455,7 @@
             this.groupBox3.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AnimQueueBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,6 +498,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem copyAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteAllToolStripMenuItem;
+        private System.Windows.Forms.DataGridView AnimQueueBox;
     }
 }
 

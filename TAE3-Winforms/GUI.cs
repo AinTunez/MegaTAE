@@ -23,6 +23,7 @@ namespace MegaTAE
         public bool IsSekiro;
         private List<TAE4.Event> SekiroCopyAll = new List<TAE4.Event>();
         private List<TAE3.Event> DS3CopyAll = new List<TAE3.Event>();
+        private AnimQueueItem PrevAnimQueueItem = new AnimQueueItem(-1, 0);
 
         public dynamic TAE
         {
@@ -60,6 +61,8 @@ namespace MegaTAE
         {
             InitializeComponent();
             UTIL.Init(this);
+            AnimQueueBox.Columns.Add("AnimId", "Animation ID");
+            AnimQueueBox.Columns.Add("Time", "Time");
             ToggleConsole();
         }
 
@@ -72,24 +75,30 @@ namespace MegaTAE
             
             void checkAnim(object sender, EventArgs e)
             {
+                if (Memory.BaseAddress == IntPtr.Zero) return;
                 if (ANIBND == null) CurrentAnimBox.Text = "-1";
                 else
                 {
-                    var aNum = GetCurrentAnimation();
+                    var aNum = GetCurrentAnimationId();
                     if (aNum == null) return;
                     string curr = CurrentAnimBox.Text;
-                    string anim = GetCurrentAnimation().ToString();
-                    if (IsSekiro)
-                    {
-                        if (anim == "790010" || anim == "790040") return;
-                        if (anim != CurrentAnimBox.Text) UTIL.WriteLog("PLAYER ANIM --> " + CurrentAnimBox.Text);
-                        CurrentAnimBox.Text = anim;
-                    } else
-                    {
-                        if (anim != CurrentAnimBox.Text) UTIL.WriteLog("PLAYER ANIM --> " + CurrentAnimBox.Text);
-                        CurrentAnimBox.Text = anim;
-                    }
+                    string anim = GetCurrentAnimationId().ToString();
+                    CurrentAnimBox.Text = anim;
+                }
 
+                if (!IsSekiro)
+                {
+                    var qItem = GetCurrentQueueItem();
+                    {
+                        bool hasChanged = qItem.AnimId != PrevAnimQueueItem.AnimId || qItem.Time != PrevAnimQueueItem.Time;
+                        if (hasChanged)
+                        {
+                            Console.WriteLine(qItem.AnimId + " : " + qItem.Time);
+                            AnimQueueBox.Rows.Add(new string[] { qItem.AnimId.ToString(), qItem.Time.ToString() });
+                            AnimQueueBox.FirstDisplayedScrollingRowIndex = AnimQueueBox.RowCount - 1;
+                            PrevAnimQueueItem = qItem;
+                        }
+                    }
                 }
             }
         }
@@ -99,35 +108,42 @@ namespace MegaTAE
             return (address >= 0x10000 && address < 0x000F000000000000);
         }
 
-        internal long? ReadPointerChain(long baseAddress, long baseOffset, int[] chain)
+        internal dynamic ReadPointerChain(bool isInt, long baseAddress, long baseOffset, int[] chain)
         {
             long lpCurrent = Memory.ReadInt64(new IntPtr(baseAddress + baseOffset));
-            foreach (int offset in chain)
+            for (int i = 0; i < chain.Length - 1; i++)
             {
                 if (!IsValidAddress(lpCurrent)) return null;
-                lpCurrent = Memory.ReadInt64(new IntPtr(lpCurrent) + offset);
+                lpCurrent = Memory.ReadInt64(new IntPtr(lpCurrent) + chain[i]);
             }
-            return lpCurrent;
+            if (isInt) return Memory.ReadInt32(new IntPtr(lpCurrent) + chain.Last());
+            else return Memory.ReadFloat(new IntPtr(lpCurrent) + chain.Last());
         }
 
-        private long? GetCurrentAnimation()
+        internal float? ReadPointerChainAsFloat(long baseAddress, long baseOffset, int[] chain)
+        {
+            return ReadPointerChain(false, baseAddress, baseOffset, chain);
+        }
+
+        internal int? ReadPointerChainAsInt(long baseAddress, long baseOffset, int[] chain)
+        {
+            return ReadPointerChain(true, baseAddress, baseOffset, chain);
+        }
+
+        private AnimQueueItem GetCurrentQueueItem()
+        {
+            int animationId = ReadPointerChainAsInt(Memory.BaseAddress.ToInt64(), 0x4768E78, new int[] { 0x80, 0x1F90, 0x10, 0x20 }).Value;
+            float time = ReadPointerChainAsFloat(Memory.BaseAddress.ToInt64(), 0x4768E78, new int[] { 0x80, 0x1F90, 0x10, 0x28 }).Value;
+            return new AnimQueueItem(animationId, time);
+        }
+
+        private int? GetCurrentAnimationId()
         {
             if (Memory.BaseAddress == IntPtr.Zero) return null;
-
             if (IsSekiro)
-                return ReadPointerChain(Memory.BaseAddress.ToInt64(), 0x3B67DF0, new int[] { 0x88, 0x1FF8, 0x80, 0xC8 });
+                return ReadPointerChainAsInt(Memory.BaseAddress.ToInt64(), 0x3B67DF0, new int[] { 0x88, 0x1FF8, 0x80, 0xC8 });
             else
-                return ReadPointerChain(Memory.BaseAddress.ToInt64(), 0x4768E78, new int[] { 0x80, 0x1F90, 0x80, 0xC8 });
-
-            ////read the chain
-            //foreach (int offset in chain)
-            //{
-            //    if (!IsValidAddress(val.ToInt64())) return null;
-            //    val = new IntPtr(Memory.ReadInt64(val));
-            //    val = IntPtr.Add(val, offset);
-            //}
-            //if (IsValidAddress(val.ToInt64())) return Memory.ReadInt32(val);
-            //return null;
+                return ReadPointerChainAsInt(Memory.BaseAddress.ToInt64(), 0x3B67DF0, new int[] { 0x80, 0x1F90, 0x10 });
         }
 
         public void LoadANIBND(string path, bool isSekiro)
@@ -152,19 +168,21 @@ namespace MegaTAE
             if (!File.Exists(path + ".bak")) File.Copy(path, path + ".bak");
             var tae3_list = new List<TAE3Handler>();
             var tae4_list = new List<TAE4Handler>();
+
+            if (isSekiro) Memory.AttachProc("sekiro");
+            else Memory.AttachProc("DarkSoulsIII");
+
             foreach (var file in ANIBND.Files.Where(f => f.Name.EndsWith(".tae") && f.Bytes.Length > 0))
             {
                 if (isSekiro)
                 {
                     var t = new TAE4Handler(file);
                     if (t.IsValid) tae4_list.Add(new TAE4Handler(file));
-                    Memory.AttachProc("sekiro");
 
                 } else
                 {
                     var t = new TAE3Handler(file);
                     if (t.IsValid) tae3_list.Add(new TAE3Handler(file));
-                    Memory.AttachProc("DS3");
                 }
             }
 
@@ -712,6 +730,18 @@ namespace MegaTAE
                 else sb.AppendLine("  " + line);
             }
             WriteLog(sb.ToString());
+        }
+    }
+
+    public class AnimQueueItem
+    {
+        public int AnimId;
+        public float Time;
+
+        public AnimQueueItem(int a, float t)
+        {
+            AnimId = a;
+            Time = t;
         }
     }
 
