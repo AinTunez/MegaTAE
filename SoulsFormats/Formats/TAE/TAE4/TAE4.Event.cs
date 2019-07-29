@@ -2,7 +2,7 @@
 
 namespace SoulsFormats
 {
-    public partial class TAE3
+    public partial class TAE4
     {
         /// <summary>
         /// Determines the behavior of an event and what data it contains.
@@ -11,92 +11,103 @@ namespace SoulsFormats
         {
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
             JumpTable = 000,
-            CreateBehaviorAttack = 001,
-            CreateBehaviorProjectile = 002,
+            Tae001 = 001,
+            Tae002 = 002,
+            Tae004 = 004,
             Tae005 = 005,
             Tae016 = 016,
             Tae017 = 017,
-            AnimationQueue = 024,
-            SetShealthMode = 032,
-            SwitchWeapon = 033,
+            Tae024 = 024,
+            SwitchWeapon1 = 032,
+            SwitchWeapon2 = 033,
             Tae034 = 034,
             Tae035 = 035,
-            CastSelectedSpell = 064,
-            ConsumeSelectedItem = 065,
-            CreateBehaviorSpEffectMulti = 066, //conditional for session
-            CreateBehaviorSpEffect = 067, //unconditional for session
-            PlayFFX_Weapon_Ember = 095,
-            PlayFFX_Weapon = 096,
+            Tae064 = 064,
+            Tae065 = 065,
+            CreateBehaviorSpEffect1 = 066,
+            CreateBehaviorSpEffect2 = 067,
+            Tae095 = 095,
+            PlayFFX = 096,
             Tae099 = 099,
-            PlayFFX_Default = 110,
-            PlayFootFFX = 112,
+            Tae110 = 110,
+            HitEffect = 112,
             Tae113 = 113,
-            PlayFFX_ItemsAndMagic = 114,
-            PlayFFX_ItemsAndMagic_Extra = 115,
-            PlayFFX_Throw = 116,
-            PlayFFX_ThrowDirection = 117,
+            Tae114 = 114,
+            Tae115 = 115,
+            Tae116 = 116,
+            Tae117 = 117,
             Tae118 = 118,
             Tae119 = 119,
-            PlayFFX_ChrType = 120,
+            Tae120 = 120,
             Tae121 = 121,
-            PlayFFX_SpEffect = 122,
+            PlayFFXIfSpEffect = 122,
             PlaySound1 = 128,
             PlaySound2 = 129,
             PlaySound3 = 130,
             PlaySound4 = 131,
             PlaySound5 = 132,
             Tae136 = 136,
-            CreateDecal = 137,
-            CreateDecal_DummyPoly = 138,
-            CreateCameraShakeSpecial = 144,
-            CreateCameraShake = 145,
+            CreateDecal1 = 137,
+            CreateDecal2 = 138,
+            CreateDecal3 = 139,
+            Tae144 = 144,
+            Tae145 = 145,
+            Tae146 = 146,
+            Tae147 = 147,
             SetLockCamParam1 = 150,
-            SetLockCamParam2 = 151,
+            CameraParameters = 151,
+            Tae152 = 152,
+            Tae153 = 153,
+            CameraParamUnk1 = 155,
+            Tae156 = 156,
             Tae160 = 160,
             Tae161 = 161,
-            SetDebugFadeOut = 192,
+            SetDebugGhost = 192,
             FadeOut = 193,
             Tae194 = 194,
             EnableBlurFeedback = 195,
             C_ARSN_BumpBlendDecal = 196,
-            SetGhost = 197,
-            SetChrTurnRate = 224,
-            ChangeSPRegen = 225,
-            KnockbackMult = 226,
+            Ghost = 197,
+            Tae210 = 210,
+            Tae224 = 224,
+            DisableStaminaRegen = 225,
+            Tae226 = 226,
             Tae227 = 227,
             RagdollReviveTime = 228,
             CreateAISound1 = 229,
-            ChangeMPRegen = 230,
+            Tae230 = 230,
             SetEzStateRequestId = 231,
             Tae232 = 232,
             ChangeDrawMask = 233,
             Tae234 = 234,
             Tae235 = 235,
-            MovementReduction = 236,
+            RollDistanceReduction = 236,
             CreateAISound2 = 237,
-            SupportJumptable = 300,
-            SupportJumptableExtra = 301,
-            CreateSpEffectMulti = 302, //conditional for session
+            Tae238 = 238,
+            Tae300 = 300,
+            Padding = 301,
+            AddSpEffectDragonForm = 302,
             PlayAnimation = 303,
             BehaviorThing = 304,
-            ExtraSaDurabilityMult = 305,
+            Tae305 = 305,
             Tae306 = 306,
             CreateBehaviorPC = 307,
             Tae308 = 308,
             Tae310 = 310,
             Tae311 = 311,
             Tae312 = 312,
+            Tae313 = 313,
             Tae317 = 317,
             ActionRequest = 320,
-            SwordArtMpConsume = 330,
+            WeaponArtMpConsume = 330,
             CreateSpEffect_SwordArt = 331,
             Tae332 = 332,
-            CreateSpEffect = 401, //unconditional for session
-            CreateWind = 402,
+            CreateSpEffect = 401,
+            Tae402 = 402,
             Tae500 = 500,
             Tae510 = 510,
             Tae520 = 520,
-            SetChrTurnRateExtra = 521,
+            Tae521 = 521,
             SetSpecialLockOnParameter = 522,
             EnableBehavior = 600,
             Tae601 = 601,
@@ -112,14 +123,17 @@ namespace SoulsFormats
             FacingAngleCorrection = 705,
             Tae706 = 706,
             Tae707 = 707,
+            Tae708 = 708,
             HideWeapon = 710,
             HideModelMask = 711,
             DamageLevelModule = 712,
             ModelMask = 713,
             DamageLevelFunction = 714,
             Tae715 = 715,
+            Tae717 = 717,
             CultStart = 720,
             Tae730 = 730,
+            Tae731 = 731,
             Tae740 = 740,
             IFrameState = 760,
             BonePos = 770,
@@ -140,8 +154,39 @@ namespace SoulsFormats
             CeremonyParamID = 797,
             CultSingle = 798,
             CultEmpty2 = 799,
-            DebugMovementMult = 800,
+            Tae800 = 800,
             Tae900 = 900,
+            WireEventUnk1 = 901,
+            Tae902 = 902,
+            Tae903 = 903,
+            Tae904 = 904,
+            Tae905 = 905,
+            Tae910 = 910,
+            Tae911 = 911,
+            Tae912 = 912,
+            Tae913 = 913,
+            Tae920 = 920,
+            Tae921 = 921,
+            Tae922 = 922,
+            Tae930 = 930,
+            Tae931 = 931,
+            Tae932 = 932,
+            Tae933 = 933,
+            Tae936 = 936,
+            Tae940 = 940,
+            Tae942 = 942,
+            Tae943 = 943,
+            Tae944 = 944,
+            Tae945 = 945,
+            Tae946 = 946,
+            Tae947 = 947,
+            Tae950 = 950,
+            Tae951 = 951,
+            Tae952 = 952,
+            Tae953 = 953,
+            Tae954 = 954,
+            Tae960 = 960,
+            Tae970 = 970
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         }
 
@@ -223,90 +268,100 @@ namespace SoulsFormats
                 switch (type)
                 {
                     case EventType.JumpTable: return new Tae000_JumpTable(0, 0.25f);
-                    case EventType.CreateBehaviorAttack: return new Tae001_CreateBehaviorAttack(0, 0.25f);
-                    case EventType.CreateBehaviorProjectile: return new Tae002_CreateBehaviorProjectile(0, 0.25f);
+                    case EventType.Tae001: return new Tae001(0, 0.25f);
+                    case EventType.Tae002: return new Tae002(0, 0.25f);
+                    case EventType.Tae004: return new Tae004(0, 0.25f);
                     case EventType.Tae005: return new Tae005(0, 0.25f);
                     case EventType.Tae016: return new Tae016(0, 0.25f);
                     case EventType.Tae017: return new Tae017(0, 0.25f);
-                    case EventType.AnimationQueue: return new Tae024_AnimationQueue(0, 0.25f);
-                    case EventType.SetShealthMode: return new Tae032_SetShealthMode(0, 0.25f);
-                    case EventType.SwitchWeapon: return new Tae033_SwitchWeapon(0, 0.25f);
+                    case EventType.Tae024: return new Tae024(0, 0.25f);
+                    case EventType.SwitchWeapon1: return new Tae032_SwitchWeapon1(0, 0.25f);
+                    case EventType.SwitchWeapon2: return new Tae033_SwitchWeapon2(0, 0.25f);
                     case EventType.Tae034: return new Tae034(0, 0.25f);
                     case EventType.Tae035: return new Tae035(0, 0.25f);
-                    case EventType.CastSelectedSpell: return new Tae064_CastSelectedSpell(0, 0.25f);
-                    case EventType.ConsumeSelectedItem: return new Tae065_ConsumeSelectedItem(0, 0.25f);
-                    case EventType.CreateBehaviorSpEffectMulti: return new Tae066_CreateBehaviorSpEffectMulti(0, 0.25f);
-                    case EventType.CreateBehaviorSpEffect: return new Tae067_CreateBehaviorSpEffect(0, 0.25f);
-                    case EventType.PlayFFX_Weapon_Ember: return new Tae095_PlayFFX_Weapon_Ember(0, 0.25f);
-                    case EventType.PlayFFX_Weapon: return new Tae096_PlayFFX_Weapon(0, 0.25f);
+                    case EventType.Tae064: return new Tae064(0, 0.25f);
+                    case EventType.Tae065: return new Tae065(0, 0.25f);
+                    case EventType.CreateBehaviorSpEffect1: return new Tae066_CreateBehaviorSpEffect1(0, 0.25f);
+                    case EventType.CreateBehaviorSpEffect2: return new Tae067_CreateBehaviorSpEffect2(0, 0.25f);
+                    case EventType.Tae095: return new Tae095(0, 0.25f);
+                    case EventType.PlayFFX: return new Tae096_PlayFFX(0, 0.25f);
                     case EventType.Tae099: return new Tae099(0, 0.25f);
-                    case EventType.PlayFFX_Default: return new Tae110_PlayFFX_Default(0, 0.25f);
-                    case EventType.PlayFootFFX: return new Tae112_PlayFootFFX(0, 0.25f);
+                    case EventType.Tae110: return new Tae110(0, 0.25f);
+                    case EventType.HitEffect: return new Tae112_HitEffect(0, 0.25f);
                     case EventType.Tae113: return new Tae113(0, 0.25f);
-                    case EventType.PlayFFX_ItemsAndMagic: return new Tae114_PlayFFX_ItemsAndMagic(0, 0.25f);
-                    case EventType.PlayFFX_ItemsAndMagic_Extra: return new Tae115_PlayFFX_ItemsAndMagic_Extra(0, 0.25f);
-                    case EventType.PlayFFX_Throw: return new Tae116_PlayFFX_Throw(0, 0.25f);
-                    case EventType.PlayFFX_ThrowDirection: return new Tae117_PlayFFX_ThrowDirection(0, 0.25f);
+                    case EventType.Tae114: return new Tae114(0, 0.25f);
+                    case EventType.Tae115: return new Tae115(0, 0.25f);
+                    case EventType.Tae116: return new Tae116(0, 0.25f);
+                    case EventType.Tae117: return new Tae117(0, 0.25f);
                     case EventType.Tae118: return new Tae118(0, 0.25f);
                     case EventType.Tae119: return new Tae119(0, 0.25f);
-                    case EventType.PlayFFX_ChrType: return new Tae120_PlayFFX_ChrType(0, 0.25f);
+                    case EventType.Tae120: return new Tae120(0, 0.25f);
                     case EventType.Tae121: return new Tae121(0, 0.25f);
-                    case EventType.PlayFFX_SpEffect: return new Tae122_PlayFFX_SpEffect(0, 0.25f);
+                    case EventType.PlayFFXIfSpEffect: return new Tae122_PlayFFXIfSpEffect(0, 0.25f);
                     case EventType.PlaySound1: return new Tae128_PlaySound1(0, 0.25f);
                     case EventType.PlaySound2: return new Tae129_PlaySound2(0, 0.25f);
                     case EventType.PlaySound3: return new Tae130_PlaySound3(0, 0.25f);
                     case EventType.PlaySound4: return new Tae131_PlaySound4(0, 0.25f);
                     case EventType.PlaySound5: return new Tae132_PlaySound5(0, 0.25f);
-                    case EventType.CreateDecal: return new Tae137_CreateDecal(0, 0.25f);
-                    case EventType.CreateDecal_DummyPoly: return new Tae138_CreateDecal_DummyPoly(0, 0.25f);
-                    case EventType.CreateCameraShakeSpecial: return new Tae144_CreateCameraShakeSpecial(0, 0.25f);
-                    case EventType.CreateCameraShake: return new Tae145_CreateCameraShake(0, 0.25f);
+                    case EventType.CreateDecal1: return new Tae137_CreateDecal1(0, 0.25f);
+                    case EventType.CreateDecal2: return new Tae138_CreateDecal2(0, 0.25f);
+                    case EventType.CreateDecal3: return new Tae139_CreateDecal3(0, 0.25f);
+                    case EventType.Tae144: return new Tae144(0, 0.25f);
+                    case EventType.Tae145: return new Tae145(0, 0.25f);
+                    case EventType.Tae146: return new Tae146(0, 0.25f);
+                    case EventType.Tae147: return new Tae147(0, 0.25f);
                     case EventType.SetLockCamParam1: return new Tae150_SetLockCamParam1(0, 0.25f);
-                    case EventType.SetLockCamParam2: return new Tae151_SetLockCamParam2(0, 0.25f);
+                    case EventType.CameraParameters: return new Tae151_CameraParameters(0, 0.25f);
+                    case EventType.Tae152: return new Tae152(0, 0.25f);
+                    case EventType.Tae153: return new Tae153(0, 0.25f);
+                    case EventType.CameraParamUnk1: return new Tae155_CameraParamUnk1(0, 0.25f);
+                    case EventType.Tae156: return new Tae156(0, 0.25f);
                     case EventType.Tae160: return new Tae160(0, 0.25f);
                     case EventType.Tae161: return new Tae161(0, 0.25f);
-                    case EventType.SetDebugFadeOut: return new Tae192_SetDebugFadeOut(0, 0.25f);
+                    case EventType.SetDebugGhost: return new Tae192_SetDebugGhost(0, 0.25f);
                     case EventType.FadeOut: return new Tae193_FadeOut(0, 0.25f);
                     case EventType.Tae194: return new Tae194(0, 0.25f);
                     case EventType.EnableBlurFeedback: return new Tae195_EnableBlurFeedback(0, 0.25f);
                     case EventType.C_ARSN_BumpBlendDecal: return new Tae196_C_ARSN_BumpBlendDecal(0, 0.25f);
-                    case EventType.SetGhost: return new Tae197_SetGhost(0, 0.25f);
-                    case EventType.SetChrTurnRate: return new Tae224_SetChrTurnRate(0, 0.25f);
-                    case EventType.ChangeSPRegen: return new Tae225_ChangeSPRegen(0, 0.25f);
-                    case EventType.KnockbackMult: return new Tae226_KnockbackMult(0, 0.25f);
+                    case EventType.Ghost: return new Tae197_Ghost(0, 0.25f);
+                    case EventType.Tae224: return new Tae224(0, 0.25f);
+                    case EventType.DisableStaminaRegen: return new Tae225_DisableStaminaRegen(0, 0.25f);
+                    case EventType.Tae226: return new Tae226(0, 0.25f);
                     case EventType.Tae227: return new Tae227(0, 0.25f);
                     case EventType.RagdollReviveTime: return new Tae228_RagdollReviveTime(0, 0.25f);
                     case EventType.CreateAISound1: return new Tae229_CreateAISound1(0, 0.25f);
-                    case EventType.ChangeMPRegen: return new Tae230_ChangeMPRegen(0, 0.25f);
+                    case EventType.Tae230: return new Tae230(0, 0.25f);
                     case EventType.SetEzStateRequestId: return new Tae231_SetEzStateRequestId(0, 0.25f);
                     case EventType.Tae232: return new Tae232(0, 0.25f);
                     case EventType.ChangeDrawMask: return new Tae233_ChangeDrawMask(0, 0.25f);
                     case EventType.Tae234: return new Tae234(0, 0.25f);
                     case EventType.Tae235: return new Tae235(0, 0.25f);
-                    case EventType.MovementReduction: return new Tae236_MovementReduction(0, 0.25f);
+                    case EventType.RollDistanceReduction: return new Tae236_RollDistanceReduction(0, 0.25f);
                     case EventType.CreateAISound2: return new Tae237_CreateAISound2(0, 0.25f);
-                    case EventType.SupportJumptable: return new Tae300_SupportJumptable(0, 0.25f);
-                    case EventType.SupportJumptableExtra: return new Tae301_SupportJumptableExtra(0, 0.25f);
-                    case EventType.CreateSpEffectMulti: return new Tae302_CreateSpEffectMulti(0, 0.25f);
+                    case EventType.Tae238: return new Tae238(0, 0.25f);
+                    case EventType.Tae300: return new Tae300(0, 0.25f);
+                    case EventType.Padding: return new Tae301_Padding(0, 0.25f);
+                    case EventType.AddSpEffectDragonForm: return new Tae302_AddSpEffectDragonForm(0, 0.25f);
                     case EventType.PlayAnimation: return new Tae303_PlayAnimation(0, 0.25f);
                     case EventType.BehaviorThing: return new Tae304_BehaviorThing(0, 0.25f);
-                    case EventType.ExtraSaDurabilityMult: return new Tae305_ExtraSaDurabilityMult(0, 0.25f);
+                    case EventType.Tae305: return new Tae305(0, 0.25f);
                     case EventType.Tae306: return new Tae306(0, 0.25f);
                     case EventType.CreateBehaviorPC: return new Tae307_CreateBehaviorPC(0, 0.25f);
                     case EventType.Tae308: return new Tae308(0, 0.25f);
                     case EventType.Tae310: return new Tae310(0, 0.25f);
                     case EventType.Tae311: return new Tae311(0, 0.25f);
                     case EventType.Tae312: return new Tae312(0, 0.25f);
+                    case EventType.Tae313: return new Tae313(0, 0.25f);
                     case EventType.ActionRequest: return new Tae320_ActionRequest(0, 0.25f);
-                    case EventType.SwordArtMpConsume: return new Tae330_SwordArtMpConsume(0, 0.25f);
+                    case EventType.WeaponArtMpConsume: return new Tae330_WeaponArtMpConsume(0, 0.25f);
                     case EventType.CreateSpEffect_SwordArt: return new Tae331_CreateSpEffect_SwordArt(0, 0.25f);
                     case EventType.Tae332: return new Tae332(0, 0.25f);
                     case EventType.CreateSpEffect: return new Tae401_CreateSpEffect(0, 0.25f);
-                    case EventType.CreateWind: return new Tae402_CreateWind(0, 0.25f);
+                    case EventType.Tae402: return new Tae402(0, 0.25f);
                     case EventType.Tae500: return new Tae500(0, 0.25f);
                     case EventType.Tae510: return new Tae510(0, 0.25f);
                     case EventType.Tae520: return new Tae520(0, 0.25f);
-                    case EventType.SetChrTurnRateExtra: return new Tae521_SetChrTurnRateExtra(0, 0.25f);
+                    case EventType.Tae521: return new Tae521(0, 0.25f);
                     case EventType.SetSpecialLockOnParameter: return new Tae522_SetSpecialLockOnParameter(0, 0.25f);
                     case EventType.EnableBehavior: return new Tae600_EnableBehavior(0, 0.25f);
                     case EventType.Tae601: return new Tae601(0, 0.25f);
@@ -315,20 +370,24 @@ namespace SoulsFormats
                     case EventType.TestParam: return new Tae604_TestParam(0, 0.25f);
                     case EventType.Tae605: return new Tae605(0, 0.25f);
                     case EventType.Tae606: return new Tae606(0, 0.25f);
+                    case EventType.Tae607: return new Tae607(0, 0.25f);
                     case EventType.Tae700: return new Tae700(0, 0.25f);
                     case EventType.EnableTurningDirection: return new Tae703_EnableTurningDirection(0, 0.25f);
                     case EventType.Tae704: return new Tae704(0, 0.25f);
                     case EventType.FacingAngleCorrection: return new Tae705_FacingAngleCorrection(0, 0.25f);
                     case EventType.Tae706: return new Tae706(0, 0.25f);
                     case EventType.Tae707: return new Tae707(0, 0.25f);
+                    case EventType.Tae708: return new Tae708(0, 0.25f);
                     case EventType.HideWeapon: return new Tae710_HideWeapon(0, 0.25f);
                     case EventType.HideModelMask: return new Tae711_HideModelMask(0, 0.25f);
                     case EventType.DamageLevelModule: return new Tae712_DamageLevelModule(0, 0.25f);
                     case EventType.ModelMask: return new Tae713_ModelMask(0, 0.25f);
                     case EventType.DamageLevelFunction: return new Tae714_DamageLevelFunction(0, 0.25f);
                     case EventType.Tae715: return new Tae715(0, 0.25f);
+                    case EventType.Tae717: return new Tae717(0, 0.25f);
                     case EventType.CultStart: return new Tae720_CultStart(0, 0.25f);
                     case EventType.Tae730: return new Tae730(0, 0.25f);
+                    case EventType.Tae731: return new Tae731(0, 0.25f);
                     case EventType.Tae740: return new Tae740(0, 0.25f);
                     case EventType.IFrameState: return new Tae760_IFrameState(0, 0.25f);
                     case EventType.BonePos: return new Tae770_BonePos(0, 0.25f);
@@ -349,7 +408,39 @@ namespace SoulsFormats
                     case EventType.CeremonyParamID: return new Tae797_CeremonyParamID(0, 0.25f);
                     case EventType.CultSingle: return new Tae798_CultSingle(0, 0.25f);
                     case EventType.CultEmpty2: return new Tae799_CultEmpty2(0, 0.25f);
-                    case EventType.DebugMovementMult: return new Tae800_DebugMovementMult(0, 0.25f);
+                    case EventType.Tae800: return new Tae800(0, 0.25f);
+                    case EventType.Tae900: return new Tae900(0, 0.25f);
+                    case EventType.WireEventUnk1: return new Tae901_WireEventUnk1(0, 0.25f);
+                    case EventType.Tae902: return new Tae902(0, 0.25f);
+                    case EventType.Tae903: return new Tae903(0, 0.25f);
+                    case EventType.Tae904: return new Tae904(0, 0.25f);
+                    case EventType.Tae905: return new Tae905(0, 0.25f);
+                    case EventType.Tae910: return new Tae910(0, 0.25f);
+                    case EventType.Tae911: return new Tae911(0, 0.25f);
+                    case EventType.Tae912: return new Tae912(0, 0.25f);
+                    case EventType.Tae913: return new Tae913(0, 0.25f);
+                    case EventType.Tae920: return new Tae920(0, 0.25f);
+                    case EventType.Tae921: return new Tae921(0, 0.25f);
+                    case EventType.Tae922: return new Tae922(0, 0.25f);
+                    case EventType.Tae930: return new Tae930(0, 0.25f);
+                    case EventType.Tae931: return new Tae931(0, 0.25f);
+                    case EventType.Tae932: return new Tae932(0, 0.25f);
+                    case EventType.Tae933: return new Tae933(0, 0.25f);
+                    case EventType.Tae936: return new Tae936(0, 0.25f);
+                    case EventType.Tae940: return new Tae940(0, 0.25f);
+                    case EventType.Tae942: return new Tae942(0, 0.25f);
+                    case EventType.Tae943: return new Tae943(0, 0.25f);
+                    case EventType.Tae944: return new Tae944(0, 0.25f);
+                    case EventType.Tae945: return new Tae945(0, 0.25f);
+                    case EventType.Tae946: return new Tae946(0, 0.25f);
+                    case EventType.Tae947: return new Tae947(0, 0.25f);
+                    case EventType.Tae950: return new Tae950(0, 0.25f);
+                    case EventType.Tae951: return new Tae951(0, 0.25f);
+                    case EventType.Tae952: return new Tae952(0, 0.25f);
+                    case EventType.Tae953: return new Tae953(0, 0.25f);
+                    case EventType.Tae954: return new Tae954(0, 0.25f);
+                    case EventType.Tae960: return new Tae960(0, 0.25f);
+                    case EventType.Tae970: return new Tae970(0, 0.25f);
                     default: throw new NotImplementedException();
                 }
             }
@@ -365,98 +456,108 @@ namespace SoulsFormats
                 Event result;
                 br.StepIn(eventDataOffset);
                 {
-                    EventType type = br.ReadEnum32<EventType>();
-
+                    int typeInt = br.ReadInt32();
+                    EventType type = (EventType)typeInt;
                     int UnkNew1 = br.ReadInt32(); //Bad Solution ?
                     int UnkNew2 = br.ReadInt32();
                     int UnkNew3 = br.ReadInt32();
                     switch (type)
                     {
                         case EventType.JumpTable: result = new Tae000_JumpTable(startTime, endTime, br); break;
-                        case EventType.CreateBehaviorAttack: result = new Tae001_CreateBehaviorAttack(startTime, endTime, br); break;
-                        case EventType.CreateBehaviorProjectile: result = new Tae002_CreateBehaviorProjectile(startTime, endTime, br); break;
+                        case EventType.Tae001: result = new Tae001(startTime, endTime, br); break;
+                        case EventType.Tae002: result = new Tae002(startTime, endTime, br); break;
+                        case EventType.Tae004: result = new Tae004(startTime, endTime, br); break;
                         case EventType.Tae005: result = new Tae005(startTime, endTime, br); break;
                         case EventType.Tae016: result = new Tae016(startTime, endTime, br); break;
                         case EventType.Tae017: result = new Tae017(startTime, endTime, br); break;
-                        case EventType.AnimationQueue: result = new Tae024_AnimationQueue(startTime, endTime, br); break;
-                        case EventType.SetShealthMode: result = new Tae032_SetShealthMode(startTime, endTime, br); break;
-                        case EventType.SwitchWeapon: result = new Tae033_SwitchWeapon(startTime, endTime, br); break;
+                        case EventType.Tae024: result = new Tae024(startTime, endTime, br); break;
+                        case EventType.SwitchWeapon1: result = new Tae032_SwitchWeapon1(startTime, endTime, br); break;
+                        case EventType.SwitchWeapon2: result = new Tae033_SwitchWeapon2(startTime, endTime, br); break;
                         case EventType.Tae034: result = new Tae034(startTime, endTime, br); break;
                         case EventType.Tae035: result = new Tae035(startTime, endTime, br); break;
-                        case EventType.CastSelectedSpell: result = new Tae064_CastSelectedSpell(startTime, endTime, br); break;
-                        case EventType.ConsumeSelectedItem: result = new Tae065_ConsumeSelectedItem(startTime, endTime, br); break;
-                        case EventType.CreateBehaviorSpEffectMulti: result = new Tae066_CreateBehaviorSpEffectMulti(startTime, endTime, br); break;
-                        case EventType.CreateBehaviorSpEffect: result = new Tae067_CreateBehaviorSpEffect(startTime, endTime, br); break;
-                        case EventType.PlayFFX_Weapon_Ember: result = new Tae095_PlayFFX_Weapon_Ember(startTime, endTime, br); break;
-                        case EventType.PlayFFX_Weapon: result = new Tae096_PlayFFX_Weapon(startTime, endTime, br); break;
+                        case EventType.Tae064: result = new Tae064(startTime, endTime, br); break;
+                        case EventType.Tae065: result = new Tae065(startTime, endTime, br); break;
+                        case EventType.CreateBehaviorSpEffect1: result = new Tae066_CreateBehaviorSpEffect1(startTime, endTime, br); break;
+                        case EventType.CreateBehaviorSpEffect2: result = new Tae067_CreateBehaviorSpEffect2(startTime, endTime, br); break;
+                        case EventType.Tae095: result = new Tae095(startTime, endTime, br); break;
+                        case EventType.PlayFFX: result = new Tae096_PlayFFX(startTime, endTime, br); break;
                         case EventType.Tae099: result = new Tae099(startTime, endTime, br); break;
-                        case EventType.PlayFFX_Default: result = new Tae110_PlayFFX_Default(startTime, endTime, br); break;
-                        case EventType.PlayFootFFX: result = new Tae112_PlayFootFFX(startTime, endTime, br); break;
+                        case EventType.Tae110: result = new Tae110(startTime, endTime, br); break;
+                        case EventType.HitEffect: result = new Tae112_HitEffect(startTime, endTime, br); break;
                         case EventType.Tae113: result = new Tae113(startTime, endTime, br); break;
-                        case EventType.PlayFFX_ItemsAndMagic: result = new Tae114_PlayFFX_ItemsAndMagic(startTime, endTime, br); break;
-                        case EventType.PlayFFX_ItemsAndMagic_Extra: result = new Tae115_PlayFFX_ItemsAndMagic_Extra(startTime, endTime, br); break;
-                        case EventType.PlayFFX_Throw: result = new Tae116_PlayFFX_Throw(startTime, endTime, br); break;
-                        case EventType.PlayFFX_ThrowDirection: result = new Tae117_PlayFFX_ThrowDirection(startTime, endTime, br); break;
+                        case EventType.Tae114: result = new Tae114(startTime, endTime, br); break;
+                        case EventType.Tae115: result = new Tae115(startTime, endTime, br); break;
+                        case EventType.Tae116: result = new Tae116(startTime, endTime, br); break;
+                        case EventType.Tae117: result = new Tae117(startTime, endTime, br); break;
                         case EventType.Tae118: result = new Tae118(startTime, endTime, br); break;
                         case EventType.Tae119: result = new Tae119(startTime, endTime, br); break;
-                        case EventType.PlayFFX_ChrType: result = new Tae120_PlayFFX_ChrType(startTime, endTime, br); break;
+                        case EventType.Tae120: result = new Tae120(startTime, endTime, br); break;
                         case EventType.Tae121: result = new Tae121(startTime, endTime, br); break;
-                        case EventType.PlayFFX_SpEffect: result = new Tae122_PlayFFX_SpEffect(startTime, endTime, br); break;
+                        case EventType.PlayFFXIfSpEffect: result = new Tae122_PlayFFXIfSpEffect(startTime, endTime, br); break;
                         case EventType.PlaySound1: result = new Tae128_PlaySound1(startTime, endTime, br); break;
                         case EventType.PlaySound2: result = new Tae129_PlaySound2(startTime, endTime, br); break;
                         case EventType.PlaySound3: result = new Tae130_PlaySound3(startTime, endTime, br); break;
                         case EventType.PlaySound4: result = new Tae131_PlaySound4(startTime, endTime, br); break;
                         case EventType.PlaySound5: result = new Tae132_PlaySound5(startTime, endTime, br); break;
-                        case EventType.CreateDecal: result = new Tae137_CreateDecal(startTime, endTime, br); break;
-                        case EventType.CreateDecal_DummyPoly: result = new Tae138_CreateDecal_DummyPoly(startTime, endTime, br); break;
-                        case EventType.CreateCameraShakeSpecial: result = new Tae144_CreateCameraShakeSpecial(startTime, endTime, br); break;
-                        case EventType.CreateCameraShake: result = new Tae145_CreateCameraShake(startTime, endTime, br); break;
+                        case EventType.CreateDecal1: result = new Tae137_CreateDecal1(startTime, endTime, br); break;
+                        case EventType.CreateDecal2: result = new Tae138_CreateDecal2(startTime, endTime, br); break;
+                        case EventType.CreateDecal3: result = new Tae139_CreateDecal3(startTime, endTime, br); break;
+                        case EventType.Tae144: result = new Tae144(startTime, endTime, br); break;
+                        case EventType.Tae145: result = new Tae145(startTime, endTime, br); break;
+                        case EventType.Tae146: result = new Tae146(startTime, endTime, br); break;
+                        case EventType.Tae147: result = new Tae147(startTime, endTime, br); break;
                         case EventType.SetLockCamParam1: result = new Tae150_SetLockCamParam1(startTime, endTime, br); break;
-                        case EventType.SetLockCamParam2: result = new Tae151_SetLockCamParam2(startTime, endTime, br); break;
+                        case EventType.CameraParameters: result = new Tae151_CameraParameters(startTime, endTime, br); break;
+                        case EventType.Tae152: result = new Tae152(startTime, endTime, br); break;
+                        case EventType.Tae153: result = new Tae153(startTime, endTime, br); break;
+                        case EventType.CameraParamUnk1: result = new Tae155_CameraParamUnk1(startTime, endTime, br); break;
+                        case EventType.Tae156: result = new Tae156(startTime, endTime, br); break;
                         case EventType.Tae160: result = new Tae160(startTime, endTime, br); break;
                         case EventType.Tae161: result = new Tae161(startTime, endTime, br); break;
-                        case EventType.SetDebugFadeOut: result = new Tae192_SetDebugFadeOut(startTime, endTime, br); break;
+                        case EventType.SetDebugGhost: result = new Tae192_SetDebugGhost(startTime, endTime, br); break;
                         case EventType.FadeOut: result = new Tae193_FadeOut(startTime, endTime, br); break;
                         case EventType.Tae194: result = new Tae194(startTime, endTime, br); break;
                         case EventType.EnableBlurFeedback: result = new Tae195_EnableBlurFeedback(startTime, endTime, br); break;
                         case EventType.C_ARSN_BumpBlendDecal: result = new Tae196_C_ARSN_BumpBlendDecal(startTime, endTime, br); break;
-                        case EventType.SetGhost: result = new Tae197_SetGhost(startTime, endTime, br); break;
-                        case EventType.SetChrTurnRate: result = new Tae224_SetChrTurnRate(startTime, endTime, br); break;
-                        case EventType.ChangeSPRegen: result = new Tae225_ChangeSPRegen(startTime, endTime, br); break;
-                        case EventType.KnockbackMult: result = new Tae226_KnockbackMult(startTime, endTime, br); break;
+                        case EventType.Ghost: result = new Tae197_Ghost(startTime, endTime, br); break;
+                        case EventType.Tae224: result = new Tae224(startTime, endTime, br); break;
+                        case EventType.DisableStaminaRegen: result = new Tae225_DisableStaminaRegen(startTime, endTime, br); break;
+                        case EventType.Tae226: result = new Tae226(startTime, endTime, br); break;
                         case EventType.Tae227: result = new Tae227(startTime, endTime, br); break;
                         case EventType.RagdollReviveTime: result = new Tae228_RagdollReviveTime(startTime, endTime, br); break;
                         case EventType.CreateAISound1: result = new Tae229_CreateAISound1(startTime, endTime, br); break;
-                        case EventType.ChangeMPRegen: result = new Tae230_ChangeMPRegen(startTime, endTime, br); break;
+                        case EventType.Tae230: result = new Tae230(startTime, endTime, br); break;
                         case EventType.SetEzStateRequestId: result = new Tae231_SetEzStateRequestId(startTime, endTime, br); break;
                         case EventType.Tae232: result = new Tae232(startTime, endTime, br); break;
                         case EventType.ChangeDrawMask: result = new Tae233_ChangeDrawMask(startTime, endTime, br); break;
                         case EventType.Tae234: result = new Tae234(startTime, endTime, br); break;
                         case EventType.Tae235: result = new Tae235(startTime, endTime, br); break;
-                        case EventType.MovementReduction: result = new Tae236_MovementReduction(startTime, endTime, br); break;
+                        case EventType.RollDistanceReduction: result = new Tae236_RollDistanceReduction(startTime, endTime, br); break;
                         case EventType.CreateAISound2: result = new Tae237_CreateAISound2(startTime, endTime, br); break;
-                        case EventType.SupportJumptable: result = new Tae300_SupportJumptable(startTime, endTime, br); break;
-                        case EventType.SupportJumptableExtra: result = new Tae301_SupportJumptableExtra(startTime, endTime, br); break;
-                        case EventType.CreateSpEffectMulti: result = new Tae302_CreateSpEffectMulti(startTime, endTime, br); break;
+                        case EventType.Tae238: result = new Tae238(startTime, endTime, br); break;
+                        case EventType.Tae300: result = new Tae300(startTime, endTime, br); break;
+                        case EventType.Padding: result = new Tae301_Padding(startTime, endTime, br); break;
+                        case EventType.AddSpEffectDragonForm: result = new Tae302_AddSpEffectDragonForm(startTime, endTime, br); break;
                         case EventType.PlayAnimation: result = new Tae303_PlayAnimation(startTime, endTime, br); break;
                         case EventType.BehaviorThing: result = new Tae304_BehaviorThing(startTime, endTime, br); break;
-                        case EventType.ExtraSaDurabilityMult: result = new Tae305_ExtraSaDurabilityMult(startTime, endTime, br); break;
+                        case EventType.Tae305: result = new Tae305(startTime, endTime, br); break;
                         case EventType.Tae306: result = new Tae306(startTime, endTime, br); break;
                         case EventType.CreateBehaviorPC: result = new Tae307_CreateBehaviorPC(startTime, endTime, br); break;
                         case EventType.Tae308: result = new Tae308(startTime, endTime, br); break;
                         case EventType.Tae310: result = new Tae310(startTime, endTime, br); break;
                         case EventType.Tae311: result = new Tae311(startTime, endTime, br); break;
                         case EventType.Tae312: result = new Tae312(startTime, endTime, br); break;
+                        case EventType.Tae313: result = new Tae313(startTime, endTime, br); break;
                         case EventType.ActionRequest: result = new Tae320_ActionRequest(startTime, endTime, br); break;
-                        case EventType.SwordArtMpConsume: result = new Tae330_SwordArtMpConsume(startTime, endTime, br); break;
+                        case EventType.WeaponArtMpConsume: result = new Tae330_WeaponArtMpConsume(startTime, endTime, br); break;
                         case EventType.CreateSpEffect_SwordArt: result = new Tae331_CreateSpEffect_SwordArt(startTime, endTime, br); break;
                         case EventType.Tae332: result = new Tae332(startTime, endTime, br); break;
                         case EventType.CreateSpEffect: result = new Tae401_CreateSpEffect(startTime, endTime, br); break;
-                        case EventType.CreateWind: result = new Tae402_CreateWind(startTime, endTime, br); break;
+                        case EventType.Tae402: result = new Tae402(startTime, endTime, br); break;
                         case EventType.Tae500: result = new Tae500(startTime, endTime, br); break;
                         case EventType.Tae510: result = new Tae510(startTime, endTime, br); break;
                         case EventType.Tae520: result = new Tae520(startTime, endTime, br); break;
-                        case EventType.SetChrTurnRateExtra: result = new Tae521_SetChrTurnRateExtra(startTime, endTime, br); break;
+                        case EventType.Tae521: result = new Tae521(startTime, endTime, br); break;
                         case EventType.SetSpecialLockOnParameter: result = new Tae522_SetSpecialLockOnParameter(startTime, endTime, br); break;
                         case EventType.EnableBehavior: result = new Tae600_EnableBehavior(startTime, endTime, br); break;
                         case EventType.Tae601: result = new Tae601(startTime, endTime, br); break;
@@ -465,20 +566,24 @@ namespace SoulsFormats
                         case EventType.TestParam: result = new Tae604_TestParam(startTime, endTime, br); break;
                         case EventType.Tae605: result = new Tae605(startTime, endTime, br); break;
                         case EventType.Tae606: result = new Tae606(startTime, endTime, br); break;
+                        case EventType.Tae607: result = new Tae607(startTime, endTime, br); break;
                         case EventType.Tae700: result = new Tae700(startTime, endTime, br); break;
                         case EventType.EnableTurningDirection: result = new Tae703_EnableTurningDirection(startTime, endTime, br); break;
                         case EventType.Tae704: result = new Tae704(startTime, endTime, br); break;
                         case EventType.FacingAngleCorrection: result = new Tae705_FacingAngleCorrection(startTime, endTime, br); break;
                         case EventType.Tae706: result = new Tae706(startTime, endTime, br); break;
                         case EventType.Tae707: result = new Tae707(startTime, endTime, br); break;
+                        case EventType.Tae708: result = new Tae708(startTime, endTime, br); break;
                         case EventType.HideWeapon: result = new Tae710_HideWeapon(startTime, endTime, br); break;
                         case EventType.HideModelMask: result = new Tae711_HideModelMask(startTime, endTime, br); break;
                         case EventType.DamageLevelModule: result = new Tae712_DamageLevelModule(startTime, endTime, br); break;
                         case EventType.ModelMask: result = new Tae713_ModelMask(startTime, endTime, br); break;
                         case EventType.DamageLevelFunction: result = new Tae714_DamageLevelFunction(startTime, endTime, br); break;
                         case EventType.Tae715: result = new Tae715(startTime, endTime, br); break;
+                        case EventType.Tae717: result = new Tae717(startTime, endTime, br); break;
                         case EventType.CultStart: result = new Tae720_CultStart(startTime, endTime, br); break;
                         case EventType.Tae730: result = new Tae730(startTime, endTime, br); break;
+                        case EventType.Tae731: result = new Tae731(startTime, endTime, br); break;
                         case EventType.Tae740: result = new Tae740(startTime, endTime, br); break;
                         case EventType.IFrameState: result = new Tae760_IFrameState(startTime, endTime, br); break;
                         case EventType.BonePos: result = new Tae770_BonePos(startTime, endTime, br); break;
@@ -499,15 +604,46 @@ namespace SoulsFormats
                         case EventType.CeremonyParamID: result = new Tae797_CeremonyParamID(startTime, endTime, br); break;
                         case EventType.CultSingle: result = new Tae798_CultSingle(startTime, endTime, br); break;
                         case EventType.CultEmpty2: result = new Tae799_CultEmpty2(startTime, endTime, br); break;
-                        case EventType.DebugMovementMult: result = new Tae800_DebugMovementMult(startTime, endTime, br); break;
-
+                        case EventType.Tae800: result = new Tae800(startTime, endTime, br); break;
+                        case EventType.Tae900: result = new Tae900(startTime, endTime, br); break;
+                        case EventType.WireEventUnk1: result = new Tae901_WireEventUnk1(startTime, endTime, br); break;
+                        case EventType.Tae902: result = new Tae902(startTime, endTime, br); break;
+                        case EventType.Tae903: result = new Tae903(startTime, endTime, br); break;
+                        case EventType.Tae904: result = new Tae904(startTime, endTime, br); break;
+                        case EventType.Tae905: result = new Tae905(startTime, endTime, br); break;
+                        case EventType.Tae910: result = new Tae910(startTime, endTime, br); break;
+                        case EventType.Tae911: result = new Tae911(startTime, endTime, br); break;
+                        case EventType.Tae912: result = new Tae912(startTime, endTime, br); break;
+                        case EventType.Tae913: result = new Tae913(startTime, endTime, br); break;
+                        case EventType.Tae920: result = new Tae920(startTime, endTime, br); break;
+                        case EventType.Tae921: result = new Tae921(startTime, endTime, br); break;
+                        case EventType.Tae922: result = new Tae922(startTime, endTime, br); break;
+                        case EventType.Tae930: result = new Tae930(startTime, endTime, br); break;
+                        case EventType.Tae931: result = new Tae931(startTime, endTime, br); break;
+                        case EventType.Tae932: result = new Tae932(startTime, endTime, br); break;
+                        case EventType.Tae933: result = new Tae933(startTime, endTime, br); break;
+                        case EventType.Tae936: result = new Tae936(startTime, endTime, br); break;
+                        case EventType.Tae940: result = new Tae940(startTime, endTime, br); break;
+                        case EventType.Tae942: result = new Tae942(startTime, endTime, br); break;
+                        case EventType.Tae943: result = new Tae943(startTime, endTime, br); break;
+                        case EventType.Tae944: result = new Tae944(startTime, endTime, br); break;
+                        case EventType.Tae945: result = new Tae945(startTime, endTime, br); break;
+                        case EventType.Tae946: result = new Tae946(startTime, endTime, br); break;
+                        case EventType.Tae947: result = new Tae947(startTime, endTime, br); break;
+                        case EventType.Tae950: result = new Tae950(startTime, endTime, br); break;
+                        case EventType.Tae951: result = new Tae951(startTime, endTime, br); break;
+                        case EventType.Tae952: result = new Tae952(startTime, endTime, br); break;
+                        case EventType.Tae953: result = new Tae953(startTime, endTime, br); break;
+                        case EventType.Tae954: result = new Tae954(startTime, endTime, br); break;
+                        case EventType.Tae960: result = new Tae960(startTime, endTime, br); break;
+                        case EventType.Tae970: result = new Tae970(startTime, endTime, br); break;
                         default:
-                            throw new NotImplementedException();
+                            throw new NotImplementedException("Event type " + typeInt + " not implemented.");
                     }
 
                     if (result.Type != type)
                     {
-                        throw new InvalidProgramException("There is a typo in TAE3.Event.cs. Please bully me.");
+                        throw new InvalidProgramException("There is a typo in TAE3.Event.cs. (typeInt == " + typeInt + ")");
                     }
                 }
                 br.StepOut();
@@ -524,126 +660,39 @@ namespace SoulsFormats
                 public override EventType Type => EventType.JumpTable;
 
                 public int JumpTableID { get; set; }
-                public int Extra1 { get; set; }
-                public int Extra2 { get; set; }
-                public byte Extra3 { get; set; }
-                public byte Extra4 { get; set; }
-                public short Extra5 { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; } //Extra Argument
+                public short Unk0C { get; set; } //Extra Argument
+                public short Unk0E { get; set; }
 
                 /* Jumptable Enum
-                 1 = ?,
-                 3 = SetIsGuard, //+ Extra2
-                 4 = ?,
-                 5 = SetIsStartbit10, //+ Extra3
-                 6 = SetIs?,
-                 7 = SetIsStartbit11,
-                 8 = SetIsDodge,
-                 9 = ?,
-                 10 = ?,
-                 11 = ?,
-                 14 = Set?Bool,
-                 15 = Set?,
-                 16 = Set?,
-                 17 = SetIsStartbit8,
-                 18 = SetIsStartbit3,
-                 19 = Set?,
-                 20 = Set?,
-                 21 = Set?,
-                 22 = Set?,
-                 23 = Set?Bool,
-                 24 = Set?,
-                 25 = ActionRequest?,
-                 26 = ActionRequest?,
-                 27 = Set?,
-                 28 = ResetSomething?,
-                 29 = ActionRequest_Hks?,
-                 30 = ActionRequest?,
-                 31 = ActionRequest?,
-                 32 = ActionRequest_Set?,
-                 34 = Set?,
-                 35 = SetBool?,
-                 36 = SetBool?,
-                 37 = Set?,
-                 38 = Set?,
-                 39 = Set?,
-                 40 = Set?,
-                 41 = SetStartbit7,
-                 42 = SetStartbit11,
-                 43 = Set?,
-                 44 = Set?,
-                 49 = Set?,
-                 50 = Set?,
-                 51 = Set?,
-                 52 = Set?,
-                 53 = Set?,
-                 54 = WeirdCall,
-                 55 = Set?,
-                 56 = SetStartbit13,
-                 57 = SetStartbit14,
-                 58 = SetStartbit6,
-                 59 = SetStartbit12,
-                 60 = SetBool32_0x7C,
-                 61 = SetBool32_0x7C,
-                 62 = SetYAxisAutoRot_AndUnk,
-                 63 = SetBool32_0x7C,
-                 64 = SetBool32_0x7C,
-                 65 = SetBool32_0x7C,
-                 66 = SetBool32_0x7C,
-                 67 = SetStartbit5,
-                 68 = SetStartbit4,
-                 69 = SetBool32_0x9C8,
-                 70 = SetBool32_0x9C8,
-                 71 = SetBool32_0x7C,
-                 72 = SetStartbit9, // + Extra1
-                 73 = SetBool32_0x7C,
-                 74 = SetBool32_0x7C,
-                 75 = SetBool32_0x7C,
-                 78 = SetBool32_0x78,
-                 79 = SetBool32_0x1E0,
-                 80 = SetBool32_0x7C,
-                 81 = SetBool32_0x7C,
-                 82 = SetBool32_0x7C,
-                 83 = SetBool32_0x7C,
-                 84 = SetBool32_0x7C,
-                 85 = SetBool32_0x7C,
-                 86 = SetBool32_0x1E0,
-                 87 = ActionRequest,
-                 88 = SetBool32_0x7C_And_0x1A09,
-                 89 = 0x4F4_Set3,
-                 90 = 0x4F4_Set2,
-                 91 = 0x4F4_Set1,
-                 92 = SetBool32_0x7C,
-                 94 = SetStartbit0,
-                 95 = CallFunction, //0x00000001409A40EA
-                 96 = SetBool32_0x80_Startbit1,
-                 97 = SetTrue_0xE7,
-                 98 = SetBool32_0x7C,
-                 99 = SetStartbit16,
-                 100 = SetStartbit17,
-                 101 = SetStartbit18,
-                 102 = SetStartbit21,
-                 103 = ActionRequest,
-                 104 = Set_0x10_Startbit6,
-                 105 = ActionRequest,
-                 106 = Set_0x10_Startbit6,
-                 107 = CheckGoodsParam, //0x00000001409A3BB1
-                 108 = CheckGoodsParam, //0x00000001409A3ACF
-                 109 = SetStartbit_val0x10000000,
-                 110 = SetStartbit_val0x0000001000000000,
-                 111 = ActionRequest,
-                 112 = ActionRequest,
-                 113 = SetStartbit_val0x0000004000000000,
-                 114 = SetStartbit_val0x0000008000000000,
-                 115 = ActionRequest,
-                 116 = ActionRequest,
-                 117 = ActionRequest,
-                 118 = ActionRequest,
-                 119 = SetStartbit_val0x0000040000000000,
-                 120 = WeirdShit, //0x00000001409A35E7
-                 121 = WeirdShit,
-                 122 = SetBool32_0x1E0,
-                 123 = SetBool32_0x1E0,
-                 124 = SetStartbit_val0x0000400000000000,
+                 1 = Action Request,
+                 3 = State_ShieldBlock,
+                 4 = Action Request,
+                 5 - State_Unk1,
+                 6 = State_Unk2,
+                 7 = State_Unk3,
+                 8 = State_EnableRollIFrames,
+                 9 = Action Request,
+                 10 = Action Request,
+                 11 = Action Request,
+                 14 = Set Boolean to true,
+                 15 = Set Some Values,
+                 16 = Action Request,
+                 17 = State_Unk4,
+                 18 = State_Unk5,
+                 19 = State_Unk6,
+                 20 = State_Unk7,
+                 21 = Action Request,
+                 22 = Action Request,
+                 23 = Set Some Value,
+                 24 = State_unk8,
+                 25 = Action Request,
+                 26 = Action Request,
+                 27 = State_Unk9,
+                 28 = Set Value,
+                 ...
+                 124 = State_UnkX
                  */
 
                 public Tae000_JumpTable(float startTime, float endTime) : base(startTime, endTime)
@@ -654,21 +703,19 @@ namespace SoulsFormats
                 internal Tae000_JumpTable(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     JumpTableID = br.ReadInt32();
-                    Extra1 = br.ReadInt32();
-                    Extra2 = br.ReadInt32();
-                    Extra3 = br.ReadByte();
-                    Extra4 = br.ReadByte();
-                    Extra5 = br.ReadInt16();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32();
+                    Unk0C = br.ReadInt16();
+                    Unk0E = br.ReadInt16();
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
                     bw.WriteInt32(JumpTableID);
-                    bw.WriteInt32(Extra1);
-                    bw.WriteInt32(Extra2);
-                    bw.WriteByte(Extra3);
-                    bw.WriteByte(Extra4);
-                    bw.WriteInt16(Extra5);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteInt16(Unk0C);
+                    bw.WriteInt16(Unk0E);
                 }
 
                 public override string ToString()
@@ -677,43 +724,43 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae001_CreateBehaviorAttack : Event // 001
+            public class Tae001 : Event // 001
             {
-                public override EventType Type => EventType.CreateBehaviorAttack;
+                public override EventType Type => EventType.Tae001;
 
                 public int Unk00 { get; set; }
                 public int Unk04 { get; set; }
-                public int BehaviorSubId { get; set; }
-                public byte DirectionType { get; set; }
+                public int Condition { get; set; }
+                public byte Unk0C { get; set; }
                 public byte Unk0D { get; set; }
                 public short StateInfo { get; set; }
 
-                public Tae001_CreateBehaviorAttack(float startTime, float endTime) : base(startTime, endTime)
+                public Tae001(float startTime, float endTime) : base(startTime, endTime)
                 {
                     Unk00 = 0;
                     Unk04 = 0;
-                    BehaviorSubId = 0;
-                    DirectionType = 0;
+                    Condition = 0;
+                    Unk0C = 0;
                     Unk0D = 0;
                     StateInfo = 0;
                 }
 
-                public Tae001_CreateBehaviorAttack(float startTime, float endTime, int unk00, int unk04, int behaviorSubId, byte directionType, byte unk0D, short stateInfo) : base(startTime, endTime)
+                public Tae001(float startTime, float endTime, int unk00, int unk04, int condition, byte unk0C, byte unk0D, short stateInfo) : base(startTime, endTime)
                 {
                     Unk00 = unk00;
                     Unk04 = unk04;
-                    BehaviorSubId = behaviorSubId;
-                    DirectionType = directionType;
+                    Condition = condition;
+                    Unk0C = unk0C;
                     Unk0D = unk0D;
                     StateInfo = stateInfo;
                 }
 
-                internal Tae001_CreateBehaviorAttack(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae001(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     Unk00 = br.ReadInt32();
                     Unk04 = br.ReadInt32();
-                    BehaviorSubId = br.ReadInt32();
-                    DirectionType = br.ReadByte();
+                    Condition = br.ReadInt32();
+                    Unk0C = br.ReadByte();
                     Unk0D = br.ReadByte();
                     StateInfo = br.ReadInt16();
                 }
@@ -722,53 +769,99 @@ namespace SoulsFormats
                 {
                     bw.WriteInt32(Unk00);
                     bw.WriteInt32(Unk04);
-                    bw.WriteInt32(BehaviorSubId);
-                    bw.WriteByte(DirectionType);
+                    bw.WriteInt32(Condition);
+                    bw.WriteByte(Unk0C);
                     bw.WriteByte(Unk0D);
                     bw.WriteInt16(StateInfo);
                 }
             }
 
-            public class Tae002_CreateBehaviorProjectile : Event // 002
+            public class Tae002 : Event // 002
             {
-                public override EventType Type => EventType.CreateBehaviorProjectile;
+                public override EventType Type => EventType.Tae002;
 
-                public int DummypolyId { get; set; }
+                public int Unk00 { get; set; }
                 public int Unk04 { get; set; }
-                public int BehaviorSubId { get; set; }
-                public byte AttachmentType { get; set; }
-                public bool IsEnable { get; set; }
-                public short StateInfo { get; set; }
-                public short Offset { get; set; }
+                public int ChrAsmStyle { get; set; }
+                public byte Unk0C { get; set; }
+                public byte Unk0D { get; set; }
+                public ushort Unk0E { get; set; }
+                public ushort Unk10 { get; set; }
 
-                public Tae002_CreateBehaviorProjectile(float startTime, float endTime) : base(startTime, endTime)
+                public Tae002(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae002_CreateBehaviorProjectile(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae002(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    DummypolyId = br.ReadInt32();
+                    Unk00 = br.ReadInt32();
                     Unk04 = br.ReadInt32();
-                    BehaviorSubId = br.ReadInt32();
-                    AttachmentType = br.ReadByte();
-                    IsEnable = br.ReadBoolean();
-                    StateInfo = br.ReadInt16();
-                    Offset = br.ReadInt16();
+                    ChrAsmStyle = br.ReadInt32();
+                    Unk0C = br.ReadByte();
+                    Unk0D = br.ReadByte();
+                    Unk0E = br.ReadUInt16();
+                    Unk10 = br.ReadUInt16();
                     br.AssertInt16(0);
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(DummypolyId);
+                    bw.WriteInt32(Unk00);
                     bw.WriteInt32(Unk04);
-                    bw.WriteInt32(BehaviorSubId);
-                    bw.WriteByte(AttachmentType);
-                    bw.WriteBoolean(IsEnable);
-                    bw.WriteInt16(StateInfo);
-                    bw.WriteInt16(Offset);
+                    bw.WriteInt32(ChrAsmStyle);
+                    bw.WriteByte(Unk0C);
+                    bw.WriteByte(Unk0D);
+                    bw.WriteUInt16(Unk0E);
+                    bw.WriteUInt16(Unk10);
                     bw.WriteInt16(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae004 : Event // 004
+            {
+                public override EventType Type => EventType.Tae004;
+
+                public int Unk00 { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; }
+                public byte Unk0C { get; set; }
+                public bool Unk0D { get; set; }
+                public short Unk0E { get; set; }
+                public short Unk10 { get; set; }
+
+                public Tae004(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae004(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32();
+                    Unk0C = br.ReadByte();
+                    Unk0D = br.ReadBoolean();
+                    Unk0E = br.ReadInt16();
+                    Unk10 = br.ReadInt16();
+                    br.AssertInt16(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteByte(Unk0C);
+                    bw.WriteBoolean(Unk0D);
+                    bw.WriteInt16(Unk0E);
+                    bw.WriteInt16(Unk10);
+                    bw.WriteInt16(0);
+                    bw.WriteInt32(0);
                     bw.WriteInt32(0);
                 }
             }
@@ -842,21 +935,21 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae024_AnimationQueue : Event // Useless
+            public class Tae024 : Event // Useless
             {
-                public override EventType Type => EventType.AnimationQueue;
+                public override EventType Type => EventType.Tae024;
 
                 public int Unk00 { get; set; }
                 public int Unk04 { get; set; }
                 public int Unk08 { get; set; }
                 public int Unk0C { get; set; }
 
-                public Tae024_AnimationQueue(float startTime, float endTime) : base(startTime, endTime)
+                public Tae024(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae024_AnimationQueue(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae024(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     Unk00 = br.ReadInt32();
                     Unk04 = br.ReadInt32();
@@ -873,44 +966,44 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae032_SetShealthMode : Event // for c0000
+            public class Tae032_SwitchWeapon1 : Event // 032
             {
-                public override EventType Type => EventType.SetShealthMode;
+                public override EventType Type => EventType.SwitchWeapon1;
 
-                public int ShealthId { get; set; } //2 - WeaponShealth, 3 - 2 Hand Mode
+                public int SwitchState { get; set; }
 
-                public Tae032_SetShealthMode(float startTime, float endTime) : base(startTime, endTime)
+                public Tae032_SwitchWeapon1(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae032_SetShealthMode(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae032_SwitchWeapon1(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    ShealthId = br.ReadInt32();
+                    SwitchState = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(ShealthId);
+                    bw.WriteInt32(SwitchState);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae033_SwitchWeapon : Event // for c0000
+            public class Tae033_SwitchWeapon2 : Event // 033
             {
-                public override EventType Type => EventType.SwitchWeapon;
+                public override EventType Type => EventType.SwitchWeapon2;
 
-                public int WeaponSlotId { get; set; }
+                public int SwitchState { get; set; }
 
-                public Tae033_SwitchWeapon(float startTime, float endTime) : base(startTime, endTime)
+                public Tae033_SwitchWeapon2(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae033_SwitchWeapon(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae033_SwitchWeapon2(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    WeaponSlotId = br.ReadInt32();
+                    SwitchState = br.ReadInt32();
                     br.AssertInt32(0);
                     br.AssertInt32(0);
                     br.AssertInt32(0);
@@ -918,14 +1011,14 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(WeaponSlotId);
+                    bw.WriteInt32(SwitchState);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae034 : Event // 034 set to 0 for main weapon slots
+            public class Tae034 : Event // 034
             {
                 public override EventType Type => EventType.Tae034;
 
@@ -953,7 +1046,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae035 : Event // 035 set to 1 for main weapon slots
+            public class Tae035 : Event // 035
             {
                 public override EventType Type => EventType.Tae035;
 
@@ -981,9 +1074,9 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae064_CastSelectedSpell : Event // 064
+            public class Tae064 : Event // 064
             {
-                public override EventType Type => EventType.CastSelectedSpell;
+                public override EventType Type => EventType.Tae064;
 
                 public int Unk00 { get; set; }
                 public ushort Unk04 { get; set; }
@@ -993,12 +1086,12 @@ namespace SoulsFormats
                 public byte Unk0A { get; set; }
                 public byte Unk0B { get; set; }
 
-                public Tae064_CastSelectedSpell(float startTime, float endTime) : base(startTime, endTime)
+                public Tae064(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae064_CastSelectedSpell(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae064(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     Unk00 = br.ReadInt32();
                     Unk04 = br.ReadUInt16();
@@ -1023,25 +1116,25 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae065_ConsumeSelectedItem : Event // 065
+            public class Tae065 : Event // 065
             {
-                public override EventType Type => EventType.ConsumeSelectedItem;
+                public override EventType Type => EventType.Tae065;
 
                 public int Unk00 { get; set; }
-                public byte HandIndexId { get; set; }
+                public byte Unk04 { get; set; }
                 public byte Unk05 { get; set; }
                 public ushort Unk06 { get; set; }
                 public int Unk08 { get; set; }
 
-                public Tae065_ConsumeSelectedItem(float startTime, float endTime) : base(startTime, endTime)
+                public Tae065(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae065_ConsumeSelectedItem(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae065(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     Unk00 = br.ReadInt32();
-                    HandIndexId = br.ReadByte();
+                    Unk04 = br.ReadByte();
                     Unk05 = br.ReadByte();
                     Unk06 = br.ReadUInt16();
                     Unk08 = br.ReadInt32();
@@ -1051,7 +1144,7 @@ namespace SoulsFormats
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
                     bw.WriteInt32(Unk00);
-                    bw.WriteByte(HandIndexId);
+                    bw.WriteByte(Unk04);
                     bw.WriteByte(Unk05);
                     bw.WriteUInt16(Unk06);
                     bw.WriteInt32(Unk08);
@@ -1060,23 +1153,23 @@ namespace SoulsFormats
             }
 
             // During attack
-            public class Tae066_CreateBehaviorSpEffectMulti : Event // 066 || With Extra Multiplayer check
+            public class Tae066_CreateBehaviorSpEffect1 : Event // 066
             {
-                public override EventType Type => EventType.CreateBehaviorSpEffectMulti;
+                public override EventType Type => EventType.CreateBehaviorSpEffect1;
 
                 public int SpEffectID { get; set; }
 
-                public Tae066_CreateBehaviorSpEffectMulti(float startTime, float endTime) : base(startTime, endTime)
+                public Tae066_CreateBehaviorSpEffect1(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                public Tae066_CreateBehaviorSpEffectMulti(float startTime, float endTime, int speffectID) : base(startTime, endTime)
+                public Tae066_CreateBehaviorSpEffect1(float startTime, float endTime, int speffectID) : base(startTime, endTime)
                 {
                     SpEffectID = speffectID;
                 }
 
-                internal Tae066_CreateBehaviorSpEffectMulti(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae066_CreateBehaviorSpEffect1(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     SpEffectID = br.ReadInt32();
                     br.AssertInt32(0);
@@ -1090,19 +1183,19 @@ namespace SoulsFormats
             }
 
             // During roll
-            public class Tae067_CreateBehaviorSpEffect : Event // 067
+            public class Tae067_CreateBehaviorSpEffect2 : Event // 067
             {
-                public override EventType Type => EventType.CreateBehaviorSpEffect;
+                public override EventType Type => EventType.CreateBehaviorSpEffect2;
 
                 public int SpEffectID { get; set; }
 
-                public Tae067_CreateBehaviorSpEffect(float startTime, float endTime) : base(startTime, endTime)
+                public Tae067_CreateBehaviorSpEffect2(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
 
-                internal Tae067_CreateBehaviorSpEffect(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae067_CreateBehaviorSpEffect2(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     SpEffectID = br.ReadInt32();
                     br.AssertInt32(0);
@@ -1115,93 +1208,93 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae095_PlayFFX_Weapon_Ember : Event // play ffx? || For Weapon || Spawns Sfx only once
+            public class Tae095 : Event // play ffx?
             {
-                public override EventType Type => EventType.PlayFFX_Weapon_Ember;
+                public override EventType Type => EventType.Tae095;
 
                 public int FFXID { get; set; }
-                public int DummyPolyId { get; set; } //Supports Multiply Dummypolys
-                public int TimerNumber { get; set; } //most likely always -1
-                public bool IsIgnoreDummypolyAngle { get; set; }
-                public bool IsFollowDummypoly { get; set; }
-                public bool IsRestrictToDummypoly { get; set; }
-                public byte ExtraSpawnCondition { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; }
+                public sbyte State0 { get; set; }
+                public sbyte State1 { get; set; }
+                public sbyte GhostFFXCondition { get; set; }
+                public byte Unk0F { get; set; }
 
-                public Tae095_PlayFFX_Weapon_Ember(float startTime, float endTime) : base(startTime, endTime)
+                public Tae095(float startTime, float endTime) : base(startTime, endTime)
                 {
-                    
+
                 }
 
-                internal Tae095_PlayFFX_Weapon_Ember(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae095(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     FFXID = br.ReadInt32();
-                    DummyPolyId = br.ReadInt32();
-                    TimerNumber = br.ReadInt32();
-                    IsIgnoreDummypolyAngle = br.ReadBoolean();
-                    IsFollowDummypoly = br.ReadBoolean();
-                    IsRestrictToDummypoly = br.ReadBoolean();
-                    ExtraSpawnCondition = br.ReadByte();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32();
+                    State0 = br.ReadSByte();
+                    State1 = br.ReadSByte();
+                    GhostFFXCondition = br.ReadSByte();
+                    Unk0F = br.ReadByte();
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
                     bw.WriteInt32(FFXID);
-                    bw.WriteInt32(DummyPolyId);
-                    bw.WriteInt32(TimerNumber);
-                    bw.WriteBoolean(IsIgnoreDummypolyAngle);
-                    bw.WriteBoolean(IsFollowDummypoly);
-                    bw.WriteBoolean(IsRestrictToDummypoly);
-                    bw.WriteByte(ExtraSpawnCondition);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteSByte(State0);
+                    bw.WriteSByte(State1);
+                    bw.WriteSByte(GhostFFXCondition);
+                    bw.WriteByte(Unk0F);
                 }
             }
 
-            public class Tae096_PlayFFX_Weapon : Event // 096 For Weapon multiply dummypolys || Spawns Sfx only once
+            public class Tae096_PlayFFX : Event // 096
             {
-                public override EventType Type => EventType.PlayFFX_Weapon;
+                public override EventType Type => EventType.PlayFFX;
 
                 public int FFXID { get; set; }
-                public int DummyPolyId { get; set; }
-                public int TimerNumber { get; set; }
-                public bool IsIgnoreDummypolyAngle { get; set; }
-                public bool IsSfxFollow { get; set; }
-                public bool IsRestrictToDummypoly { get; set; }
-                public byte ExtraSpawnCondition { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; }
+                public sbyte State0 { get; set; }
+                public sbyte State1 { get; set; }
+                public sbyte GhostFFXCondition { get; set; }
+                public byte Unk0F { get; set; }
 
-                public Tae096_PlayFFX_Weapon(float startTime, float endTime) : base(startTime, endTime)
+                public Tae096_PlayFFX(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae096_PlayFFX_Weapon(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae096_PlayFFX(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     FFXID = br.ReadInt32();
-                    DummyPolyId = br.ReadInt32();
-                    TimerNumber = br.ReadInt32();
-                    IsIgnoreDummypolyAngle = br.ReadBoolean();
-                    IsSfxFollow = br.ReadBoolean();
-                    IsRestrictToDummypoly = br.ReadBoolean();
-                    ExtraSpawnCondition = br.ReadByte();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32();
+                    State0 = br.ReadSByte();
+                    State1 = br.ReadSByte();
+                    GhostFFXCondition = br.ReadSByte();
+                    Unk0F = br.ReadByte();
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
                     bw.WriteInt32(FFXID);
-                    bw.WriteInt32(DummyPolyId);
-                    bw.WriteInt32(TimerNumber);
-                    bw.WriteBoolean(IsIgnoreDummypolyAngle);
-                    bw.WriteBoolean(IsSfxFollow);
-                    bw.WriteBoolean(IsRestrictToDummypoly);
-                    bw.WriteByte(ExtraSpawnCondition);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteSByte(State0);
+                    bw.WriteSByte(State1);
+                    bw.WriteSByte(GhostFFXCondition);
+                    bw.WriteByte(Unk0F);
                 }
             }
 
-            public class Tae099 : Event // 99 || Spawns Sfx at specific dummypoly || Spawns every miliseconds if delay hasnt been set
+            public class Tae099 : Event // 99
             {
                 public override EventType Type => EventType.Tae099;
 
-                public int FFXID { get; set; }
-                public int DummyPolyId { get; set; }
-                public int TimerNumber { get; set; }
+                public int Unk1 { get; set; }
+                public int Unk2 { get; set; }
+                public int Unk3 { get; set; }
 
                 public Tae099(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -1210,85 +1303,77 @@ namespace SoulsFormats
 
                 internal Tae099(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    FFXID = br.ReadInt32();
-                    DummyPolyId = br.ReadInt32();
-                    TimerNumber = br.ReadInt32();
+                    Unk1 = br.ReadInt32();
+                    Unk2 = br.ReadInt32();
+                    Unk3 = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(FFXID);
-                    bw.WriteInt32(DummyPolyId);
-                    bw.WriteInt32(TimerNumber);
+                    bw.WriteInt32(Unk1);
+                    bw.WriteInt32(Unk2);
+                    bw.WriteInt32(Unk3);
                     bw.WriteInt32(0);
                 }
             }
-			
-			//TAE 100
-			//TAE 101
-			//TAE 104
-			//TAE 108
-			//TAE 109
 
-            public class Tae110_PlayFFX_Default : Event // 110 || Plays Ffx
+            public class Tae110 : Event // 110
             {
-                public override EventType Type => EventType.PlayFFX_Default;
+                public override EventType Type => EventType.Tae110;
 
-                public int FFXID { get; set; }
+                public int ID { get; set; }
 
-                //default dummypoly -1
-                //default delay 65536
-
-                public Tae110_PlayFFX_Default(float startTime, float endTime) : base(startTime, endTime)
+                public Tae110(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae110_PlayFFX_Default(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae110(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    FFXID = br.ReadInt32();
+                    ID = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(FFXID);
+                    bw.WriteInt32(ID);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae112_PlayFootFFX : Event // 112
+            public class Tae112_HitEffect : Event // 112
             {
-                public override EventType Type => EventType.PlayFootFFX;
+                public override EventType Type => EventType.HitEffect;
 
-                public int FootSfxParamIndex { get; set; }
-                public int FfxSize { get; set; }
+                public int Size { get; set; }
+                public int Unk04 { get; set; }
                 public int Unk08 { get; set; }
 
-                public Tae112_PlayFootFFX(float startTime, float endTime) : base(startTime, endTime)
+                public Tae112_HitEffect(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae112_PlayFootFFX(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae112_HitEffect(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    FootSfxParamIndex = br.ReadInt32();
-                    FfxSize = br.ReadInt32();
+                    Size = br.ReadInt32();
+                    Unk04 = br.ReadInt32();
+
                     Unk08 = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(FootSfxParamIndex);
-                    bw.WriteInt32(FfxSize);
+                    bw.WriteInt32(Size);
+                    bw.WriteInt32(Unk04);
                     bw.WriteInt32(Unk08);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae113 : Event // 113 || Startbit ?
+            public class Tae113 : Event // 113
             {
                 public override EventType Type => EventType.Tae113;
 
@@ -1310,210 +1395,204 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae114_PlayFFX_ItemsAndMagic : Event // 114 || Magic / Casting / Activating / Effecting Items Whether to activate SFX
+            public class Tae114 : Event // 114
             {
-                public override EventType Type => EventType.PlayFFX_ItemsAndMagic;
+                public override EventType Type => EventType.Tae114;
 
-                //Different 115, Can be spawned multiply times during animation
-                //0x0 not used anymore
-                public int Unused;
-                public short CStyleType { get; set; } // 0, 1, 2 || I give it better name in future
-                public ushort DummyPolyId { get; set; } //0x1446297E0 values for flver data?
-                public int TimerNumber { get; set; } //might be a timer
-                public bool IsIgnoreDummypolyAngle { get; set; } //not sure here
-                public byte ParamType { get; set; } // 0 - MagicParam, 1 - EquipGoodsParam
-                public byte SfxIndexId { get; set; } // { 0,1,2 } || Chooses different field in EquipGoods/Magic param based on id
-                public bool IsSfxFollow { get; set; }
-                public bool IsRestrictToDummypoly { get; set; } //not sure here
-                public byte TimerId { get; set; } //0 - Default, 1 - UseTimer with default time, 2 - Timer without default time
+                public int Unk00 { get; set; }
+                public ushort Unk04 { get; set; }
+                public ushort Unk06 { get; set; }
+                public int Unk08 { get; set; }
+                public byte Unk0C { get; set; }
+                public sbyte Unk0D { get; set; }
+                public sbyte Unk0E { get; set; }
+                public byte Unk0F { get; set; }
+                public byte Unk10 { get; set; }
+                public byte Unk11 { get; set; }
+                public short Unk12 { get; set; }
 
-                public Tae114_PlayFFX_ItemsAndMagic(float startTime, float endTime) : base(startTime, endTime)
+
+                public Tae114(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae114_PlayFFX_ItemsAndMagic(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+
+                internal Tae114(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    Unused = br.ReadInt32();
-                    CStyleType = br.ReadInt16();
-                    DummyPolyId = br.ReadUInt16();
-                    TimerNumber = br.ReadInt32();
-                    IsIgnoreDummypolyAngle = br.ReadBoolean();
-                    ParamType = br.ReadByte();
-                    SfxIndexId = br.ReadByte();
-                    IsSfxFollow = br.ReadBoolean();
-                    IsRestrictToDummypoly = br.ReadBoolean();
-                    TimerId = br.ReadByte();
-                    br.AssertInt16(0);
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadUInt16();
+                    Unk06 = br.ReadUInt16();
+                    Unk08 = br.ReadInt32();
+                    Unk0C = br.ReadByte();
+                    Unk0D = br.ReadSByte();
+                    Unk0E = br.ReadSByte();
+                    Unk0F = br.ReadByte();
+                    Unk10 = br.ReadByte();
+                    Unk11 = br.ReadByte();
+                    Unk12 = br.ReadInt16();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(Unused);
-                    bw.WriteInt16(CStyleType);
-                    bw.WriteUInt16(DummyPolyId);
-                    bw.WriteInt32(TimerNumber);
-                    bw.WriteBoolean(IsIgnoreDummypolyAngle);
-                    bw.WriteByte(ParamType);
-                    bw.WriteByte(SfxIndexId);
-                    bw.WriteBoolean(IsSfxFollow);
-                    bw.WriteBoolean(IsRestrictToDummypoly);
-                    bw.WriteByte(TimerId);
-                    bw.WriteInt16(0);
+                    bw.WriteInt32(Unk00);
+                    bw.WriteUInt16(Unk04);
+                    bw.WriteUInt16(Unk06);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteByte(Unk0C);
+                    bw.WriteSByte(Unk0D);
+                    bw.WriteSByte(Unk0E);
+                    bw.WriteByte(Unk0F);
+                    bw.WriteByte(Unk10);
+                    bw.WriteByte(Unk11);
+                    bw.WriteInt16(Unk12);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae115_PlayFFX_ItemsAndMagic_Extra : Event // 115 || Magic / Casting / Activating / Effecting Items Whether to activate SFX
+            public class Tae115 : Event // 115
             {
-                public override EventType Type => EventType.PlayFFX_ItemsAndMagic_Extra;
+                public override EventType Type => EventType.Tae115;
 
-                //Different from Tae114, spawned only once animation fired
-
-                //0x0 not used anymore
-                public int Unused;
-                public short CStyleType { get; set; } // 0, 1, 2 || I give it better name in future
-                public ushort DummyPolyId { get; set; } //0x1446297E0 values for flver data?
-                public int TimerNumber { get; set; } //might be a timer
-                public bool IsIgnoreDummypolyAngle { get; set; } //not sure here
-                public byte ParamType { get; set; } // 0 - MagicParam, 1 - EquipGoodsParam
-                public byte SfxIndexId { get; set; } // { 0,1,2 } || Chooses different field in EquipGoods/Magic param based on id
-                public bool IsSfxFollow { get; set; }
-                public bool IsRestrictToDummypoly { get; set; } //not sure here
-                public byte TimerId { get; set; } //0 - Default, 1 - UseTimer with default time, 2 - Timer without default time
+                public int Unk00 { get; set; }
+                public ushort Unk04 { get; set; }
+                public ushort Unk06 { get; set; }
+                public int Unk08 { get; set; }
+                public byte Unk0C { get; set; }
+                public byte Unk0D { get; set; }
+                public byte Unk0E { get; set; }
+                public byte Unk0F { get; set; }
+                public byte Unk10 { get; set; }
+                public byte Unk11 { get; set; }
+                public short Unk12 { get; set; }
 
 
-                public Tae115_PlayFFX_ItemsAndMagic_Extra(float startTime, float endTime) : base(startTime, endTime)
+                public Tae115(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
 
-                internal Tae115_PlayFFX_ItemsAndMagic_Extra(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae115(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    Unused = br.ReadInt32();
-                    CStyleType = br.ReadInt16();
-                    DummyPolyId = br.ReadUInt16();
-                    TimerNumber = br.ReadInt32();
-                    IsIgnoreDummypolyAngle = br.ReadBoolean();
-                    ParamType = br.ReadByte();
-                    SfxIndexId = br.ReadByte();
-                    IsSfxFollow = br.ReadBoolean();
-                    IsRestrictToDummypoly = br.ReadBoolean();
-                    TimerId = br.ReadByte();
-                    br.AssertInt16(0);
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadUInt16();
+                    Unk06 = br.ReadUInt16();
+                    Unk08 = br.ReadInt32();
+                    Unk0C = br.ReadByte();
+                    Unk0D = br.ReadByte();
+                    Unk0E = br.ReadByte();
+                    Unk0F = br.ReadByte();
+                    Unk10 = br.ReadByte();
+                    Unk11 = br.ReadByte();
+                    Unk12 = br.ReadInt16();
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(Unused);
-                    bw.WriteInt16(CStyleType);
-                    bw.WriteUInt16(DummyPolyId);
-                    bw.WriteInt32(TimerNumber);
-                    bw.WriteBoolean(IsIgnoreDummypolyAngle);
-                    bw.WriteByte(ParamType);
-                    bw.WriteByte(SfxIndexId);
-                    bw.WriteBoolean(IsSfxFollow);
-                    bw.WriteBoolean(IsRestrictToDummypoly);
-                    bw.WriteByte(TimerId);
-                    bw.WriteInt16(0);
+                    bw.WriteInt32(Unk00);
+                    bw.WriteUInt16(Unk04);
+                    bw.WriteUInt16(Unk06);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteByte(Unk0C);
+                    bw.WriteByte(Unk0D);
+                    bw.WriteByte(Unk0E);
+                    bw.WriteByte(Unk0F);
+                    bw.WriteByte(Unk10);
+                    bw.WriteByte(Unk11);
+                    bw.WriteInt16(Unk12);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae116_PlayFFX_Throw : Event // 116 copy of 119?
+            public class Tae116 : Event // 116
             {
-                public override EventType Type => EventType.PlayFFX_Throw;
+                public override EventType Type => EventType.Tae116;
 
-                public int FFXID { get; set; } // FFXID = FFXID + ThrowDirectionSfxParamId
-                public int DummyPolyId { get; set; }
-                public int RepeatType { get; set; } //0 - PlayOnce, 1 - PlayTwice
-                public bool IsRepeat { get; set; } //bool
+                public int Unk00 { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; }
+                public int Unk0C { get; set; }
 
-                //Fromsoftware forgets to clean up their shit :)))
-                public byte MemeFromValue1;
-                public byte MemeFromValue2;
-                public byte MemeFromValue3;
 
-                public Tae116_PlayFFX_Throw(float startTime, float endTime) : base(startTime, endTime)
+                public Tae116(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae116_PlayFFX_Throw(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+
+                internal Tae116(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    FFXID = br.ReadInt32();
-                    DummyPolyId = br.ReadInt32();
-                    RepeatType = br.ReadInt32();
-                    IsRepeat = br.ReadBoolean();
-                    MemeFromValue1 = br.ReadByte();
-                    MemeFromValue2 = br.ReadByte();
-                    MemeFromValue3 = br.ReadByte();
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32();
+                    Unk0C = br.ReadInt32();
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(FFXID);
-                    bw.WriteInt32(DummyPolyId);
-                    bw.WriteInt32(RepeatType);
-                    bw.WriteBoolean(IsRepeat);
-                    bw.WriteByte(MemeFromValue1);
-                    bw.WriteByte(MemeFromValue2);
-                    bw.WriteByte(MemeFromValue3);    
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteInt32(Unk0C);
                 }
             }
 
-            public class Tae117_PlayFFX_ThrowDirection : Event // 117 ThrowDirectionSfxParam
+            public class Tae117 : Event // 117
             {
-                public override EventType Type => EventType.PlayFFX_ThrowDirection;
+                public override EventType Type => EventType.Tae117;
 
-                public int ThrowDirectionSfxIndex { get; set; } //ThrowDirectionSfxIndex 0 - 31
-                public int DummyPolyId { get; set; }
-                public int TimerNumber { get; set; }
-                public bool IsIgnoreDummypolyAngle { get; set; }
-                public bool IsSfxFollow { get; set; }
-                public bool IsRestrictToDummypoly { get; set; }
-                public byte ExtraSpawnCondition { get; set; }
+                public int Unk00 { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; }
+                public byte Unk0C { get; set; }
+                public byte Unk0D { get; set; }
+                public byte Unk0E { get; set; }
+                public byte Unk0F { get; set; }
 
-                public Tae117_PlayFFX_ThrowDirection(float startTime, float endTime) : base(startTime, endTime)
+                public Tae117(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
 
-                internal Tae117_PlayFFX_ThrowDirection(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae117(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    ThrowDirectionSfxIndex = br.ReadInt32();
-                    DummyPolyId = br.ReadInt32();
-                    TimerNumber = br.ReadInt32();
-                    IsIgnoreDummypolyAngle = br.ReadBoolean();
-                    IsSfxFollow = br.ReadBoolean();
-                    IsRestrictToDummypoly = br.ReadBoolean();
-                    ExtraSpawnCondition = br.ReadByte();
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32(); // -1
+                    Unk0C = br.ReadByte();
+                    Unk0D = br.ReadByte();
+                    Unk0E = br.ReadByte();
+                    Unk0F = br.ReadByte();
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(ThrowDirectionSfxIndex);
-                    bw.WriteInt32(DummyPolyId);
-                    bw.WriteInt32(TimerNumber);
-                    bw.WriteBoolean(IsIgnoreDummypolyAngle);
-                    bw.WriteBoolean(IsSfxFollow);
-                    bw.WriteBoolean(IsRestrictToDummypoly);
-                    bw.WriteByte(ExtraSpawnCondition);
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteByte(Unk0C);
+                    bw.WriteByte(Unk0D);
+                    bw.WriteByte(Unk0E);
+                    bw.WriteByte(Unk0F);
                 }
             }
 
-            public class Tae118 : Event // 118 || For Spin Attack?
+            public class Tae118 : Event // 118
             {
                 public override EventType Type => EventType.Tae118;
 
-                public int FFXID { get; set; } //Sfx
-                public ushort Unk04 { get; set; } // CsStyleType	 { 1,2,3 }
-                public short DummyPolyID1 { get; set; } //dummypoly
-                public short DummyPolyID2 { get; set; } //dummypoly
+                public int Unk00 { get; set; }
+                public ushort Unk04 { get; set; }
+                public ushort Unk06 { get; set; }
+                public ushort Unk08 { get; set; }
                 public ushort Unk0A { get; set; }
 
 
@@ -1525,33 +1604,33 @@ namespace SoulsFormats
 
                 internal Tae118(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    FFXID = br.ReadInt32();
+                    Unk00 = br.ReadInt32();
                     Unk04 = br.ReadUInt16();
-                    DummyPolyID1 = br.ReadInt16();
-                    DummyPolyID2 = br.ReadInt16();
+                    Unk06 = br.ReadUInt16();
+                    Unk08 = br.ReadUInt16();
                     Unk0A = br.ReadUInt16();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(FFXID);
+                    bw.WriteInt32(Unk00);
                     bw.WriteUInt16(Unk04);
-                    bw.WriteInt16(DummyPolyID1);
-                    bw.WriteInt16(DummyPolyID2);
+                    bw.WriteUInt16(Unk06);
+                    bw.WriteUInt16(Unk08);
                     bw.WriteUInt16(Unk0A);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae119 : Event //Play FFX For Reinforced Weapon?
+            public class Tae119 : Event // 119
             {
                 public override EventType Type => EventType.Tae119;
 
-                public int FFXID { get; set; }
-                public int DummyPolyId { get; set; }
-                public int RepeatType { get; set; } //0 - PlayOnce, 1 - PlayTwice
-                public bool IsRepeat { get; set; } //bool
+                public int Unk00 { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; }
+                public byte Unk0C { get; set; }
 
 
                 public Tae119(float startTime, float endTime) : base(startTime, endTime)
@@ -1562,10 +1641,10 @@ namespace SoulsFormats
 
                 internal Tae119(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    FFXID = br.ReadInt32();
-                    DummyPolyId = br.ReadInt32();
-                    RepeatType = br.ReadInt32();
-                    IsRepeat = br.ReadBoolean(); // 0
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32();
+                    Unk0C = br.ReadByte(); // 0
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -1573,60 +1652,40 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(FFXID);
-                    bw.WriteInt32(DummyPolyId);
-                    bw.WriteInt32(RepeatType);
-                    bw.WriteBoolean(IsRepeat);
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteByte(Unk0C);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                 }
             }
 
-            public class Tae120_PlayFFX_ChrType : Event // 120 || Play ffx
+            public class Tae120 : Event // 120
             {
-                public override EventType Type => EventType.PlayFFX_ChrType;
+                public override EventType Type => EventType.Tae120;
 
-                public int FFXID_MAIN { get; set; } //always plays
-                public int FFXID_GreyGhost { get; set; }
-                public int FFXID_WhiteGhost { get; set; } //0x8
-                public int FFXID_BlackGhost { get; set; } //0xC
-                public int FFXID_WhiteGhost_Sun { get; set; } //0x10
-                public int FFXID_BlackGhost_Sun { get; set; } //0x14
-                public int FFXID_WhiteGhost_Berserker { get; set; } //0x18
-                public int FFXID_BlackGhost_Berserker { get; set; } //0x1C
-                public int FFXID_WhiteGhost_DarkmoonAlter { get; set; } //0x20
-                public int FFXID_WhiteGhost_Darkmoon { get; set; } //0x24
-                public int FFXID_BlackGhost_FarronWolf { get; set; } //0x28
-                public int FFXID_BlackGhost_Aldrich { get; set; } //0x2C
-                public int DummyPolyID { get; set; }
-                public int TimerId { get; set; } //TimerId
-                public bool IsRepeat { get; set; }
+                public int ChrType { get; set; }
+                public int[] FFXIDs { get; private set; }
+                public int Unk30 { get; set; }
+                public int Unk34 { get; set; }
+                public byte Unk38 { get; set; }
 
 
-                public Tae120_PlayFFX_ChrType(float startTime, float endTime) : base(startTime, endTime)
+                public Tae120(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
 
-                internal Tae120_PlayFFX_ChrType(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae120(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    FFXID_MAIN = br.ReadInt32();
-                    FFXID_GreyGhost = br.ReadInt32();
-                    FFXID_WhiteGhost = br.ReadInt32();
-                    FFXID_BlackGhost = br.ReadInt32();
-                    FFXID_WhiteGhost_Sun = br.ReadInt32();
-                    FFXID_BlackGhost_Sun = br.ReadInt32();
-                    FFXID_WhiteGhost_Berserker = br.ReadInt32();
-                    FFXID_BlackGhost_Berserker = br.ReadInt32();
-                    FFXID_WhiteGhost_DarkmoonAlter = br.ReadInt32();
-                    FFXID_WhiteGhost_Darkmoon = br.ReadInt32();
-                    FFXID_BlackGhost_FarronWolf = br.ReadInt32();
-                    FFXID_BlackGhost_Aldrich = br.ReadInt32();
-                    DummyPolyID = br.ReadInt32();
-                    TimerId = br.ReadInt32();
-                    IsRepeat = br.ReadBoolean();
+                    ChrType = br.ReadInt32();
+                    FFXIDs = br.ReadInt32s(11);
+                    Unk30 = br.ReadInt32();
+                    Unk34 = br.ReadInt32();
+                    Unk38 = br.ReadByte();
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -1635,21 +1694,11 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(FFXID_MAIN);
-                    bw.WriteInt32(FFXID_GreyGhost);
-                    bw.WriteInt32(FFXID_WhiteGhost);
-                    bw.WriteInt32(FFXID_BlackGhost);
-                    bw.WriteInt32(FFXID_WhiteGhost_Sun);
-                    bw.WriteInt32(FFXID_BlackGhost_Sun);
-                    bw.WriteInt32(FFXID_WhiteGhost_Berserker);
-                    bw.WriteInt32(FFXID_BlackGhost_Berserker);
-                    bw.WriteInt32(FFXID_WhiteGhost_DarkmoonAlter);
-                    bw.WriteInt32(FFXID_WhiteGhost_Darkmoon);
-                    bw.WriteInt32(FFXID_BlackGhost_FarronWolf);
-                    bw.WriteInt32(FFXID_BlackGhost_Aldrich);
-                    bw.WriteInt32(DummyPolyID);
-                    bw.WriteInt32(TimerId);
-                    bw.WriteBoolean(IsRepeat);
+                    bw.WriteInt32(ChrType);
+                    bw.WriteInt32s(FFXIDs);
+                    bw.WriteInt32(Unk30);
+                    bw.WriteInt32(Unk34);
+                    bw.WriteByte(Unk38);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
@@ -1663,8 +1712,8 @@ namespace SoulsFormats
 
                 public int FFXId { get; set; }
                 public short DummyPolyId { get; set; }
-                public bool Unk06 { get; set; } //bool
-                public byte Unk07 { get; set; } //byte : 0, 1
+                public byte SpType { get; set; }
+                public byte Unk07 { get; set; }
 
 
                 public Tae121(float startTime, float endTime) : base(startTime, endTime)
@@ -1677,7 +1726,7 @@ namespace SoulsFormats
                 {
                     FFXId = br.ReadInt32();
                     DummyPolyId = br.ReadInt16();
-                    Unk06 = br.ReadBoolean();
+                    SpType = br.ReadByte();
                     Unk07 = br.ReadByte();
                     br.AssertInt32(0);
                     br.AssertInt32(0);
@@ -1687,40 +1736,40 @@ namespace SoulsFormats
                 {
                     bw.WriteInt32(FFXId);
                     bw.WriteInt16(DummyPolyId);
-                    bw.WriteBoolean(Unk06);
+                    bw.WriteByte(SpType);
                     bw.WriteByte(Unk07);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae122_PlayFFX_SpEffect : Event // 122
+            public class Tae122_PlayFFXIfSpEffect : Event // 122
             {
-                public override EventType Type => EventType.PlayFFX_SpEffect;
+                public override EventType Type => EventType.PlayFFXIfSpEffect;
 
                 public int FFXId { get; set; }
                 public short DummyPolyId { get; set; }
                 public short Unk3 { get; set; }
                 public byte Unk4 { get; set; }
                 public bool IsEnable { get; set; }
-                public short SpEffectID { get; set; } //for compare
+                public short CompareSpEffectId { get; set; }
                 public byte Unk7 { get; set; }
 
 
-                public Tae122_PlayFFX_SpEffect(float startTime, float endTime) : base(startTime, endTime)
+                public Tae122_PlayFFXIfSpEffect(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
 
-                internal Tae122_PlayFFX_SpEffect(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae122_PlayFFXIfSpEffect(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     FFXId = br.ReadInt32();
                     DummyPolyId = br.ReadInt16();
                     Unk3 = br.ReadInt16();
                     Unk4 = br.ReadByte();
                     IsEnable = br.ReadBoolean();
-                    SpEffectID = br.ReadInt16();
+                    CompareSpEffectId = br.ReadInt16();
                     Unk7 = br.ReadByte();
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -1734,15 +1783,15 @@ namespace SoulsFormats
                     bw.WriteInt16(Unk3);
                     bw.WriteByte(Unk4);
                     bw.WriteBoolean(IsEnable);
-                    bw.WriteInt16(SpEffectID);
+                    bw.WriteInt16(CompareSpEffectId);
                     bw.WriteByte(Unk7);
-                    bw.WriteByte(0);	
+                    bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                 }
             }
 
-            public class Tae128_PlaySound1 : Event // 128 Default
+            public class Tae128_PlaySound1 : Event // 128
             {
                 public override EventType Type => EventType.PlaySound1;
 
@@ -1769,7 +1818,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae129_PlaySound2 : Event // 129 Default
+            public class Tae129_PlaySound2 : Event // 129
             {
                 public override EventType Type => EventType.PlaySound2;
 
@@ -1777,7 +1826,7 @@ namespace SoulsFormats
                 public int SoundID { get; set; }
                 public int Unk08 { get; set; }
                 public int Unk0C { get; set; }
-                public short StateInfo { get; set; }
+                public int Unk10 { get; set; }
 
 
                 public Tae129_PlaySound2(float startTime, float endTime) : base(startTime, endTime)
@@ -1791,8 +1840,7 @@ namespace SoulsFormats
                     SoundID = br.ReadInt32();
                     Unk08 = br.ReadInt32();
                     Unk0C = br.ReadInt32();
-                    StateInfo = br.ReadInt16();
-					br.AssertInt16(0);
+                    Unk10 = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
@@ -1802,13 +1850,12 @@ namespace SoulsFormats
                     bw.WriteInt32(SoundID);
                     bw.WriteInt32(Unk08);
                     bw.WriteInt32(Unk0C);
-                    bw.WriteInt16(StateInfo);
-					bw.WriteInt16(0);
+                    bw.WriteInt32(Unk10);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae130_PlaySound3 : Event // 130 Gender Based
+            public class Tae130_PlaySound3 : Event // 130
             {
                 public override EventType Type => EventType.PlaySound3;
 
@@ -1816,6 +1863,8 @@ namespace SoulsFormats
                 public int SoundID { get; set; }
                 public float Unk08 { get; set; }
                 public float Unk0C { get; set; }
+                public byte Unk10 { get; set; }
+                public byte Unk11 { get; set; }
 
 
                 public Tae130_PlaySound3(float startTime, float endTime) : base(startTime, endTime)
@@ -1829,7 +1878,9 @@ namespace SoulsFormats
                     SoundID = br.ReadInt32();
                     Unk08 = br.ReadSingle();
                     Unk0C = br.ReadSingle(); // int -1
-                    br.AssertInt32(0);
+                    Unk10 = br.ReadByte();
+                    Unk11 = br.ReadByte();
+                    br.AssertInt16(0);
                     br.AssertInt32(0);
                 }
 
@@ -1839,12 +1890,14 @@ namespace SoulsFormats
                     bw.WriteInt32(SoundID);
                     bw.WriteSingle(Unk08);
                     bw.WriteSingle(Unk0C);
-                    bw.WriteInt32(0);
+                    bw.WriteByte(Unk10);
+                    bw.WriteByte(Unk11);
+                    bw.WriteInt16(0);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae131_PlaySound4 : Event // 131 Default
+            public class Tae131_PlaySound4 : Event // 131
             {
                 public override EventType Type => EventType.PlaySound4;
 
@@ -1875,12 +1928,13 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae132_PlaySound5 : Event // 132 Default (Weapon Based)
+            public class Tae132_PlaySound5 : Event // 132
             {
                 public override EventType Type => EventType.PlaySound5;
 
                 public int SoundType { get; set; }
                 public int SoundID { get; set; }
+
 
                 public Tae132_PlaySound5(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -1904,18 +1958,18 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae137_CreateDecal : Event // 137
+            public class Tae137_CreateDecal1 : Event // 137
             {
-                public override EventType Type => EventType.CreateDecal;
+                public override EventType Type => EventType.CreateDecal1;
 
                 public int DecalParamID { get; set; }
 
-                public Tae137_CreateDecal(float startTime, float endTime) : base(startTime, endTime)
+                public Tae137_CreateDecal1(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae137_CreateDecal(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae137_CreateDecal1(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     DecalParamID = br.ReadInt32();
                     br.AssertInt32(0);
@@ -1928,23 +1982,23 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae138_CreateDecal_DummyPoly : Event // 138
+            public class Tae138_CreateDecal2 : Event // 138
             {
-                public override EventType Type => EventType.CreateDecal_DummyPoly;
+                public override EventType Type => EventType.CreateDecal2;
 
                 public int DecalParamID { get; set; }
-                public int dummyPolyId { get; set; } //Overwrites dummypoly from decal param
+                public int FlverParameterId { get; set; }
 
 
-                public Tae138_CreateDecal_DummyPoly(float startTime, float endTime) : base(startTime, endTime)
+                public Tae138_CreateDecal2(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae138_CreateDecal_DummyPoly(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae138_CreateDecal2(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     DecalParamID = br.ReadInt32();
-                    dummyPolyId = br.ReadInt32();
+                    FlverParameterId = br.ReadInt32();
                     br.AssertInt32(0);
                     br.AssertInt32(0);
                 }
@@ -1952,30 +2006,71 @@ namespace SoulsFormats
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
                     bw.WriteInt32(DecalParamID);
-                    bw.WriteInt32(dummyPolyId);
+                    bw.WriteInt32(FlverParameterId);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae144_CreateCameraShakeSpecial : Event // 144 (Based on Camera Angle (0x2 = 1, 0x4 = 5.0, 0x8 = 3.0))
+            public class Tae139_CreateDecal3 : Event // 138
             {
-                public override EventType Type => EventType.CreateCameraShakeSpecial;
+                public override EventType Type => EventType.CreateDecal3;
 
-                public ushort RumbleId { get; set; }
+                public int DecalParamID { get; set; }
+                public short Unk04 { get; set; }
+                public short Unk06 { get; set; }
+                public short Unk08 { get; set; }
+                public short Unk0A { get; set; }
+                public short Unk0C { get; set; }
+                public short Unk0E { get; set; }
+
+
+                public Tae139_CreateDecal3(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae139_CreateDecal3(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    DecalParamID = br.ReadInt32();
+                    Unk04 = br.ReadInt16();
+                    Unk06 = br.ReadInt16();
+                    Unk08 = br.ReadInt16();
+                    Unk0A = br.ReadInt16();
+                    Unk0C = br.ReadInt16();
+                    Unk0E = br.ReadInt16();
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(DecalParamID);
+                    bw.WriteInt16(Unk04);
+                    bw.WriteInt16(Unk06);
+                    bw.WriteInt16(Unk08);
+                    bw.WriteInt16(Unk0A);
+                    bw.WriteInt16(Unk0C);
+                    bw.WriteInt16(Unk0E);
+                }
+            }
+
+            public class Tae144 : Event // 144
+            {
+                public override EventType Type => EventType.Tae144;
+
+                public ushort Unk00 { get; set; }
                 public ushort Unk02 { get; set; }
                 public float Unk04 { get; set; }
                 public float Unk08 { get; set; }
 
 
-                public Tae144_CreateCameraShakeSpecial(float startTime, float endTime) : base(startTime, endTime)
+                public Tae144(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae144_CreateCameraShakeSpecial(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae144(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    RumbleId = br.ReadUInt16();
+                    Unk00 = br.ReadUInt16();
                     Unk02 = br.ReadUInt16();
                     Unk04 = br.ReadSingle();
                     Unk08 = br.ReadSingle();
@@ -1984,7 +2079,7 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteUInt16(RumbleId);
+                    bw.WriteUInt16(Unk00);
                     bw.WriteUInt16(Unk02);
                     bw.WriteSingle(Unk04);
                     bw.WriteSingle(Unk08);
@@ -1992,30 +2087,120 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae145_CreateCameraShake : Event // 145
+            public class Tae145 : Event // 145
             {
-                public override EventType Type => EventType.CreateCameraShake;
+                public override EventType Type => EventType.Tae145;
 
-                public short IfOnGroundCheck { get; set; }
-                public short RumbleId { get; set; }
+                public short Unk00 { get; set; }
+                public short Condition { get; set; }
+                public bool Unk04 { get; set; }
+                public int Unk08 { get; set; }
 
-                public Tae145_CreateCameraShake(float startTime, float endTime) : base(startTime, endTime)
+                public Tae145(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae145_CreateCameraShake(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae145(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    IfOnGroundCheck = br.ReadInt16();
-                    RumbleId = br.ReadInt16();
+                    Unk00 = br.ReadInt16();
+                    Condition = br.ReadInt16();
+                    Unk04 = br.ReadBoolean();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    Unk08 = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt16(IfOnGroundCheck);
-                    bw.WriteInt16(RumbleId);
+                    bw.WriteInt16(Unk00);
+                    bw.WriteInt16(Condition);
+                    bw.WriteBoolean(Unk04);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(Unk08);
                     bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae146 : Event // 146
+            {
+                public override EventType Type => EventType.Tae146;
+
+                public short Unk00 { get; set; }
+                public short Condition { get; set; }
+                public bool Unk04 { get; set; }
+
+                public Tae146(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae146(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt16();
+                    Condition = br.ReadInt16();
+                    Unk04 = br.ReadBoolean();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt16(Unk00);
+                    bw.WriteInt16(Condition);
+                    bw.WriteBoolean(Unk04);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae147 : Event // 147
+            {
+                public override EventType Type => EventType.Tae147;
+
+                public short Unk00 { get; set; }
+                public short Unk02 { get; set; }
+                public float Unk04 { get; set; }
+                public float Unk08 { get; set; }
+                public bool Unk0C { get; set; }
+
+                public Tae147(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae147(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt16();
+                    Unk02 = br.ReadInt16();
+                    Unk04 = br.ReadSingle();
+                    Unk08 = br.ReadSingle();
+                    Unk0C = br.ReadBoolean();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt16(Unk00);
+                    bw.WriteInt16(Unk02);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteSingle(Unk08);
+                    bw.WriteBoolean(Unk0C);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
                 }
             }
 
@@ -2047,20 +2232,148 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae151_SetLockCamParam2 : Event // 151
+            public class Tae151_CameraParameters : Event // 151
             {
-                public override EventType Type => EventType.SetLockCamParam2;
+                public override EventType Type => EventType.CameraParameters;
 
-                public int LockCamParamId { get; set; }
+                public int Unk00 { get; set; }
+                public float Unk04 { get; set; }
+                public float Unk08 { get; set; }
+                public float Unk0C { get; set; }
+                public float Unk10 { get; set; }
+                public float Unk14 { get; set; }
+                public float Unk18 { get; set; }
+                public float Unk1C { get; set; }
 
-                public Tae151_SetLockCamParam2(float startTime, float endTime) : base(startTime, endTime)
+                public Tae151_CameraParameters(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae151_SetLockCamParam2(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae151_CameraParameters(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    LockCamParamId = br.ReadInt32();
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadSingle();
+                    Unk08 = br.ReadSingle();
+                    Unk0C = br.ReadSingle();
+                    Unk10 = br.ReadSingle();
+                    Unk14 = br.ReadSingle();
+                    Unk18 = br.ReadSingle();
+                    Unk1C = br.ReadSingle();
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteSingle(Unk08);
+                    bw.WriteSingle(Unk0C);
+                    bw.WriteSingle(Unk10);
+                    bw.WriteSingle(Unk14);
+                    bw.WriteSingle(Unk18);
+                    bw.WriteSingle(Unk1C);
+                }
+            }
+
+            public class Tae152 : Event // 152
+            {
+                public override EventType Type => EventType.Tae152;
+
+                public int Unk00 { get; set; }
+                public float Unk04 { get; set; }
+                public float Unk08 { get; set; }
+                public float Unk0C { get; set; }
+
+                public Tae152(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae152(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadSingle();
+                    Unk08 = br.ReadSingle();
+                    Unk0C = br.ReadSingle();
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteSingle(Unk08);
+                    bw.WriteSingle(Unk0C);
+                }
+            }
+
+            public class Tae153 : Event // 153
+            {
+                public override EventType Type => EventType.Tae153;
+
+                public float Unk00 { get; set; }
+                public float Unk04 { get; set; }
+                public float Unk08 { get; set; }
+                public float Unk0C { get; set; }
+                public byte Unk10 { get; set; }
+                public bool Unk11 { get; set; }
+                public int pad1;
+                public int pad2;
+                public int pad3;
+
+                public Tae153(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae153(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadSingle();
+                    Unk04 = br.ReadSingle();
+                    Unk08 = br.ReadSingle();
+                    Unk0C = br.ReadSingle();
+                    Unk10 = br.ReadByte();
+                    Unk11 = br.ReadBoolean();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    pad1 = br.ReadInt32();
+                    pad2 = br.ReadInt32();
+                    pad3 = br.ReadInt32();
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteSingle(Unk00);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteSingle(Unk08);
+                    bw.WriteSingle(Unk0C);
+                    bw.WriteByte(Unk10);
+                    bw.WriteBoolean(Unk11);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(pad1);
+                    bw.WriteInt32(pad2);
+                    bw.WriteInt32(pad3);
+                }
+            }
+
+            public class Tae155_CameraParamUnk1 : Event // 155
+            {
+                public override EventType Type => EventType.CameraParamUnk1;
+
+                public byte CameraParamUnk00 { get; set; }
+
+                public Tae155_CameraParamUnk1(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae155_CameraParamUnk1(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    CameraParamUnk00 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
                     br.AssertInt32(0);
                     br.AssertInt32(0);
                     br.AssertInt32(0);
@@ -2068,14 +2381,53 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(LockCamParamId);
+                    bw.WriteByte(CameraParamUnk00);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae160 : Event //Startbit 33
+            public class Tae156 : Event // 155
+            {
+                public override EventType Type => EventType.Tae156;
+
+                public float Unk00 { get; set; }
+                public float Unk04 { get; set; }
+                public int Unk08 { get; set; }
+                public bool Unk0C { get; set; }
+                public byte Unk0D { get; set; }
+
+                public Tae156(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae156(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadSingle();
+                    Unk04 = br.ReadSingle();
+                    Unk08 = br.ReadInt32();
+                    Unk0C = br.ReadBoolean();
+                    Unk0D = br.ReadByte();
+                    br.AssertInt16(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteSingle(Unk00);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteBoolean(Unk0C);
+                    bw.WriteByte(Unk0D);
+                    bw.WriteInt16(0);
+                }
+            }
+
+            public class Tae160 : Event
             {
                 public override EventType Type => EventType.Tae160;
 
@@ -2101,7 +2453,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae161 : Event // Startbit 34
+            public class Tae161 : Event // 161
             {
                 public override EventType Type => EventType.Tae161;
 
@@ -2127,31 +2479,31 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae192_SetDebugFadeOut : Event // 192 || Fade Out Event
+            public class Tae192_SetDebugGhost : Event // 193
             {
-                public override EventType Type => EventType.SetDebugFadeOut;
+                public override EventType Type => EventType.SetDebugGhost;
 
-                public float FadeOut { get; set; }
+                public float Ghost { get; set; }
 
-                public Tae192_SetDebugFadeOut(float startTime, float endTime) : base(startTime, endTime)
+                public Tae192_SetDebugGhost(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae192_SetDebugFadeOut(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae192_SetDebugGhost(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    FadeOut = br.ReadSingle();
+                    Ghost = br.ReadSingle();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteSingle(FadeOut);
+                    bw.WriteSingle(Ghost);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae193_FadeOut : Event // 193 || + Time 0x1409A4F4D 
+            public class Tae193_FadeOut : Event // 193
             {
                 public override EventType Type => EventType.FadeOut;
 
@@ -2176,13 +2528,13 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae194 : Event // Torch Debug String Event
+            public class Tae194 : Event // Torch
             {
                 public override EventType Type => EventType.Tae194;
 
                 public ushort Unk00 { get; set; }
                 public ushort Unk02 { get; set; }
-                public ushort StringIndex { get; set; }
+                public ushort Unk04 { get; set; }
                 public ushort Unk06 { get; set; }
                 public float Unk08 { get; set; }
 
@@ -2195,7 +2547,7 @@ namespace SoulsFormats
                 {
                     Unk00 = br.ReadUInt16();
                     Unk02 = br.ReadUInt16();
-                    StringIndex = br.ReadUInt16();
+                    Unk04 = br.ReadUInt16();
                     Unk06 = br.ReadUInt16();
                     Unk08 = br.ReadSingle();
                     br.AssertInt32(0);
@@ -2205,14 +2557,14 @@ namespace SoulsFormats
                 {
                     bw.WriteUInt16(Unk00);
                     bw.WriteUInt16(Unk02);
-                    bw.WriteUInt16(StringIndex);
+                    bw.WriteUInt16(Unk04);
                     bw.WriteUInt16(Unk06);
                     bw.WriteSingle(Unk08);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae195_EnableBlurFeedback : Event 
+            public class Tae195_EnableBlurFeedback : Event
             {
                 public override EventType Type => EventType.EnableBlurFeedback;
 
@@ -2234,7 +2586,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae196_C_ARSN_BumpBlendDecal : Event //MTD material debug string event
+            public class Tae196_C_ARSN_BumpBlendDecal : Event
             {
                 public override EventType Type => EventType.C_ARSN_BumpBlendDecal;
 
@@ -2279,19 +2631,19 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae197_SetGhost : Event // 194 || Fade out Event + Flag
+            public class Tae197_Ghost : Event // 194
             {
-                public override EventType Type => EventType.SetGhost;
+                public override EventType Type => EventType.Ghost;
 
                 public float GhostMain { get; set; }
                 public float GhostSub { get; set; }
 
-                public Tae197_SetGhost(float startTime, float endTime) : base(startTime, endTime)
+                public Tae197_Ghost(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae197_SetGhost(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae197_Ghost(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     GhostMain = br.ReadSingle();
                     GhostSub = br.ReadSingle();
@@ -2308,22 +2660,22 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae224_SetChrTurnRate : Event // TurnRate == 100 = >Smooth Character Turn Depending on Camera Angle
+            public class Tae224 : Event // 224
             {
-                public override EventType Type => EventType.SetChrTurnRate;
+                public override EventType Type => EventType.Tae224;
 
-                public float TurnRate { get; set; }
-                public bool IsLockOnCheck { get; set; }
+                public float Unk00 { get; set; }
+                public bool IsCheckForLockOnState { get; set; }
 
-                public Tae224_SetChrTurnRate(float startTime, float endTime) : base(startTime, endTime)
+                public Tae224(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae224_SetChrTurnRate(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae224(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    TurnRate = br.ReadSingle();
-                    IsLockOnCheck = br.ReadBoolean();
+                    Unk00 = br.ReadSingle();
+                    IsCheckForLockOnState = br.ReadBoolean();
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -2331,29 +2683,29 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteSingle(TurnRate);
-                    bw.WriteBoolean(IsLockOnCheck);
+                    bw.WriteSingle(Unk00);
+                    bw.WriteBoolean(IsCheckForLockOnState);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                 }
             }
 
-            public class Tae225_ChangeSPRegen : Event // 225 Stamina Regen
+            public class Tae225_DisableStaminaRegen : Event // 225
             {
-                public override EventType Type => EventType.ChangeSPRegen;
+                public override EventType Type => EventType.DisableStaminaRegen;
 
                 // "0x64 - Enables Regen Back" -Pav
-                public byte SPRegRate { get; set; }
+                public byte State { get; set; }
 
-                public Tae225_ChangeSPRegen(float startTime, float endTime) : base(startTime, endTime)
+                public Tae225_DisableStaminaRegen(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae225_ChangeSPRegen(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae225_DisableStaminaRegen(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    SPRegRate = br.ReadByte();
+                    State = br.ReadByte();
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -2362,7 +2714,7 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteByte(SPRegRate);
+                    bw.WriteByte(State);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
@@ -2370,21 +2722,21 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae226_KnockbackMult : Event // 226 || Knockback Multiplier
+            public class Tae226 : Event // 226
             {
-                public override EventType Type => EventType.KnockbackMult;
+                public override EventType Type => EventType.Tae226;
 
-                // Formula : (float) x = (byte) - > (float)x / (float)100.0
-                public byte KnockbackMult { get; set; }
+                // "x/100 Coefficient" -Pav
+                public byte State { get; set; }
 
-                public Tae226_KnockbackMult(float startTime, float endTime) : base(startTime, endTime)
+                public Tae226(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae226_KnockbackMult(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae226(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    KnockbackMult = br.ReadByte();
+                    State = br.ReadByte();
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -2393,7 +2745,7 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteByte(KnockbackMult);
+                    bw.WriteByte(State);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
@@ -2427,10 +2779,9 @@ namespace SoulsFormats
 
             public class Tae228_RagdollReviveTime : Event // 228
             {
-                //Game Code Logic : Does some math with 2 floats from event + 2 unk floats to get Revive Time 0x1409A4A40
                 public override EventType Type => EventType.RagdollReviveTime;
 
-                public float ReviveTimerExtra { get; set; }
+                public float Unk00 { get; set; }
                 public float ReviveTimer { get; set; }
 
                 public Tae228_RagdollReviveTime(float startTime, float endTime) : base(startTime, endTime)
@@ -2440,7 +2791,7 @@ namespace SoulsFormats
 
                 internal Tae228_RagdollReviveTime(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    ReviveTimerExtra = br.ReadSingle();
+                    Unk00 = br.ReadSingle();
                     ReviveTimer = br.ReadSingle();
                     br.AssertInt32(0);
                     br.AssertInt32(0);
@@ -2448,7 +2799,7 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteSingle(ReviveTimerExtra);
+                    bw.WriteSingle(Unk00);
                     bw.WriteSingle(ReviveTimer);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
@@ -2479,20 +2830,20 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae230_ChangeMPRegen : Event //Removed from ds3
+            public class Tae230 : Event
             {
-                public override EventType Type => EventType.ChangeMPRegen;
+                public override EventType Type => EventType.Tae230;
 
-                public byte MpRegRate { get; set; }
+                public byte Unk00 { get; set; }
 
-                public Tae230_ChangeMPRegen(float startTime, float endTime) : base(startTime, endTime)
+                public Tae230(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae230_ChangeMPRegen(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae230(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    MpRegRate = br.ReadByte();
+                    Unk00 = br.ReadByte();
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -2501,7 +2852,7 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteByte(MpRegRate);
+                    bw.WriteByte(Unk00);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
@@ -2512,16 +2863,6 @@ namespace SoulsFormats
             public class Tae231_SetEzStateRequestId : Event // 231
             {
                 public override EventType Type => EventType.SetEzStateRequestId;
-
-                /*
-                 * EzStateRequestId Enum:
-                0 - ?,
-                1 - ?,
-                20 - ?,
-                30 - Bonfire Lit Message,
-                40 - Lua_Warp1,
-                10000 - ?
-                */
 
                 public int EzStateRequestId { get; set; }
 
@@ -2576,7 +2917,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae233_ChangeDrawMask : Event // 233 RTTI: ChrPrimDispMask
+            public class Tae233_ChangeDrawMask : Event // 233
             {
                 public override EventType Type => EventType.ChangeDrawMask;
 
@@ -2622,7 +2963,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae235 : Event //Ragdoll mask? RTTI: ChrPrimDispMask
+            public class Tae235 : Event
             {
                 public override EventType Type => EventType.Tae235;
 
@@ -2644,24 +2985,24 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae236_MovementReduction : Event // 236
+            public class Tae236_RollDistanceReduction : Event // 236
             {
-                public override EventType Type => EventType.MovementReduction;
+                public override EventType Type => EventType.RollDistanceReduction;
 
                 public float Unk00 { get; set; }
                 public float Unk04 { get; set; }
-                public byte MovementReductionType { get; set; }
+                public bool RollType { get; set; }
 
-                public Tae236_MovementReduction(float startTime, float endTime) : base(startTime, endTime)
+                public Tae236_RollDistanceReduction(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae236_MovementReduction(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae236_RollDistanceReduction(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     Unk00 = br.ReadSingle();
                     Unk04 = br.ReadSingle();
-                    MovementReductionType = br.ReadByte();
+                    RollType = br.ReadBoolean();
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -2672,7 +3013,7 @@ namespace SoulsFormats
                 {
                     bw.WriteSingle(Unk00);
                     bw.WriteSingle(Unk04);
-                    bw.WriteByte(MovementReductionType);
+                    bw.WriteBoolean(RollType);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
@@ -2680,7 +3021,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae237_CreateAISound2 : Event // 237 Identical to CreateAiSound1 (0 difference in code)
+            public class Tae237_CreateAISound2 : Event // 237
             {
                 public override EventType Type => EventType.CreateAISound2;
 
@@ -2704,93 +3045,108 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae300_SupportJumptable : Event // 300 | Jumptable
+            public class Tae238 : Event // 238
             {
-                public override EventType Type => EventType.SupportJumptable;
+                public override EventType Type => EventType.Tae238;
 
-                public ushort JumpTableID_ActionRequest { get; set; }
-                public ushort JumpTableID_GetFloat { get; set; }
+                public int Unk00 { get; set; }
                 public float Unk04 { get; set; }
                 public float Unk08 { get; set; }
-                public short Unk0A { get; set; }
-                public ushort StateInfo { get; set; }
+                public float Unk0C { get; set; }
 
-                public Tae300_SupportJumptable(float startTime, float endTime) : base(startTime, endTime)
+                public Tae238(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae300_SupportJumptable(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae238(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    JumpTableID_ActionRequest = br.ReadUInt16();
-                    JumpTableID_GetFloat = br.ReadUInt16();
+                    Unk00 = br.ReadInt32();
                     Unk04 = br.ReadSingle();
                     Unk08 = br.ReadSingle();
-                    Unk0A = br.ReadInt16();
-                    StateInfo = br.ReadUInt16();
+                    Unk0C = br.ReadSingle();
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteUInt16(JumpTableID_ActionRequest);
-                    bw.WriteUInt16(JumpTableID_GetFloat);
+                    bw.WriteInt32(Unk00);
                     bw.WriteSingle(Unk04);
                     bw.WriteSingle(Unk08);
-                    bw.WriteInt16(Unk0A);
-                    bw.WriteUInt16(StateInfo);
+                    bw.WriteSingle(Unk0C);
                 }
             }
 
-            public class Tae301_SupportJumptableExtra : Event // 301 | Jumptable (Another Version of 300)
+            public class Tae300 : Event // 300
             {
-                public override EventType Type => EventType.SupportJumptableExtra;
+                public override EventType Type => EventType.Tae300;
 
-                public ushort JumpTableID_ActionRequest { get; set; }
-                public ushort JumpTableID_GetFloat { get; set; }
+                public short JumpTableID_ActionRequest { get; set; }
+                public short JumpTableID_GetFloat { get; set; }
                 public float Unk04 { get; set; }
                 public float Unk08 { get; set; }
-                public short Unk0A { get; set; }
-                public ushort StateInfo { get; set; }
+                public int Unk0C { get; set; }
 
-                public Tae301_SupportJumptableExtra(float startTime, float endTime) : base(startTime, endTime)
+                public Tae300(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae301_SupportJumptableExtra(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae300(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    JumpTableID_ActionRequest = br.ReadUInt16();
-                    JumpTableID_GetFloat = br.ReadUInt16();
+                    JumpTableID_ActionRequest = br.ReadInt16();
+                    JumpTableID_GetFloat = br.ReadInt16();
                     Unk04 = br.ReadSingle();
                     Unk08 = br.ReadSingle();
-                    Unk0A = br.ReadInt16();
-					StateInfo = br.ReadUInt16();
+                    Unk0C = br.ReadInt32();
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteUInt16(JumpTableID_ActionRequest);
-                    bw.WriteUInt16(JumpTableID_GetFloat);
+                    bw.WriteInt16(JumpTableID_ActionRequest);
+                    bw.WriteInt16(JumpTableID_GetFloat);
                     bw.WriteSingle(Unk04);
-					bw.WriteSingle(Unk08);
-					bw.WriteInt16(Unk0A);
-					bw.WriteUInt16(StateInfo);
+                    bw.WriteSingle(Unk08);
+                    bw.WriteInt32(Unk0C);
                 }
             }
 
-            public class Tae302_CreateSpEffectMulti : Event // 302 || With Extra Multiplayer check
+            public class Tae301_Padding : Event // 301
+            {
+                public override EventType Type => EventType.Padding;
+
+                public int pad;
+
+                public Tae301_Padding(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae301_Padding(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    pad = br.ReadInt32();
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(pad);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae302_AddSpEffectDragonForm : Event // 302
             {
                 //hardcoded argument = 0
-                public override EventType Type => EventType.CreateSpEffectMulti;
+                public override EventType Type => EventType.AddSpEffectDragonForm;
 
                 public int SpEffectID { get; set; }
 
-                public Tae302_CreateSpEffectMulti(float startTime, float endTime) : base(startTime, endTime)
+                public Tae302_AddSpEffectDragonForm(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae302_CreateSpEffectMulti(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae302_AddSpEffectDragonForm(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     SpEffectID = br.ReadInt32();
                     br.AssertInt32(0);
@@ -2860,26 +3216,27 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae305_ExtraSaDurabilityMult : Event // 303 | Multiplier for ExtraSaDurability if its > 0 | SuperArmor
+            public class Tae305 : Event // 303
             {
-                public override EventType Type => EventType.ExtraSaDurabilityMult;
+                public override EventType Type => EventType.Tae305;
 
-                public float ExtraSaDurabilityMult { get; set; }
+                public float CompareFloat { get; set; }
 
-                public Tae305_ExtraSaDurabilityMult(float startTime, float endTime) : base(startTime, endTime)
+
+                public Tae305(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae305_ExtraSaDurabilityMult(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae305(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    ExtraSaDurabilityMult = br.ReadSingle();
+                    CompareFloat = br.ReadSingle();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteSingle(ExtraSaDurabilityMult);
+                    bw.WriteSingle(CompareFloat);
                     bw.WriteInt32(0);
                 }
             }
@@ -2921,7 +3278,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae307_CreateBehaviorPC : Event // 307 //Doesnt Exist?
+            public class Tae307_CreateBehaviorPC : Event // 307
             {
                 public override EventType Type => EventType.CreateBehaviorPC;
 
@@ -2954,7 +3311,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae308 : Event // RTTI : ArrowTurnAnim
+            public class Tae308 : Event // Ragdoll ??
             {
                 public override EventType Type => EventType.Tae308;
 
@@ -2983,7 +3340,7 @@ namespace SoulsFormats
             }
 
             // "Behavior?" -Pav
-            public class Tae310 : Event // RTTI : SfxType
+            public class Tae310 : Event // 310
             {
                 public override EventType Type => EventType.Tae310;
 
@@ -3014,7 +3371,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae311 : Event // RTTI : ChrThrowDirectionSfxSlot
+            public class Tae311 : Event // 311
             {
                 public override EventType Type => EventType.Tae311;
 
@@ -3050,7 +3407,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae312 : Event // RTTI : SprjChrActionFlagModule
+            public class Tae312 : Event // 312
             {
                 public override EventType Type => EventType.Tae312;
 
@@ -3069,6 +3426,40 @@ namespace SoulsFormats
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
                     bw.WriteBytes(BehaviorMask);
+                }
+            }
+
+            public class Tae313 : Event // 313
+            {
+                public override EventType Type => EventType.Tae313;
+
+                public byte Flags { get; private set; }
+
+                public Tae313(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae313(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Flags = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(Flags);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
                 }
             }
 
@@ -3118,16 +3509,16 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae330_SwordArtMpConsume : Event // 330
+            public class Tae330_WeaponArtMpConsume : Event // 330
             {
-                public override EventType Type => EventType.SwordArtMpConsume;
+                public override EventType Type => EventType.WeaponArtMpConsume;
 
-                public Tae330_SwordArtMpConsume(float startTime, float endTime) : base(startTime, endTime)
+                public Tae330_WeaponArtMpConsume(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae330_SwordArtMpConsume(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae330_WeaponArtMpConsume(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     br.AssertInt32(0);
                     br.AssertInt32(0);
@@ -3173,7 +3564,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae332 : Event // 332 Stagger Structure Startbit
+            public class Tae332 : Event // 332
             {
                 public override EventType Type => EventType.Tae332;
 
@@ -3206,6 +3597,8 @@ namespace SoulsFormats
 
                 public int SpEffectID { get; set; }
 
+                public int pad1;
+
                 public Tae401_CreateSpEffect(float startTime, float endTime) : base(startTime, endTime)
                 {
 
@@ -3220,7 +3613,7 @@ namespace SoulsFormats
                 {
                     SpEffectID = br.ReadInt32();
                     br.AssertInt32(0);
-                    br.AssertInt32(0);
+                    pad1 = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
@@ -3228,26 +3621,26 @@ namespace SoulsFormats
                 {
                     bw.WriteInt32(SpEffectID);
                     bw.WriteInt32(0);
-                    bw.WriteInt32(0);
+                    bw.WriteInt32(pad1);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae402_CreateWind : Event
+            public class Tae402 : Event
             {
-                public override EventType Type => EventType.CreateWind;
+                public override EventType Type => EventType.Tae402;
 
-                public int WindParamId { get; set; }
+                public int Unk00 { get; set; }
                 public short Unk04 { get; set; }
 
-                public Tae402_CreateWind(float startTime, float endTime) : base(startTime, endTime)
+                public Tae402(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae402_CreateWind(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae402(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    WindParamId = br.ReadInt32();
+                    Unk00 = br.ReadInt32();
                     Unk04 = br.ReadInt16();
                     br.AssertByte(0);
                     br.AssertByte(0);
@@ -3258,7 +3651,7 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteInt32(WindParamId);
+                    bw.WriteInt32(Unk00);
                     bw.WriteInt16(Unk04);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
@@ -3268,12 +3661,12 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae500 : Event // 500 | RTTI : IgnoreHitsPartsMask | FDPChrPrimDispMask
+            public class Tae500 : Event // 500
             {
                 public override EventType Type => EventType.Tae500;
 
-                public byte MaskIndex { get; set; } //0 - 31
-                public byte FloatIndex { get; set; } //0 - (float) 0.64; 1 - (float) 0.21; 2 - (float) 0.00; 3 - (float) 0.17;
+                public byte Unk00 { get; set; } //0 - 31
+                public byte Unk01 { get; set; }
 
                 public Tae500(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -3282,8 +3675,8 @@ namespace SoulsFormats
 
                 internal Tae500(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    MaskIndex = br.ReadByte();
-                    FloatIndex = br.ReadByte();
+                    Unk00 = br.ReadByte();
+                    Unk01 = br.ReadByte();
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertInt32(0);
@@ -3291,15 +3684,15 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteByte(MaskIndex);
-                    bw.WriteByte(FloatIndex);
+                    bw.WriteByte(Unk00);
+                    bw.WriteByte(Unk01);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae510 : Event // Chr Stagger struct startbit
+            public class Tae510 : Event // Chr Stagger struct
             {
                 public override EventType Type => EventType.Tae510;
 
@@ -3325,7 +3718,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae520 : Event // 0x1409840AA
+            public class Tae520 : Event // 520
             {
                 public override EventType Type => EventType.Tae520;
 
@@ -3351,20 +3744,20 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae521_SetChrTurnRateExtra : Event // TurnRate == 100 = >Smooth Character Turn Depending on Camera Angle
+            public class Tae521 : Event
             {
-                public override EventType Type => EventType.SetChrTurnRateExtra;
+                public override EventType Type => EventType.Tae521;
 
-                public float TurnRate { get; set; }
+                public int Unk00 { get; set; }
 
-                public Tae521_SetChrTurnRateExtra(float startTime, float endTime) : base(startTime, endTime)
+                public Tae521(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae521_SetChrTurnRateExtra(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae521(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    TurnRate = br.ReadSingle();
+                    Unk00 = br.ReadInt32();
                     br.AssertInt32(0);
                     br.AssertInt32(0);
                     br.AssertInt32(0);
@@ -3372,7 +3765,7 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteSingle(TurnRate);
+                    bw.WriteInt32(Unk00);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
@@ -3431,13 +3824,14 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae601 : Event // 601 Turning speed?
+            public class Tae601 : Event // 601
             {
                 public override EventType Type => EventType.Tae601;
 
                 public int StayAnimType { get; set; } //0 - 10
                 public float Unk04 { get; set; }
                 public float Unk08 { get; set; }
+                public int Unk0C { get; set; }
 
                 public Tae601(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -3449,7 +3843,7 @@ namespace SoulsFormats
                     StayAnimType = br.ReadInt32();
                     Unk04 = br.ReadSingle();
                     Unk08 = br.ReadSingle();
-                    br.AssertInt32(0);
+                    Unk0C = br.ReadInt32();
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
@@ -3457,7 +3851,7 @@ namespace SoulsFormats
                     bw.WriteInt32(StayAnimType);
                     bw.WriteSingle(Unk04);
                     bw.WriteSingle(Unk08);
-                    bw.WriteInt32(0);
+                    bw.WriteInt32(Unk0C);
                 }
             }
 
@@ -3497,14 +3891,6 @@ namespace SoulsFormats
                 public override EventType Type => EventType.DebugAnimSpeed;
 
                 public uint AnimSpeed { get; set; }
-				
-				//Game Code Logic
-				//(uint) AnimSpeed
-				//Unk1 = (float) Unk1 - (float) Unk2
-				//(uint) > (float) AnimSpeed
-				//Unk1 = (float) Unk1 * (float) 30.00
-				//AnimSpeed = Unk1 / AnimSpeed
-				
 
                 public Tae603_DebugAnimSpeed(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -3527,13 +3913,11 @@ namespace SoulsFormats
                     bw.WriteInt32(0);
                 }
             }
-            
+
             public class Tae604_TestParam : Event
             {
                 public override EventType Type => EventType.TestParam;
-				
-				//Game Code Logic:
-				//if (0x144768F82 == 1 or 0x144768F86 == 1) then return true				
+
 
                 public Tae604_TestParam(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -3550,20 +3934,16 @@ namespace SoulsFormats
                     bw.WriteInt32(0);
                 }
             }
-            
-            
-            public class Tae605 : Event // 605 Makes your character move a bit?
+
+
+            public class Tae605 : Event // 605
             {
                 public override EventType Type => EventType.Tae605;
-				
+
                 public bool IsCompareGender { get; set; } //IsCheckGender (1 byte + 3 padding)
-				
-				//Game Code Logic:
-				//If (Gender == Man), end function ; //(Skips important part of the code
-				
-                public int TimeActEditorId { get; set; } // string Var = "TimeActEditor" + %2d(TimeActEditorId);
-                public float Unk08 { get; set; } //Main Value = Main Value - sub value
-                public float Unk0C { get; set; } //Sub value 
+                public int Unk04 { get; set; }
+                public float Unk08 { get; set; }
+                public float Unk0C { get; set; }
 
                 public Tae605(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -3576,7 +3956,7 @@ namespace SoulsFormats
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertByte(0);
-                    TimeActEditorId = br.ReadInt32();
+                    Unk04 = br.ReadInt32();
                     Unk08 = br.ReadSingle();
                     Unk0C = br.ReadSingle();
                     br.AssertInt32(0);
@@ -3591,7 +3971,7 @@ namespace SoulsFormats
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
-                    bw.WriteInt32(TimeActEditorId);
+                    bw.WriteInt32(Unk04);
                     bw.WriteSingle(Unk08);
                     bw.WriteSingle(Unk0C);
                     bw.WriteInt32(0);
@@ -3600,7 +3980,7 @@ namespace SoulsFormats
                     bw.WriteInt32(0);
                 }
             }
-            
+
 
             public class Tae606 : Event // 606 Foot Effect
             {
@@ -3637,6 +4017,37 @@ namespace SoulsFormats
                     bw.WriteInt16(Unk06);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae607 : Event
+            {
+                public override EventType Type => EventType.Tae607;
+
+                public int Unk00 { get; set; }
+                public int Unk04 { get; set; }
+                public float Unk08 { get; set; }
+                public float Unk0C { get; set; }
+
+                public Tae607(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae607(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadSingle();
+                    Unk0C = br.ReadSingle();
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteSingle(Unk08);
+                    bw.WriteSingle(Unk0C);
                 }
             }
 
@@ -3765,6 +4176,7 @@ namespace SoulsFormats
                 public override EventType Type => EventType.FacingAngleCorrection;
 
                 public float CorrectionRate { get; set; }
+                public int pad = 0;
 
                 public Tae705_FacingAngleCorrection(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -3775,7 +4187,7 @@ namespace SoulsFormats
                 {
                     CorrectionRate = br.ReadSingle();
                     br.AssertInt32(0);
-                    br.AssertInt32(0);
+                    pad = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
@@ -3783,14 +4195,14 @@ namespace SoulsFormats
                 {
                     bw.WriteSingle(CorrectionRate);
                     bw.WriteInt32(0);
-                    bw.WriteInt32(0);
+                    bw.WriteInt32(pad);
                     bw.WriteInt32(0);
                 }
             }
 
-            public class Tae706 : Event // Chr Stagger struct
+            public class Tae706 : Event // 706
             {
-                public override EventType Type => EventType.FacingAngleCorrection;
+                public override EventType Type => EventType.Tae706;
 
                 public float Unk00 { get; set; }
 
@@ -3839,6 +4251,68 @@ namespace SoulsFormats
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae708 : Event
+            {
+                public override EventType Type => EventType.Tae708;
+
+                public float Unk04 { get; set; }
+                public float Unk0C { get; set; }
+                public float Unk10 { get; set; }
+                public byte Unk14 { get; set; }
+                public float Unk18 { get; set; }
+                public float Unk1C { get; set; }
+                public float Unk20 { get; set; }
+                public float Unk24 { get; set; }
+                public int Padding1 { get; set; }
+                public int Padding2 { get; set; }
+                public int Padding3 { get; set; }
+
+                public Tae708(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae708(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    Unk04 = br.ReadSingle();
+                    br.AssertInt32(0);
+                    Unk0C = br.ReadSingle();
+                    Unk10 = br.ReadSingle();
+                    Unk14 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    Unk18 = br.ReadSingle();
+                    Unk1C = br.ReadSingle();
+                    Unk20 = br.ReadSingle();
+                    Unk24 = br.ReadSingle();
+                    Padding1 = br.ReadInt32();
+                    Padding2 = br.ReadInt32();
+                    Padding3 = br.ReadInt32();
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteInt32(0);
+                    bw.WriteSingle(Unk0C);
+                    bw.WriteSingle(Unk10);
+                    bw.WriteByte(Unk14);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteSingle(Unk18);
+                    bw.WriteSingle(Unk1C);
+                    bw.WriteSingle(Unk20);
+                    bw.WriteSingle(Unk24);
+                    bw.WriteInt32(Padding1);
+                    bw.WriteInt32(Padding2);
+                    bw.WriteInt32(Padding3);
                 }
             }
 
@@ -3994,18 +4468,17 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae715 : Event // 715 || WepAbsorpPosData at 0x140E31750
+            public class Tae715 : Event // 715
             {
                 public override EventType Type => EventType.Tae715;
 
-                public byte Unk00 { get; set; } // Index : 1-4
-                public byte Unk01 { get; set; } // Index : 1-4
-                public bool Unk02 { get; set; }
-                public bool Unk03 { get; set; }
-                public bool Unk04 { get; set; }
-                public byte Pad1;
-                public byte Pad2;
-                public byte Pad3;
+                public byte Unk00 { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; }
+                public int Unk0C { get; set; }
+                public int Unk10 { get; set; }
+                public int Unk14 { get; set; }
+                public int Unk18 { get; set; }
 
                 public Tae715(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -4015,16 +4488,48 @@ namespace SoulsFormats
                 internal Tae715(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     Unk00 = br.ReadByte();
-                    Unk01 = br.ReadByte();
-                    Unk02 = br.ReadBoolean();
-                    Unk03 = br.ReadBoolean();
-                    Unk04 = br.ReadBoolean();
-                    Pad1 = br.ReadByte();
-                    Pad2 = br.ReadByte();
-                    Pad3 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32();
+                    Unk0C = br.ReadInt32();
+                    Unk10 = br.ReadInt32();
+                    Unk14 = br.ReadInt32();
+                    Unk18 = br.ReadInt32();
                     br.AssertInt32(0);
-                    br.AssertInt32(0);
-                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(Unk00);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteInt32(Unk0C);
+                    bw.WriteInt32(Unk10);
+                    bw.WriteInt32(Unk14);
+                    bw.WriteInt32(Unk18);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae717 : Event // 717
+            {
+                public override EventType Type => EventType.Tae717;
+
+                public int Unk00 { get; set; }
+
+                public Tae717(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae717(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
                     br.AssertInt32(0);
                     br.AssertInt32(0);
                     br.AssertInt32(0);
@@ -4032,17 +4537,7 @@ namespace SoulsFormats
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteByte(Unk00);
-                    bw.WriteByte(Unk01);
-                    bw.WriteBoolean(Unk02);
-                    bw.WriteBoolean(Unk03);
-                    bw.WriteBoolean(Unk04);
-                    bw.WriteByte(Pad1);
-                    bw.WriteByte(Pad2);
-                    bw.WriteByte(Pad3);
-                    bw.WriteInt32(0);
-                    bw.WriteInt32(0);
-                    bw.WriteInt32(0);
+                    bw.WriteInt32(Unk00);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
@@ -4054,6 +4549,7 @@ namespace SoulsFormats
                 public override EventType Type => EventType.CultStart;
 
                 public byte CultType { get; set; } //0,1
+                public byte Unk01 { get; set; }
 
                 public Tae720_CultStart(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -4063,7 +4559,7 @@ namespace SoulsFormats
                 internal Tae720_CultStart(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     CultType = br.ReadByte(); // 0
-                    br.AssertByte(0);
+                    Unk01 = br.ReadByte();
                     br.AssertByte(0);
                     br.AssertByte(0);
                     br.AssertInt32(0);
@@ -4074,7 +4570,7 @@ namespace SoulsFormats
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
                     bw.WriteByte(CultType);
-                    bw.WriteByte(0);
+                    bw.WriteByte(Unk01);
                     bw.WriteByte(0);
                     bw.WriteByte(0);
                     bw.WriteInt32(0);
@@ -4089,6 +4585,7 @@ namespace SoulsFormats
 
                 public float Unk00 { get; set; }
                 public float Unk04 { get; set; }
+                public int pad = 0;
 
                 public Tae730(float startTime, float endTime) : base(startTime, endTime)
                 {
@@ -4099,7 +4596,7 @@ namespace SoulsFormats
                 {
                     Unk00 = br.ReadSingle();
                     Unk04 = br.ReadSingle();
-                    br.AssertInt32(0);
+                    pad = br.ReadInt32();
                     br.AssertInt32(0);
                 }
 
@@ -4107,6 +4604,34 @@ namespace SoulsFormats
                 {
                     bw.WriteSingle(Unk00);
                     bw.WriteSingle(Unk04);
+                    bw.WriteInt32(pad);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae731 : Event // 731
+            {
+                public override EventType Type => EventType.Tae731;
+
+                public int Unk00 { get; set; }
+
+                public Tae731(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae731(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(0);
                     bw.WriteInt32(0);
                     bw.WriteInt32(0);
                 }
@@ -4269,7 +4794,7 @@ namespace SoulsFormats
 
                 internal Tae772_BoneFixOn2(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    Unk00 = br.ReadInt32(); 
+                    Unk00 = br.ReadInt32();
                     Unk04 = br.ReadSingle();
                     Unk08 = br.ReadByte();
                     br.AssertByte(0);
@@ -4290,7 +4815,7 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae780_AddHeight : Event 
+            public class Tae780_AddHeight : Event
             {
                 public override EventType Type => EventType.AddHeight;
 
@@ -4379,7 +4904,7 @@ namespace SoulsFormats
                 public override EventType Type => EventType.SpawnChrFinderBullet;
 
                 public float DetectionRange { get; set; }
-                public int DummyPolyID { get; set; }
+                public int DummyPointID { get; set; }
                 public int BulletID { get; set; }
                 public bool IsCompareChrType { get; set; }
                 public byte TargetNum { get; set; }
@@ -4392,7 +4917,7 @@ namespace SoulsFormats
                 internal Tae785_SpawnChrFinderBullet(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
                     DetectionRange = br.ReadSingle();
-                    DummyPolyID = br.ReadInt32();
+                    DummyPointID = br.ReadInt32();
                     BulletID = br.ReadInt32();
                     IsCompareChrType = br.ReadBoolean();
                     TargetNum = br.ReadByte();
@@ -4403,7 +4928,7 @@ namespace SoulsFormats
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
                     bw.WriteSingle(DetectionRange);
-                    bw.WriteInt32(DummyPolyID);
+                    bw.WriteInt32(DummyPointID);
                     bw.WriteInt32(BulletID);
                     bw.WriteBoolean(IsCompareChrType);
                     bw.WriteByte(TargetNum);
@@ -4716,32 +5241,977 @@ namespace SoulsFormats
                 }
             }
 
-            public class Tae800_DebugMovementMult : Event // FDP DATA | Enable アニメ移動量調節を有効化するか
+            public class Tae800 : Event // FDP DATA
             {
-                public override EventType Type => EventType.DebugMovementMult;
+                public override EventType Type => EventType.Tae800;
 
-                public float MovDistanceMult { get; set; } //Movement Multiplier
-                public float CameraTurnDistanceMult { get; set; }
-                public float LadderDistanceMult { get; set; } //Y Multiplier for Ladder 
+                public float MetersPerTick { get; set; }
+                public float MetersOnTurn { get; set; }
+                public float Unk08 { get; set; }
 
-                public Tae800_DebugMovementMult(float startTime, float endTime) : base(startTime, endTime)
+                public Tae800(float startTime, float endTime) : base(startTime, endTime)
                 {
 
                 }
 
-                internal Tae800_DebugMovementMult(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                internal Tae800(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
                 {
-                    MovDistanceMult = br.ReadSingle();
-                    CameraTurnDistanceMult = br.ReadSingle();
-                    LadderDistanceMult = br.ReadSingle();
+                    MetersPerTick = br.ReadSingle();
+                    MetersOnTurn = br.ReadSingle();
+                    Unk08 = br.ReadSingle();
                     br.AssertInt32(0);
                 }
 
                 internal override void WriteSpecific(BinaryWriterEx bw)
                 {
-                    bw.WriteSingle(MovDistanceMult);
-                    bw.WriteSingle(CameraTurnDistanceMult);
-                    bw.WriteSingle(LadderDistanceMult);
+                    bw.WriteSingle(MetersPerTick);
+                    bw.WriteSingle(MetersOnTurn);
+                    bw.WriteSingle(Unk08);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae900 : Event
+            {
+                public override EventType Type => EventType.Tae900;
+
+                public float Unk00 { get; set; }
+
+                public Tae900(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae900(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadSingle();
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteSingle(Unk00);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae901_WireEventUnk1 : Event
+            {
+                public override EventType Type => EventType.WireEventUnk1;
+
+                public Tae901_WireEventUnk1(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae901_WireEventUnk1(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            
+            public class Tae902 : Event
+            {
+                public override EventType Type => EventType.Tae902;
+
+                public Tae902(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae902(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae903 : Event
+            {
+                public override EventType Type => EventType.Tae903;
+
+                public int Unk00 { get; set; }
+
+                public Tae903(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae903(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae904 : Event
+            {
+                public override EventType Type => EventType.Tae904;
+
+                public Tae904(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae904(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae905 : Event
+            {
+                public override EventType Type => EventType.Tae905;
+
+                public Tae905(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae905(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae910 : Event
+            {
+                public override EventType Type => EventType.Tae910;
+
+                public Tae910(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae910(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae911 : Event
+            {
+                public override EventType Type => EventType.Tae911;
+
+                public Tae911(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae911(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae912 : Event
+            {
+                public override EventType Type => EventType.Tae912;
+
+                public Tae912(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae912(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae913 : Event
+            {
+                public override EventType Type => EventType.Tae913;
+
+                public Tae913(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae913(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae920 : Event
+            {
+                public override EventType Type => EventType.Tae920;
+
+                public int Unk00 { get; set; }
+
+                public Tae920(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae920(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae921 : Event
+            {
+                public override EventType Type => EventType.Tae921;
+
+                public byte Unk00 { get; set; }
+                public int Unk04 { get; set; }
+
+                public Tae921(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae921(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    Unk04 = br.ReadInt32();
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(Unk00);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae922 : Event
+            {
+                public override EventType Type => EventType.Tae922;
+
+                public int Unk00 { get; set; }
+                public byte Unk04 { get; set; }
+                public byte Unk05 { get; set; }
+                public byte Unk06 { get; set; }
+                public byte Unk07 { get; set; }
+
+                public Tae922(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae922(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadByte();
+                    Unk05 = br.ReadByte();
+                    Unk06 = br.ReadByte();
+                    Unk07 = br.ReadByte();
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteByte(Unk04);
+                    bw.WriteByte(Unk05);
+                    bw.WriteByte(Unk06);
+                    bw.WriteByte(Unk07);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae930 : Event
+            {
+                public override EventType Type => EventType.Tae930;
+
+                public byte Unk00 { get; set; }
+                public byte Unk01 { get; set; }
+                public byte Unk02 { get; set; }
+
+                public Tae930(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae930(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadByte();
+                    Unk01 = br.ReadByte();
+                    Unk02 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(Unk00);
+                    bw.WriteByte(Unk01);
+                    bw.WriteByte(Unk02);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae931 : Event
+            {
+                public override EventType Type => EventType.Tae931;
+
+                public byte Unk00 { get; set; }
+
+                public Tae931(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae931(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(Unk00);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae932 : Event
+            {
+                public override EventType Type => EventType.Tae932;
+
+                public byte Unk00 { get; set; }
+                public int pad1;
+                public int pad2;
+                public int pad3;
+
+                public Tae932(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae932(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    pad1 = br.ReadInt32();
+                    pad2 = br.ReadInt32();
+                    pad3 = br.ReadInt32();
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(Unk00);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(pad1);
+                    bw.WriteInt32(pad2);
+                    bw.WriteInt32(pad3);
+                }
+            }
+
+            public class Tae933 : Event
+            {
+                public override EventType Type => EventType.Tae933;
+
+                public Tae933(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae933(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae936 : Event
+            {
+                public override EventType Type => EventType.Tae936;
+
+                public int Unk00 { get; set; }
+                public int Unk04 { get; set; }
+                public int Unk08 { get; set; }
+
+                public Tae936(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae936(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    Unk04 = br.ReadInt32();
+                    Unk08 = br.ReadInt32();
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae940 : Event
+            {
+                public override EventType Type => EventType.Tae940;
+
+                public int Unk00 { get; set; }
+
+                public Tae940(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae940(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadInt32();
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(Unk00);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae942 : Event
+            {
+                public override EventType Type => EventType.Tae942;
+
+                public byte Unk00 { get; set; }
+
+                public Tae942(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae942(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(Unk00);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae943 : Event
+            {
+                public override EventType Type => EventType.Tae943;
+
+                public Tae943(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae943(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    
+                }
+            }
+
+            public class Tae944 : Event
+            {
+                public override EventType Type => EventType.Tae944;
+
+                public float Unk00 { get; set; }
+                public float Unk04 { get; set; }
+                public int Unk08 { get; set; }
+
+                public Tae944(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae944(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadSingle();
+                    Unk04 = br.ReadSingle();
+                    Unk08 = br.ReadInt32();
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteSingle(Unk00);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteInt32(Unk08);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae945 : Event
+            {
+                public override EventType Type => EventType.Tae945;
+
+                public float Unk00 { get; set; }
+                public float Unk04 { get; set; }
+                public byte Unk08 { get; set; }
+                public byte Unk09 { get; set; }
+                public bool Unk0A { get; set; }
+
+                public Tae945(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae945(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadSingle();
+                    Unk04 = br.ReadSingle();
+                    Unk08 = br.ReadByte();
+                    Unk09 = br.ReadByte();
+                    Unk0A = br.ReadBoolean();
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteSingle(Unk00);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteByte(Unk08);
+                    bw.WriteByte(Unk09);
+                    bw.WriteBoolean(Unk0A);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae946 : Event //foot IK crossing State
+            {
+                public override EventType Type => EventType.Tae946;
+
+                public bool State { get; set; }
+
+                public Tae946(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae946(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    State = br.ReadBoolean();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteBoolean(State);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae947 : Event
+            {
+                public override EventType Type => EventType.Tae947;
+
+                public float Unk00 { get; set; }
+
+                public Tae947(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae947(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadSingle();
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteSingle(Unk00);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae950 : Event
+            {
+                public override EventType Type => EventType.Tae950;
+
+                public Tae950(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae950(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae951 : Event
+            {
+                public override EventType Type => EventType.Tae951;
+
+                public int pad;
+
+                public Tae951(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae951(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    pad = br.ReadInt32();
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(pad);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae952 : Event
+            {
+                public override EventType Type => EventType.Tae952;
+
+                public Tae952(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae952(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae953 : Event
+            {
+                public override EventType Type => EventType.Tae953;
+
+                public Tae953(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae953(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae954 : Event 
+            {
+                public override EventType Type => EventType.Tae954;
+
+                public byte JumpTableId { get; set; }
+
+                public Tae954(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae954(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    JumpTableId = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(JumpTableId);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae960 : Event 
+            {
+                public override EventType Type => EventType.Tae960;
+
+                public byte Unk00 { get; set; }
+
+                public Tae960(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae960(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadByte();
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertByte(0);
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteByte(Unk00);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteByte(0);
+                    bw.WriteInt32(0);
+                }
+            }
+
+            public class Tae970 : Event //OLD SOUND
+            {
+                public override EventType Type => EventType.Tae970;
+
+                public float Unk00 { get; set; }
+                public float Unk04 { get; set; }
+                public float Unk08 { get; set; }
+                public float Unk0C { get; set; }
+                public float Unk10 { get; set; }
+                public float Unk14 { get; set; }
+                public float Unk18 { get; set; }
+
+                public Tae970(float startTime, float endTime) : base(startTime, endTime)
+                {
+
+                }
+
+                internal Tae970(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
+                {
+                    Unk00 = br.ReadSingle();
+                    Unk04 = br.ReadSingle();
+                    Unk08 = br.ReadSingle();
+                    Unk0C = br.ReadSingle();
+                    Unk10 = br.ReadSingle();
+                    Unk14 = br.ReadSingle();
+                    Unk18 = br.ReadSingle();
+                    br.AssertInt32(0);
+                }
+
+                internal override void WriteSpecific(BinaryWriterEx bw)
+                {
+                    bw.WriteSingle(Unk00);
+                    bw.WriteSingle(Unk04);
+                    bw.WriteSingle(Unk08);
+                    bw.WriteSingle(Unk0C);
+                    bw.WriteSingle(Unk10);
+                    bw.WriteSingle(Unk14);
+                    bw.WriteSingle(Unk18);
                     bw.WriteInt32(0);
                 }
             }

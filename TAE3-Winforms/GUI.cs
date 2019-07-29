@@ -21,6 +21,9 @@ namespace MegaTAE
         public BND4 ANIBND;
         public string FilePath;
         public bool IsSekiro;
+        private List<TAE4.Event> SekiroCopyAll = new List<TAE4.Event>();
+        private List<TAE3.Event> DS3CopyAll = new List<TAE3.Event>();
+
         public dynamic TAE
         {
             get
@@ -38,6 +41,9 @@ namespace MegaTAE
                 else return (ANIM3Handler)AnimListBox.SelectedItem;
             }
         }
+
+        public ANIM4Handler ANIM4 => (ANIM4Handler) Anim;
+        public ANIM3Handler ANIM3 => (ANIM3Handler) Anim;
 
         public dynamic Event
         {
@@ -237,14 +243,12 @@ namespace MegaTAE
             }
             if (IsSekiro)
             {
-                var handler = (ANIM4Handler)AnimListBox.SelectedItem;
-                AnimDataGrid.SelectedObject = handler;
-                EventListBox.DataSource = handler.Events.Select(evt => new EVENT4Handler(evt)).ToList();
+                AnimDataGrid.SelectedObject = ANIM4;
+                EventListBox.DataSource = ANIM4.Events.Select(evt => new EVENT4Handler(evt)).ToList();
             } else
             {
-                var handler = (ANIM3Handler)AnimListBox.SelectedItem;
-                AnimDataGrid.SelectedObject = handler;
-                EventListBox.DataSource = handler.Events.Select(evt => new EVENT3Handler(evt)).ToList();
+                AnimDataGrid.SelectedObject = ANIM3;
+                EventListBox.DataSource = ANIM3.Events.Select(evt => new EVENT3Handler(evt)).ToList();
             }
 
         }
@@ -322,7 +326,7 @@ namespace MegaTAE
                         }
                         Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
                         FixEventGroups();
-                        EventListBox.DataSource = (Anim as ANIM4Handler).Events.Select(evt => new EVENT4Handler(evt)).ToList();
+                        EventListBox.DataSource = ANIM4.Events.Select(evt => new EVENT4Handler(evt)).ToList();
                         EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
                     }
                 }
@@ -338,7 +342,7 @@ namespace MegaTAE
                         }
                         Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
                         FixEventGroups();
-                        EventListBox.DataSource = (Anim as ANIM3Handler).Events.Select(evt => new EVENT3Handler(evt)).ToList();
+                        EventListBox.DataSource = ANIM3.Events.Select(evt => new EVENT3Handler(evt)).ToList();
                         EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
                     }
                 }
@@ -352,12 +356,11 @@ namespace MegaTAE
                 List<int> events = new List<int>();
                 if (IsSekiro)
                 {
-                    var anim4 = Anim as ANIM4Handler;
-                    foreach (var group in anim4.EventGroups)
+                    foreach (var group in ANIM4.EventGroups)
                     {
                         foreach (var index in group.Indices.ToList())
                         {
-                            if (index > anim4.Events.Count - 1 || events.Contains(index))
+                            if (index > ANIM4.Events.Count - 1 || events.Contains(index))
                             {
                                 group.Indices.Remove(index);
                             }
@@ -369,16 +372,15 @@ namespace MegaTAE
                     }
                     for (int i = 0; i < events.Count; i++)
                     {
-                        if (!events.Contains(i)) anim4.EventGroups[0].Indices.Add(i);
+                        if (!events.Contains(i)) ANIM4.EventGroups[0].Indices.Add(i);
                     }
                 } else
                 {
-                    var anim3 = Anim as ANIM3Handler;
-                    foreach (var group in anim3.EventGroups)
+                    foreach (var group in ANIM3.EventGroups)
                     {
                         foreach (var index in group.Indices.ToList())
                         {
-                            if (index > anim3.Events.Count - 1 || events.Contains(index))
+                            if (index > ANIM3.Events.Count - 1 || events.Contains(index))
                             {
                                 group.Indices.Remove(index);
                             }
@@ -390,7 +392,7 @@ namespace MegaTAE
                     }
                     for (int i = 0; i < events.Count; i++)
                     {
-                        if (!events.Contains(i)) anim3.EventGroups[0].Indices.Add(i);
+                        if (!events.Contains(i)) ANIM3.EventGroups[0].Indices.Add(i);
                     }
                 }
 
@@ -409,14 +411,14 @@ namespace MegaTAE
             {
                 Anim.Events.Remove(((EVENT4Handler)EventListBox.SelectedItem).Event);
                 FixEventGroups();
-                EventListBox.DataSource = (Anim as ANIM4Handler).Events.Select(evt => new EVENT4Handler(evt)).ToList();
+                EventListBox.DataSource = ANIM4.Events.Select(evt => new EVENT4Handler(evt)).ToList();
                 while (index > EventListBox.Items.Count - 1) index--;
                 if (index > -1) EventListBox.SelectedIndex = index;
             } else
             {
                 Anim.Events.Remove(((EVENT3Handler)EventListBox.SelectedItem).Event);
                 FixEventGroups();
-                EventListBox.DataSource = (Anim as ANIM3Handler).Events.Select(evt => new EVENT3Handler(evt)).ToList();
+                EventListBox.DataSource = ANIM3.Events.Select(evt => new EVENT3Handler(evt)).ToList();
                 while (index > EventListBox.Items.Count - 1) index--;
                 if (index > -1) EventListBox.SelectedIndex = index;
             }
@@ -467,76 +469,92 @@ namespace MegaTAE
 
         private void ReloadFile()
         {
-            if (IsSekiro)
+            if (IsSekiro) //needs check if in main menu
             {
-                Memory.WriteInt8(Memory.BaseAddress + 0x3B67F7D, 1);
-
-                var bytes = new byte[] { 0x49, 0xBE, 0x00, 0x8B, 0xA3, 0x40, 0x01, 0x00, 0x00, 0x00, 0x48, 0xA1, 0xF0, 0x7D, 0xB6, 0x43, 0x01, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0x48, 0x8D, 0x14, 0x25, 0, 0, 0, 0, 0x48, 0x83, 0xEC, 0x28, 0x41, 0xFF, 0xD6, 0x48, 0x83, 0xC4, 0x28, 0xC3 };
-                var bytes2 = new byte[3];
-                var bytjmp = 0x1B;
-
-                var buffer = 512;
-                var stringBuffer = 128;
-                var address = Kernel32.VirtualAllocEx(Memory.ProcessHandle, IntPtr.Zero, buffer, 0x1000 | 0x2000, 0X40);
-                var stringAddress = Kernel32.VirtualAllocEx(Memory.ProcessHandle, IntPtr.Zero, stringBuffer, 0x1000 | 0x2000, 0X40);
-
-                string chrId = Path.GetFileName(FilePath).Substring(0, 5);
-                byte[] CharacterString = Encoding.Unicode.GetBytes(chrId);
-
-                Memory.WriteBytes(stringAddress, CharacterString);
-
-                bytes2 = BitConverter.GetBytes((int)stringAddress);
-                Array.Copy(bytes2, 0, bytes, bytjmp, bytes2.Length);
-
-                if (address != IntPtr.Zero)
+                if (Memory.ReadInt8(Memory.BaseAddress + 0x3905262) == 0)
                 {
-                    if (Memory.WriteBytes(address, bytes))
+                    Memory.WriteInt8(Memory.BaseAddress + 0x3B68FBD, 1);
+
+                    var bytes = new byte[]
                     {
-                        var threadHandle = Kernel32.CreateRemoteThread(Memory.ProcessHandle, IntPtr.Zero, 0, address, IntPtr.Zero, 0, out var threadId);
-                        if (threadHandle != IntPtr.Zero)
+                    0x49, 0xBE, 0x90, 0x91, 0xA3, 0x40, 0x01, 0x00, 0x00, 0x00, //mov r14,0000000140A39190
+                    0x48, 0xA1, 0x30, 0x8E, 0xB6, 0x43, 0x01, 0x00, 0x00, 0x00, //mov rax,[143B68E30]
+                    0x48, 0x8B, 0xC8, //mov rcx,rax
+                    0x48, 0x8D, 0x14, 0x25, 0, 0, 0, 0, //lea rdx,[alloc]
+                    0x48, 0x83, 0xEC, 0x28, //sub rsp,28
+                    0x41, 0xFF, 0xD6, //call r14
+                    0x48, 0x83, 0xC4, 0x28, //add rsp,28
+                    0xC3 //ret
+                    };
+
+                    var bytes2 = new byte[3];
+                    var bytjmp = 0x1B;
+
+                    var buffer = 512;
+                    var stringBuffer = 128;
+                    var address = Kernel32.VirtualAllocEx(Memory.ProcessHandle, IntPtr.Zero, buffer, 0x1000 | 0x2000, 0X40);
+                    var stringAddress = Kernel32.VirtualAllocEx(Memory.ProcessHandle, IntPtr.Zero, stringBuffer, 0x1000 | 0x2000, 0X40);
+
+                    string chrId = Path.GetFileName(FilePath).Substring(0, 5);
+                    byte[] CharacterString = Encoding.Unicode.GetBytes(chrId);
+
+                    Memory.WriteBytes(stringAddress, CharacterString);
+
+                    bytes2 = BitConverter.GetBytes((int)stringAddress);
+                    Array.Copy(bytes2, 0, bytes, bytjmp, bytes2.Length);
+
+                    if (address != IntPtr.Zero)
+                    {
+                        if (Memory.WriteBytes(address, bytes))
                         {
-                            Kernel32.WaitForSingleObject(threadHandle, 30000);
+                            var threadHandle = Kernel32.CreateRemoteThread(Memory.ProcessHandle, IntPtr.Zero, 0, address, IntPtr.Zero, 0, out var threadId);
+                            if (threadHandle != IntPtr.Zero)
+                            {
+                                Kernel32.WaitForSingleObject(threadHandle, 30000);
+                            }
                         }
+                        Kernel32.VirtualFreeEx(Memory.ProcessHandle, address, buffer, 2);
+                        Kernel32.VirtualFreeEx(Memory.ProcessHandle, stringAddress, stringBuffer, 2);
                     }
-                    Kernel32.VirtualFreeEx(Memory.ProcessHandle, address, buffer, 2);
-                    Kernel32.VirtualFreeEx(Memory.ProcessHandle, stringAddress, stringBuffer, 2);
                 }
             }
             else
             {
-                Memory.WriteInt8(Memory.BaseAddress + 0x4768F7F, 1);
-
-                var bytes = new byte[] { 0x48, 0xA1, 0x78, 0x8E, 0x76, 0x44, 0x01, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0x49, 0xBE, 0x10, 0x1E, 0x8D, 0x40, 0x01, 0x00, 0x00, 0x00, 0x48, 0x8D, 0x14, 0x25, 0, 0, 0, 0, 0x48, 0x83, 0xEC, 0x28, 0x41, 0xFF, 0xD6, 0x48, 0x83, 0xC4, 0x28, 0xC3 };
-                var bytes2 = new byte[3];
-                var bytjmp = 0x1B;
-
-                var buffer = 512;
-                var stringBuffer = 128;
-                var address = Kernel32.VirtualAllocEx(Memory.ProcessHandle, IntPtr.Zero, buffer, 0x1000 | 0x2000, 0X40);
-                var stringAddress = Kernel32.VirtualAllocEx(Memory.ProcessHandle, IntPtr.Zero, stringBuffer, 0x1000 | 0x2000, 0X40);
-
-                string chrId = Path.GetFileName(FilePath).Substring(0, 5);
-                byte[] CharacterString = Encoding.Unicode.GetBytes(chrId);
-
-                Memory.WriteBytes(stringAddress, CharacterString);
-
-                bytes2 = BitConverter.GetBytes((int)stringAddress);
-                Array.Copy(bytes2, 0, bytes, bytjmp, bytes2.Length);
-
-                if (address != IntPtr.Zero)
+                if (Memory.ReadInt8(Memory.BaseAddress + 0x474C2F0) == 0)
                 {
-                    if (Memory.WriteBytes(address, bytes))
+                    Memory.WriteInt8(Memory.BaseAddress + 0x4768F7F, 1);
+
+                    var bytes = new byte[] { 0x48, 0xA1, 0x78, 0x8E, 0x76, 0x44, 0x01, 0x00, 0x00, 0x00, 0x48, 0x8B, 0xC8, 0x49, 0xBE, 0x10, 0x1E, 0x8D, 0x40, 0x01, 0x00, 0x00, 0x00, 0x48, 0x8D, 0x14, 0x25, 0, 0, 0, 0, 0x48, 0x83, 0xEC, 0x28, 0x41, 0xFF, 0xD6, 0x48, 0x83, 0xC4, 0x28, 0xC3 };
+                    var bytes2 = new byte[3];
+                    var bytjmp = 0x1B;
+
+                    var buffer = 512;
+                    var stringBuffer = 128;
+                    var address = Kernel32.VirtualAllocEx(Memory.ProcessHandle, IntPtr.Zero, buffer, 0x1000 | 0x2000, 0X40);
+                    var stringAddress = Kernel32.VirtualAllocEx(Memory.ProcessHandle, IntPtr.Zero, stringBuffer, 0x1000 | 0x2000, 0X40);
+
+                    string chrId = Path.GetFileName(FilePath).Substring(0, 5);
+                    byte[] CharacterString = Encoding.Unicode.GetBytes(chrId);
+
+                    Memory.WriteBytes(stringAddress, CharacterString);
+
+                    bytes2 = BitConverter.GetBytes((int)stringAddress);
+                    Array.Copy(bytes2, 0, bytes, bytjmp, bytes2.Length);
+
+                    if (address != IntPtr.Zero)
                     {
-                        var threadHandle = Kernel32.CreateRemoteThread(Memory.ProcessHandle, IntPtr.Zero, 0, address, IntPtr.Zero, 0, out var threadId);
-                        if (threadHandle != IntPtr.Zero)
+                        if (Memory.WriteBytes(address, bytes))
                         {
-                            Kernel32.WaitForSingleObject(threadHandle, 30000);
+                            var threadHandle = Kernel32.CreateRemoteThread(Memory.ProcessHandle, IntPtr.Zero, 0, address, IntPtr.Zero, 0, out var threadId);
+                            if (threadHandle != IntPtr.Zero)
+                            {
+                                Kernel32.WaitForSingleObject(threadHandle, 30000);
+                            }
                         }
+                        Kernel32.VirtualFreeEx(Memory.ProcessHandle, address, buffer, 2);
+                        Kernel32.VirtualFreeEx(Memory.ProcessHandle, stringAddress, stringBuffer, 2);
                     }
-                    Kernel32.VirtualFreeEx(Memory.ProcessHandle, address, buffer, 2);
-                    Kernel32.VirtualFreeEx(Memory.ProcessHandle, stringAddress, stringBuffer, 2);
                 }
-                
             }
         }
 
@@ -635,7 +653,22 @@ namespace MegaTAE
 
         private void GUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = !ConfirmClose();
+            e.Cancel = !ConfirmClose();  
+        }
+
+        private void copyAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Anim == null) return;
+            if (IsSekiro) SekiroCopyAll = ANIM4.Events.Select(evt => evt.Clone()).ToList();
+            else DS3CopyAll = ANIM3.Events.Select(evt => evt.Clone()).ToList();
+        }
+
+        private void pasteAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Anim == null) return;
+            if (IsSekiro) ANIM4.Events.AddRange(SekiroCopyAll);
+            else ANIM3.Events.AddRange(DS3CopyAll);
+            AnimListBox_SelectedIndexChanged(sender, e);
         }
     }
 

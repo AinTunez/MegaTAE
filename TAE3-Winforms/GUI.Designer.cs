@@ -55,6 +55,8 @@
             this.deleteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copySelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasteSelectedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toggleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.restoreBackupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -278,7 +280,9 @@
             this.addNewToolStripMenuItem,
             this.deleteSelectedToolStripMenuItem,
             this.copySelectedToolStripMenuItem,
-            this.pasteSelectedToolStripMenuItem});
+            this.pasteSelectedToolStripMenuItem,
+            this.copyAllToolStripMenuItem,
+            this.pasteAllToolStripMenuItem});
             this.eventsToolStripMenuItem.Name = "eventsToolStripMenuItem";
             this.eventsToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
             this.eventsToolStripMenuItem.Text = "Events";
@@ -316,6 +320,20 @@
             this.pasteSelectedToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.pasteSelectedToolStripMenuItem.Text = "Paste Selected";
             this.pasteSelectedToolStripMenuItem.Click += new System.EventHandler(this.pasteSelectedToolStripMenuItem_Click);
+            // 
+            // copyAllToolStripMenuItem
+            // 
+            this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
+            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.copyAllToolStripMenuItem.Text = "Copy All";
+            this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.copyAllToolStripMenuItem_Click);
+            // 
+            // pasteAllToolStripMenuItem
+            // 
+            this.pasteAllToolStripMenuItem.Name = "pasteAllToolStripMenuItem";
+            this.pasteAllToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.pasteAllToolStripMenuItem.Text = "Paste All";
+            this.pasteAllToolStripMenuItem.Click += new System.EventHandler(this.pasteAllToolStripMenuItem_Click);
             // 
             // consoleToolStripMenuItem
             // 
@@ -397,7 +415,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1078, 696);
+            this.ClientSize = new System.Drawing.Size(1078, 718);
             this.ControlBox = false;
             this.Controls.Add(this.CurrentAnimBox);
             this.Controls.Add(this.label4);
@@ -412,7 +430,7 @@
             this.Controls.Add(this.AnimListBox);
             this.Controls.Add(this.TaeListBox);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -466,6 +484,8 @@
         private System.Windows.Forms.ToolStripMenuItem copySelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteSelectedToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem copyAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteAllToolStripMenuItem;
     }
 }
 
