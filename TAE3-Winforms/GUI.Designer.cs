@@ -414,9 +414,12 @@
             // 
             // AnimQueueBox
             // 
+            this.AnimQueueBox.AllowUserToAddRows = false;
+            this.AnimQueueBox.AllowUserToDeleteRows = false;
             this.AnimQueueBox.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.AnimQueueBox.Location = new System.Drawing.Point(625, 439);
             this.AnimQueueBox.Name = "AnimQueueBox";
+            this.AnimQueueBox.ReadOnly = true;
             this.AnimQueueBox.Size = new System.Drawing.Size(441, 237);
             this.AnimQueueBox.TabIndex = 16;
             // 

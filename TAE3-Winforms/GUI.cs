@@ -63,7 +63,6 @@ namespace MegaTAE
             UTIL.Init(this);
             AnimQueueBox.Columns.Add("AnimId", "Animation ID");
             AnimQueueBox.Columns.Add("Time", "Time");
-            ToggleConsole();
         }
 
         public void ReadAnimation ()
@@ -80,15 +79,12 @@ namespace MegaTAE
                     Console.WriteLine("No process.");
                 } else
                 {
-                    if (ANIBND == null) CurrentAnimBox.Text = "-1";
-                    else
-                    {
                         var aNum = GetCurrentAnimationId();
                         if (aNum == null) return;
                         string curr = CurrentAnimBox.Text;
                         string anim = GetCurrentAnimationId().ToString();
                         CurrentAnimBox.Text = anim;
-                    }
+                    
 
                     if (!IsSekiro)
                     {
@@ -97,7 +93,6 @@ namespace MegaTAE
                             bool hasChanged = qItem.AnimId != PrevAnimQueueItem.AnimId;
                             if (hasChanged)
                             {
-                                Console.WriteLine(qItem.AnimId + " : " + qItem.Time);
                                 AnimQueueBox.Rows.Add(new string[] { qItem.AnimId.ToString(), qItem.Time.ToString() });
                                 AnimQueueBox.FirstDisplayedScrollingRowIndex = AnimQueueBox.RowCount - 1;
                                 PrevAnimQueueItem = qItem;
@@ -148,7 +143,7 @@ namespace MegaTAE
             if (IsSekiro)
                 return ReadPointerChainAsInt(Memory.BaseAddress.ToInt64(), 0x3B67DF0, new int[] { 0x88, 0x1FF8, 0x80, 0xC8 });
             else
-                return ReadPointerChainAsInt(Memory.BaseAddress.ToInt64(), 0x3B67DF0, new int[] { 0x80, 0x1F90, 0x10 });
+                return ReadPointerChainAsInt(Memory.BaseAddress.ToInt64(), 0x4768E78, new int[] { 0x80, 0x1F90, 0x10, 0x20 });
         }
 
         public void LoadANIBND(string path, bool isSekiro)
@@ -313,7 +308,7 @@ namespace MegaTAE
                 g.StartPosition = FormStartPosition.CenterParent;
                 if (g.ShowDialog() == DialogResult.OK)
                 {
-                    LoadANIBND(ofd.FileName, g.IsSekiro);
+                    new Task(() => LoadANIBND(ofd.FileName, g.IsSekiro)).Start();
                 }
 
             }
@@ -579,7 +574,6 @@ namespace MegaTAE
 
         private void attachProcessToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Attaching");
             if (IsSekiro) Memory.AttachProc("sekiro");
             else Memory.AttachProc("DarkSoulsIII");
             ReadAnimation();
