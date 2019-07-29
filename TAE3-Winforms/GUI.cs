@@ -75,28 +75,33 @@ namespace MegaTAE
             
             void checkAnim(object sender, EventArgs e)
             {
-                if (Memory.BaseAddress == IntPtr.Zero) return;
-                if (ANIBND == null) CurrentAnimBox.Text = "-1";
-                else
+                if (Memory.BaseAddress == IntPtr.Zero)
                 {
-                    var aNum = GetCurrentAnimationId();
-                    if (aNum == null) return;
-                    string curr = CurrentAnimBox.Text;
-                    string anim = GetCurrentAnimationId().ToString();
-                    CurrentAnimBox.Text = anim;
-                }
-
-                if (!IsSekiro)
+                    Console.WriteLine("No process.");
+                } else
                 {
-                    var qItem = GetCurrentQueueItem();
+                    if (ANIBND == null) CurrentAnimBox.Text = "-1";
+                    else
                     {
-                        bool hasChanged = qItem.AnimId != PrevAnimQueueItem.AnimId || qItem.Time != PrevAnimQueueItem.Time;
-                        if (hasChanged)
+                        var aNum = GetCurrentAnimationId();
+                        if (aNum == null) return;
+                        string curr = CurrentAnimBox.Text;
+                        string anim = GetCurrentAnimationId().ToString();
+                        CurrentAnimBox.Text = anim;
+                    }
+
+                    if (!IsSekiro)
+                    {
+                        var qItem = GetCurrentQueueItem();
                         {
-                            Console.WriteLine(qItem.AnimId + " : " + qItem.Time);
-                            AnimQueueBox.Rows.Add(new string[] { qItem.AnimId.ToString(), qItem.Time.ToString() });
-                            AnimQueueBox.FirstDisplayedScrollingRowIndex = AnimQueueBox.RowCount - 1;
-                            PrevAnimQueueItem = qItem;
+                            bool hasChanged = qItem.AnimId != PrevAnimQueueItem.AnimId;
+                            if (hasChanged)
+                            {
+                                Console.WriteLine(qItem.AnimId + " : " + qItem.Time);
+                                AnimQueueBox.Rows.Add(new string[] { qItem.AnimId.ToString(), qItem.Time.ToString() });
+                                AnimQueueBox.FirstDisplayedScrollingRowIndex = AnimQueueBox.RowCount - 1;
+                                PrevAnimQueueItem = qItem;
+                            }
                         }
                     }
                 }
@@ -169,9 +174,6 @@ namespace MegaTAE
             var tae3_list = new List<TAE3Handler>();
             var tae4_list = new List<TAE4Handler>();
 
-            if (isSekiro) Memory.AttachProc("sekiro");
-            else Memory.AttachProc("DarkSoulsIII");
-
             foreach (var file in ANIBND.Files.Where(f => f.Name.EndsWith(".tae") && f.Bytes.Length > 0))
             {
                 if (isSekiro)
@@ -185,7 +187,6 @@ namespace MegaTAE
                     if (t.IsValid) tae3_list.Add(new TAE3Handler(file));
                 }
             }
-
 
 
             void refreshList()
@@ -312,8 +313,7 @@ namespace MegaTAE
                 g.StartPosition = FormStartPosition.CenterParent;
                 if (g.ShowDialog() == DialogResult.OK)
                 {
-                    new Task(() => LoadANIBND(ofd.FileName, g.IsSekiro)).Start();
-                    ReadAnimation();
+                    LoadANIBND(ofd.FileName, g.IsSekiro);
                 }
 
             }
@@ -478,6 +478,7 @@ namespace MegaTAE
         //Memory 
         private void forceInGameReloadToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
             if (IsSekiro) Memory.AttachProc("sekiro");
             else Memory.AttachProc("DarkSoulsIII");
 
@@ -578,8 +579,10 @@ namespace MegaTAE
 
         private void attachProcessToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Attaching");
             if (IsSekiro) Memory.AttachProc("sekiro");
             else Memory.AttachProc("DarkSoulsIII");
+            ReadAnimation();
         }
 
         private void toggleToolStripMenuItem_Click(object sender, EventArgs e)
