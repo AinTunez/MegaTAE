@@ -13,6 +13,7 @@ using System.Diagnostics;
 using System.Collections;
 using Microsoft.VisualBasic;
 using System.Runtime.Remoting;
+using System.Runtime.InteropServices;
 
 namespace MegaTAE
 {
@@ -23,7 +24,7 @@ namespace MegaTAE
         public bool IsSekiro;
         private List<TAE4.Event> SekiroCopyAll = new List<TAE4.Event>();
         private List<TAE3.Event> DS3CopyAll = new List<TAE3.Event>();
-        private AnimQueueItem PrevAnimQueueItem = new AnimQueueItem(-1, 0);
+        private AnimQueueItem PrevAnimQueueItem = null;
 
         public dynamic TAE
         {
@@ -43,8 +44,8 @@ namespace MegaTAE
             }
         }
 
-        public ANIM4Handler ANIM4 => (ANIM4Handler) Anim;
-        public ANIM3Handler ANIM3 => (ANIM3Handler) Anim;
+        public ANIM4Handler ANIM4 => (ANIM4Handler)Anim;
+        public ANIM3Handler ANIM3 => (ANIM3Handler)Anim;
 
         public dynamic Event
         {
@@ -61,45 +62,35 @@ namespace MegaTAE
         {
             InitializeComponent();
             UTIL.Init(this);
-            AnimQueueBox.Columns.Add("AnimId", "Animation ID");
-            AnimQueueBox.Columns.Add("Time", "Time");
         }
 
-        public void ReadAnimation ()
+        public void ReadAnimation()
         {
+
+
             Timer animTimer = new Timer();
             animTimer.Tick += new EventHandler(checkAnim);
-            animTimer.Interval = 16;
+            animTimer.Interval = 1;
             animTimer.Start();
-            
+
+
+            if (PrevAnimQueueItem == null) PrevAnimQueueItem = GetCurrentQueueItem();
+
             void checkAnim(object sender, EventArgs e)
             {
+                ;
+
                 if (Memory.BaseAddress == IntPtr.Zero)
                 {
                     Console.WriteLine("No process.");
-                } else
-                {
-                        var aNum = GetCurrentAnimationId();
-                        if (aNum == null) return;
-                        string curr = CurrentAnimBox.Text;
-                        string anim = GetCurrentAnimationId().ToString();
-                        CurrentAnimBox.Text = anim;
-                    
-
-                    if (!IsSekiro)
-                    {
-                        var qItem = GetCurrentQueueItem();
-                        {
-                            bool hasChanged = qItem.AnimId != PrevAnimQueueItem.AnimId;
-                            if (hasChanged)
-                            {
-                                AnimQueueBox.Rows.Add(new string[] { qItem.AnimId.ToString(), qItem.Time.ToString() });
-                                AnimQueueBox.FirstDisplayedScrollingRowIndex = AnimQueueBox.RowCount - 1;
-                                PrevAnimQueueItem = qItem;
-                            }
-                        }
-                    }
                 }
+                else
+                {
+                    var aNum = GetCurrentAnimationId();
+                    if (aNum == null) return;
+                    CurrentAnimBox.Text = aNum.ToString();
+                }
+
             }
         }
 
@@ -152,12 +143,13 @@ namespace MegaTAE
             ANIBND = null;
             FilePath = null;
             IsSekiro = isSekiro;
-            
+
             try
             {
                 ANIBND = BND4.Read(path);
                 FilePath = Path.GetFullPath(path);
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
                 UTIL.LogException("Error loading ANIBND", ex);
@@ -176,7 +168,8 @@ namespace MegaTAE
                     var t = new TAE4Handler(file);
                     if (t.IsValid) tae4_list.Add(new TAE4Handler(file));
 
-                } else
+                }
+                else
                 {
                     var t = new TAE3Handler(file);
                     if (t.IsValid) tae3_list.Add(new TAE3Handler(file));
@@ -189,7 +182,8 @@ namespace MegaTAE
                 if (TaeListBox.InvokeRequired)
                 {
                     TaeListBox.Invoke(new MethodInvoker(refreshList));
-                } else
+                }
+                else
                 {
                     if (isSekiro) TaeListBox.DataSource = tae4_list;
                     else TaeListBox.DataSource = tae3_list;
@@ -203,7 +197,7 @@ namespace MegaTAE
 
         private void TaeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (TaeListBox.SelectedItem == null)
             {
                 AnimListBox.DataSource = null;
@@ -227,7 +221,8 @@ namespace MegaTAE
                     AnimListBox.DataSource = handler.TAE.Animations.Select(a => new ANIM4Handler(a)).ToList();
                     if (AnimListBox.Items.Count > 0) AnimListBox.SelectedIndex = 0;
                 }
-            } else
+            }
+            else
             {
                 var handler = (TAE3Handler)TaeListBox.SelectedItem;
                 if (!handler.IsValid)
@@ -259,7 +254,8 @@ namespace MegaTAE
             {
                 AnimDataGrid.SelectedObject = ANIM4;
                 EventListBox.DataSource = ANIM4.Events.Select(evt => new EVENT4Handler(evt)).ToList();
-            } else
+            }
+            else
             {
                 AnimDataGrid.SelectedObject = ANIM3;
                 EventListBox.DataSource = ANIM3.Events.Select(evt => new EVENT3Handler(evt)).ToList();
@@ -326,39 +322,39 @@ namespace MegaTAE
 
         private void addNewEventToolStripMenuItem_Click(object sender, EventArgs e)
         {
-                if (Anim == null) return;
-                if (IsSekiro)
+            if (Anim == null) return;
+            if (IsSekiro)
+            {
+                var chooser = new TAE4_TypeChooser();
+                if (chooser.ShowDialog() == DialogResult.OK)
                 {
-                    var chooser = new TAE4_TypeChooser();
-                    if (chooser.ShowDialog() == DialogResult.OK)
+                    Anim.Events.Add(chooser.Event);
+                    while (Anim.EventGroups.Count - 1 < chooser.GroupIndex)
                     {
-                        Anim.Events.Add(chooser.Event);
-                        while (Anim.EventGroups.Count - 1 < chooser.GroupIndex)
-                        {
-                            Anim.EventGroups.Add(new TAE4.EventGroup(chooser.Event.Type));
-                        }
-                        Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
-                        FixEventGroups();
-                        EventListBox.DataSource = ANIM4.Events.Select(evt => new EVENT4Handler(evt)).ToList();
-                        EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
+                        Anim.EventGroups.Add(new TAE4.EventGroup(chooser.Event.Type));
                     }
+                    Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
+                    FixEventGroups();
+                    EventListBox.DataSource = ANIM4.Events.Select(evt => new EVENT4Handler(evt)).ToList();
+                    EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
                 }
-                else
+            }
+            else
+            {
+                var chooser = new TAE3_TypeChooser();
+                if (chooser.ShowDialog() == DialogResult.OK)
                 {
-                    var chooser = new TAE3_TypeChooser();
-                    if (chooser.ShowDialog() == DialogResult.OK)
+                    Anim.Events.Add(chooser.Event);
+                    while (Anim.EventGroups.Count - 1 < chooser.GroupIndex)
                     {
-                        Anim.Events.Add(chooser.Event);
-                        while (Anim.EventGroups.Count - 1 < chooser.GroupIndex)
-                        {
-                            Anim.EventGroups.Add(new TAE3.EventGroup(chooser.Event.Type));
-                        }
-                        Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
-                        FixEventGroups();
-                        EventListBox.DataSource = ANIM3.Events.Select(evt => new EVENT3Handler(evt)).ToList();
-                        EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
+                        Anim.EventGroups.Add(new TAE3.EventGroup(chooser.Event.Type));
                     }
+                    Anim.EventGroups[chooser.GroupIndex].Indices.Add(Anim.Events.IndexOf(chooser.Event));
+                    FixEventGroups();
+                    EventListBox.DataSource = ANIM3.Events.Select(evt => new EVENT3Handler(evt)).ToList();
+                    EventListBox.SelectedIndex = EventListBox.Items.Count - 1;
                 }
+            }
         }
 
 
@@ -387,7 +383,8 @@ namespace MegaTAE
                     {
                         if (!events.Contains(i)) ANIM4.EventGroups[0].Indices.Add(i);
                     }
-                } else
+                }
+                else
                 {
                     foreach (var group in ANIM3.EventGroups)
                     {
@@ -409,7 +406,8 @@ namespace MegaTAE
                     }
                 }
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 UTIL.LogException("Error fixing EventGroups", ex);
             }
@@ -427,7 +425,8 @@ namespace MegaTAE
                 EventListBox.DataSource = ANIM4.Events.Select(evt => new EVENT4Handler(evt)).ToList();
                 while (index > EventListBox.Items.Count - 1) index--;
                 if (index > -1) EventListBox.SelectedIndex = index;
-            } else
+            }
+            else
             {
                 Anim.Events.Remove(((EVENT3Handler)EventListBox.SelectedItem).Event);
                 FixEventGroups();
@@ -457,7 +456,7 @@ namespace MegaTAE
                     animations = animations.OrderBy(a => a.ID).ToList();
                     AnimListBox.DataSource = animations.Select(a => new ANIM4Handler(a)).ToList();
                     AnimListBox.SelectedItem = animations.First(a => a.ID == id);
-            }
+                }
                 else
                 {
                     var anim = new TAE3.Animation(id);
@@ -584,7 +583,7 @@ namespace MegaTAE
             ToggleConsole();
         }
 
-        private void ToggleConsole ()
+        private void ToggleConsole()
         {
             if (Width != 640)
             {
@@ -632,7 +631,8 @@ namespace MegaTAE
             if (IsSekiro)
             {
                 CopiedEvent = (Event as EVENT4Handler).Event;
-            } else
+            }
+            else
             {
                 CopiedEvent = (Event as EVENT3Handler).Event;
             }
@@ -668,7 +668,7 @@ namespace MegaTAE
 
         private void GUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = !ConfirmClose();  
+            e.Cancel = !ConfirmClose();
         }
 
         private void copyAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -684,6 +684,10 @@ namespace MegaTAE
             if (IsSekiro) ANIM4.Events.AddRange(SekiroCopyAll);
             else ANIM3.Events.AddRange(DS3CopyAll);
             AnimListBox_SelectedIndexChanged(sender, e);
+        }
+
+        private void ClearAnimDataBtn_Click(object sender, EventArgs e)
+        {
         }
     }
 
@@ -759,7 +763,8 @@ namespace MegaTAE
             {
                 var d = new SafeCallDelegate(Write);
                 textbox.Invoke(d, new object[] { value });
-            } else
+            }
+            else
             {
                 textbox.Text += value;
 
@@ -861,7 +866,7 @@ namespace MegaTAE
         public List<TAE3.Event> Events => Animation.Events;
         [Browsable(false)]
         public List<TAE3.EventGroup> EventGroups => Animation.EventGroups;
-        
+
 
         public long ID
         {

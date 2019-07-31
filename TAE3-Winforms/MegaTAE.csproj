@@ -37,6 +37,9 @@
   <PropertyGroup>
     <ApplicationIcon>broken_pendant_bl1_icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
