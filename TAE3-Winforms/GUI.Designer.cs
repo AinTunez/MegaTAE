@@ -65,6 +65,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CurrentAnimBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.EditArrayBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -121,10 +122,12 @@
             this.EventDataGrid.Location = new System.Drawing.Point(6, 19);
             this.EventDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.EventDataGrid.Name = "EventDataGrid";
-            this.EventDataGrid.Size = new System.Drawing.Size(222, 412);
+            this.EventDataGrid.Size = new System.Drawing.Size(222, 370);
             this.EventDataGrid.TabIndex = 4;
             this.EventDataGrid.ToolbarVisible = false;
             this.EventDataGrid.PropertyValueChanged += new System.Windows.Forms.PropertyValueChangedEventHandler(this.EventDataGrid_PropertyValueChanged);
+            this.EventDataGrid.SelectedGridItemChanged += new System.Windows.Forms.SelectedGridItemChangedEventHandler(this.EventDataGrid_SelectedGridItemChanged);
+            this.EventDataGrid.SelectedObjectsChanged += new System.EventHandler(this.EventDataGrid_SelectedObjectsChanged);
             // 
             // label1
             // 
@@ -174,7 +177,7 @@
             this.groupBox3.Margin = new System.Windows.Forms.Padding(6);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(6);
-            this.groupBox3.Size = new System.Drawing.Size(234, 437);
+            this.groupBox3.Size = new System.Drawing.Size(234, 395);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Event Data";
@@ -410,12 +413,24 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "CURRENT";
             // 
+            // EditArrayBtn
+            // 
+            this.EditArrayBtn.Enabled = false;
+            this.EditArrayBtn.Location = new System.Drawing.Point(434, 637);
+            this.EditArrayBtn.Name = "EditArrayBtn";
+            this.EditArrayBtn.Size = new System.Drawing.Size(119, 33);
+            this.EditArrayBtn.TabIndex = 16;
+            this.EditArrayBtn.Text = "Edit Array";
+            this.EditArrayBtn.UseVisualStyleBackColor = true;
+            this.EditArrayBtn.Click += new System.EventHandler(this.EditArrayBtn_Click);
+            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1078, 718);
+            this.Controls.Add(this.EditArrayBtn);
             this.Controls.Add(this.CurrentAnimBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -485,6 +500,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem copyAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasteAllToolStripMenuItem;
+        private System.Windows.Forms.Button EditArrayBtn;
     }
 }
 

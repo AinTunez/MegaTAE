@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO;
 using SoulsFormats;
 using System.Threading.Tasks;
+using System.Reflection;
 using System.Diagnostics;
 using System.Collections;
 using Microsoft.VisualBasic;
@@ -25,6 +26,11 @@ namespace MegaTAE
         private List<TAE4.Event> SekiroCopyAll = new List<TAE4.Event>();
         private List<TAE3.Event> DS3CopyAll = new List<TAE3.Event>();
         private AnimQueueItem PrevAnimQueueItem = null;
+
+        public byte[] MaskArray { get; set; } = new byte[32];
+        public string MaskArrayTitle { get; set; } = "(null)";
+
+        public PropertyInfo MaskArrayInfo;
 
         public dynamic TAE
         {
@@ -47,6 +53,9 @@ namespace MegaTAE
         public ANIM4Handler ANIM4 => (ANIM4Handler)Anim;
         public ANIM3Handler ANIM3 => (ANIM3Handler)Anim;
 
+        public EVENT4Handler EVENT4 => (EVENT4Handler)Event;
+        public EVENT3Handler EVENT3 => (EVENT3Handler)Event;
+
         public dynamic Event
         {
             get
@@ -55,6 +64,8 @@ namespace MegaTAE
                 else return (EVENT3Handler)EventListBox.SelectedItem;
             }
         }
+
+        public dynamic EventField => EventDataGrid.SelectedObject == null ? null : EventDataGrid.SelectedGridItem;
 
         public dynamic CopiedEvent;
 
@@ -689,6 +700,45 @@ namespace MegaTAE
         private void ClearAnimDataBtn_Click(object sender, EventArgs e)
         {
         }
+
+        private void EventDataGrid_SelectedGridItemChanged(object sender, SelectedGridItemChangedEventArgs e)
+        {
+
+        }
+
+        private void EditArrayBtn_Click(object sender, EventArgs e)
+        {
+            var editor = new ArrayEditor(MaskArray, MaskArrayTitle);
+            editor.ShowDialog();
+            MaskArrayInfo.SetValue(Event.Event, editor.OutArray);
+            MaskArray = MaskArrayInfo.GetValue(Event.Event);
+        }
+
+        private void EventDataGrid_SelectedObjectsChanged(object sender, EventArgs e)
+        {
+            if (Event == null)
+            {
+                EditArrayBtn.Text = "Edit Array";
+                EditArrayBtn.Enabled = false;
+            } else
+            {
+                var props = Event.Event.GetType().GetProperties() as PropertyInfo[];
+                foreach (var prop in props)
+                {
+                    if (prop.PropertyType.ToString() == "System.Byte[]")
+                    {
+                        MaskArrayInfo = prop;
+                        MaskArray = MaskArrayInfo.GetValue(Event.Event);
+                        MaskArrayTitle = MaskArrayInfo.Name;
+                        EditArrayBtn.Text = "Edit " + MaskArrayTitle;
+                        EditArrayBtn.Enabled = true;
+                        return;
+                    }
+                }
+                EditArrayBtn.Text = "Edit Array";
+                EditArrayBtn.Enabled = false;
+            }
+        }
     }
 
     public static class UTIL
@@ -712,6 +762,14 @@ namespace MegaTAE
                 c.Text += text + Environment.NewLine;
                 c.SelectionStart = c.TextLength;
                 c.ScrollToCaret();
+            }
+        }
+
+        public static void InitByteArray(byte[] array, int length)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                array[i] = 0;
             }
         }
 

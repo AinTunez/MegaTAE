@@ -20,6 +20,7 @@ namespace MegaTAE
         public TAE4_TypeChooser()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterParent;
             EventTypeBox.DataSource = Enum.GetValues(typeof(TAE3.EventType));
         }
 

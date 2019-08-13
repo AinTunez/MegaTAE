@@ -2925,7 +2925,7 @@ namespace SoulsFormats
 
                 public Tae233_ChangeDrawMask(float startTime, float endTime) : base(startTime, endTime)
                 {
-
+                    DrawMask = new byte[32];
                 }
 
                 internal Tae233_ChangeDrawMask(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
@@ -2971,7 +2971,7 @@ namespace SoulsFormats
 
                 public Tae235(float startTime, float endTime) : base(startTime, endTime)
                 {
-
+                    Mask = new byte[32];
                 }
 
                 internal Tae235(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
@@ -3415,7 +3415,7 @@ namespace SoulsFormats
 
                 public Tae312(float startTime, float endTime) : base(startTime, endTime)
                 {
-
+                    BehaviorMask = new byte[32];
                 }
 
                 internal Tae312(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
@@ -4363,7 +4363,7 @@ namespace SoulsFormats
 
                 public Tae711_HideModelMask(float startTime, float endTime) : base(startTime, endTime)
                 {
-
+                    Mask = new byte[32];
                 }
 
                 internal Tae711_HideModelMask(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
@@ -4388,7 +4388,7 @@ namespace SoulsFormats
 
                 public Tae712_DamageLevelModule(float startTime, float endTime) : base(startTime, endTime)
                 {
-
+                    Mask = new byte[16];
                 }
 
                 internal Tae712_DamageLevelModule(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
@@ -4424,7 +4424,7 @@ namespace SoulsFormats
 
                 public Tae713_ModelMask(float startTime, float endTime) : base(startTime, endTime)
                 {
-
+                    Mask = new byte[32];
                 }
 
                 internal Tae713_ModelMask(float startTime, float endTime, BinaryReaderEx br) : base(startTime, endTime)
