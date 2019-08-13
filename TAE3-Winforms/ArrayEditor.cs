@@ -29,5 +29,10 @@ namespace MegaTAE
             OutArray = BoolArray.Select(b => b ? (byte) 1 : (byte) 0).ToArray();
             Close();
         }
+
+        private void ArrayEditor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
